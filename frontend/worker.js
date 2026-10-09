@@ -1,4 +1,4 @@
-// The edge in front of the pages on kalaana.gradestone.in. Static files come straight from Cloudflare's asset store;
+// The edge in front of the pages on kal-aana.gradestone.in. Static files come straight from Cloudflare's asset store;
 // only /api/* runs this. The snapshot's read-only data (overview, offices, method) is the same for every visitor until
 // the next deploy, so it is served from Cloudflare's cache near the visitor instead of crossing to the VPS each time.
 // Anything that depends on today or on the visitor (an application date, a complaint letter) is passed straight through.

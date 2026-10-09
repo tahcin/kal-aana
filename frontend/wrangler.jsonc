@@ -1,4 +1,4 @@
-// Cloudflare Workers static assets: the built pages (dist/), served from Cloudflare's edge on kalaana.gradestone.in,
+// Cloudflare Workers static assets: the built pages (dist/), served from Cloudflare's edge on kal-aana.gradestone.in,
 // with worker.js in front of /api/* only (it caches the snapshot's read-only data at the edge).
 // Build first with the API's address: VITE_API_BASE=https://kalaana-api.gradestone.in VITE_OUT_DIR=dist pnpm build
 {
@@ -7,6 +7,6 @@
   "account_id": "4627bf18a59329110c2a7a42c5562620",
   "main": "worker.js",
   "assets": { "directory": "./dist", "not_found_handling": "single-page-application", "run_worker_first": ["/api/*"] },
-  "routes": [{ "pattern": "kalaana.gradestone.in", "custom_domain": true }],
+  "routes": [{ "pattern": "kal-aana.gradestone.in", "custom_domain": true }],
   "workers_dev": true
 }

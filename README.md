@@ -1,10 +1,10 @@
 # Kal Aana
 
-[![Kal Aana's home page: "Namaskara, Bengaluru." over a soft lilac panel where published office landlines drift and a rotary dial turns; a marigold glow settles round the ask box after the call goes unanswered](docs/hero.png)](https://kalaana.gradestone.in)
+[![Kal Aana's home page: "Namaskara, Bengaluru." over a soft lilac panel where published office landlines drift and a rotary dial turns; a marigold glow settles round the ask box after the call goes unanswered](docs/hero.png)](https://kal-aana.gradestone.in)
 
 **"Kal aana": come back tomorrow.** Every Indian has heard it at a government counter. Kal Aana measures what Bengaluru's public offices promise against what citizens find on Google, and helps a citizen act on the gap.
 
-**Live:** [kalaana.gradestone.in](https://kalaana.gradestone.in). **MCP server, nothing to install:** `https://kalaana-mcp.gradestone.in/mcp` ([setup](docs/setup.md#ai-assistants-mcp)). **Code:** [github.com/tahcin/kal-aana](https://github.com/tahcin/kal-aana).
+**Live:** [kal-aana.gradestone.in](https://kal-aana.gradestone.in). **MCP server, nothing to install:** `https://kalaana-mcp.gradestone.in/mcp` ([setup](docs/setup.md#ai-assistants-mcp)). **Code:** [github.com/tahcin/kal-aana](https://github.com/tahcin/kal-aana).
 
 Built for the SerpApi India Hackathon 2026 (Knowledge & Public Interest track).
 

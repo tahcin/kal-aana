@@ -46,7 +46,7 @@ BUILD: Final = Path(__file__).resolve().parent / "static" / "app"
 
 DESCRIPTION: Final = """What Bengaluru's public offices promise (their own phone numbers, and the working days the law gives
 them for each service) against what citizens find on Google: Maps listings, Google's AI answers, Bing Maps and reviews,
-collected through 628 SerpApi searches. Every page of [kalaana.gradestone.in](https://kalaana.gradestone.in) is drawn
+collected through 628 SerpApi searches. Every page of [kal-aana.gradestone.in](https://kal-aana.gradestone.in) is drawn
 from these endpoints.
 
 - **No key, no sign-in.** The data endpoints are read-only and answer from the committed snapshot (data as of
