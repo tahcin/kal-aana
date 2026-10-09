@@ -2,7 +2,7 @@
 // that follows you down the home page, and the follow-up box under a conversation. One line until the visitor writes
 // more; the send button stays one compact circle and only changes how sure of itself it looks.
 import { AnimatePresence, motion } from "motion/react";
-import { ArrowUp } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { useEffect, useId, useLayoutEffect, useRef, useState, type ReactNode, type Ref } from "react";
 import { cn } from "../../lib/ui";
 
@@ -103,7 +103,7 @@ export function Composer({ onSend, busy, variant, initial = "", example, inputRe
           hero ? "size-10 sm:size-11" : "size-10",
           ready ? "bg-brand text-white shadow-[0_6px_16px_-6px_rgb(90_63_192/0.6)] hover:scale-[1.05] hover:bg-brand-2 active:scale-95"
             : busy ? "bg-paper-2 text-brand" : "bg-paper-2 text-muted/70")}>
-        {busy ? <Spinner /> : <ArrowUp className="size-[18px]" strokeWidth={2.25} aria-hidden />}
+        {busy ? <Spinner /> : <ArrowRight className="size-[18px]" strokeWidth={2.25} aria-hidden />}
       </button>
     </form>
   );

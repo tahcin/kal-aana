@@ -1,6 +1,6 @@
 // The home page before any question: a scroll story from the greeting to the finding, with an ask box never far away.
 import { AnimatePresence, motion, useInView } from "motion/react";
-import { ArrowUp } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { useRef } from "react";
 import { Footer } from "../Shell";
 import { Reveal } from "../bits";
@@ -59,7 +59,7 @@ export function Welcome({ onSend, busy, overview, draft }: { onSend: (t: string)
             <button onClick={backToTop}
               className="group mt-10 inline-flex items-center gap-3 rounded-full bg-white py-2 pl-6 pr-2 text-[15px] font-medium text-[#1c1530] shadow-[var(--shadow-float)] transition hover:scale-[1.02]">
               Ask Kal Aana
-              <span className="grid size-10 place-items-center rounded-full bg-pop transition-transform duration-500 ease-[var(--ease-out-expo)] group-hover:-translate-y-0.5"><ArrowUp className="size-5" /></span>
+              <span className="grid size-10 place-items-center rounded-full bg-pop transition-transform duration-500 ease-[var(--ease-out-expo)] group-hover:translate-x-0.5"><ArrowRight className="size-5" /></span>
             </button>
           </Reveal>
         </div>
