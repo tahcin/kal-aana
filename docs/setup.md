@@ -150,7 +150,7 @@ The server's settings, in its `.env`:
 
 ```bash
 pip install -e ".[dev]"
-pytest          # 766 passed on October 9, 2026
+pytest          # 765 passed on October 9, 2026
 ```
 
 The tests use fixtures shaped like SerpApi's JSON, never real calls. The real `SearchClient` runs, with its cache, budget, dry run and key redaction, and only the HTTP call is stubbed.

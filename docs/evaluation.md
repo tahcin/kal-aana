@@ -26,4 +26,4 @@ The chat's model-written sentences are the part most likely to slip, so they are
 
 ## The test suite
 
-`pytest` ran 766 tests, all passing, on October 9, 2026. They use fixtures shaped like SerpApi's JSON, never real calls; the setup is in [Tests](setup.md#tests).
+`pytest` ran 765 tests, all passing, on October 9, 2026. They use fixtures shaped like SerpApi's JSON, never real calls; the setup is in [Tests](setup.md#tests).

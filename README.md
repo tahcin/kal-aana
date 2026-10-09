@@ -126,7 +126,7 @@ Matching, the listing score and possible breaches: [docs/method.md](docs/method.
 
 - **Chat honesty: 23 of 23** tricky conversations passed checks written in plain code (no model judging a model), with Claude Sonnet 5.5 through both the [native API](docs/chat-eval.md) and [Anthropic's OpenAI-compatible endpoint](docs/chat-eval-openai-compatible.md).
 - **Lexicon precision: 95%** (55 of 58 flags right) on a held-out set of hand-labelled reviews, so counts aren't inflated; recall is 74%, so they are, if anything, an undercount.
-- **Tests: 766 passed** on October 9, 2026, against fixtures shaped like SerpApi's JSON.
+- **Tests: 765 passed** from a fresh clone on October 9, 2026, against fixtures shaped like SerpApi's JSON.
 - **Every finding has a SerpApi search ID**, and a test recomputes this README's headline numbers from the snapshots.
 
 The labelled sets and the local LLM that was tested and not used: [docs/evaluation.md](docs/evaluation.md#the-issue-lexicon). The 23 scenarios and every answer: [the chat's honesty, tested](docs/evaluation.md#the-chats-honesty-tested).
