@@ -4,7 +4,7 @@
 
 **"Kal aana": come back tomorrow.** Every Indian has heard it at a government counter. Kal Aana measures what Bengaluru's public offices promise against what citizens find on Google, and helps a citizen act on the gap.
 
-**Live:** [kal-aana.gradestone.in](https://kal-aana.gradestone.in). **MCP server, nothing to install:** `https://kalaana-mcp.gradestone.in/mcp` ([setup](docs/setup.md#ai-assistants-mcp)). **Code:** [github.com/tahcin/kal-aana](https://github.com/tahcin/kal-aana).
+**Demo video (2:54):** [youtu.be/p6LFUELg3kc](https://youtu.be/p6LFUELg3kc). **Live:** [kal-aana.gradestone.in](https://kal-aana.gradestone.in). **MCP server, nothing to install:** `https://kalaana-mcp.gradestone.in/mcp` ([setup](docs/setup.md#ai-assistants-mcp)). **Code:** [github.com/tahcin/kal-aana](https://github.com/tahcin/kal-aana).
 
 Built for the SerpApi India Hackathon 2026 (Knowledge & Public Interest track).
 
