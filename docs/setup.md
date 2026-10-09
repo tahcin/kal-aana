@@ -15,7 +15,7 @@ pip install -e .
 kalaana serve
 ```
 
-Open http://127.0.0.1:8000 (`kalaana serve --port 8080` to use another port). No API key and no Node are needed: the app is built into the package, and it reads the committed snapshots in `data/snapshot/`. A plain `pip install .` works too, because the wheel carries the committed data. Only the map's tiles and the interactive API docs page (`/api/docs`, which loads Swagger UI from a CDN; `/api/openapi.json` works offline) need an internet connection.
+Open http://127.0.0.1:8000 (`kalaana serve --port 8080` to use another port). No API key and no Node are needed: the app is built into the package, and it reads the committed snapshots in `data/snapshot/`. A plain `pip install .` works too, because the wheel carries the committed data. Only the map's tiles and the interactive API docs page (`/api/docs`, which loads its viewer, Scalar, from a CDN; `/api/openapi.json` works offline) need an internet connection.
 
 On Windows PowerShell, set a variable with `$env:KALAANA_READER = "openai"` before `kalaana serve`, instead of the inline `KALAANA_READER=... kalaana serve` form used below.
 
