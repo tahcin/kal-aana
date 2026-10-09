@@ -1,0 +1,178 @@
+# Regional Transport Offices serving Bengaluru, as published by the Transport Department,
+# Government of Karnataka. Copied from the "Bengaluru Urban Division" table, plus KA-52
+# (Nelamangala) from the "Bengaluru Rural Division" table because it serves the city's
+# north-west edge. Staff names are deliberately omitted.
+#
+# landlines: the "PHONE NO." column. cug: the "CUG NO." column (official closed-user-group
+# mobiles). Numbers are copied as published; obvious typos are kept in `published_errors`
+# rather than silently corrected. A shorthand pair such as "080-23286712/13" is expanded to
+# 080-23286712 and 080-23286713.
+#
+# aliases: added by us, not from the source. Other spellings of the office's area that Google
+# Maps listings use, so matching doesn't depend on one transliteration.
+
+[meta]
+office_type = "rto"
+source_url = "https://transport.karnataka.gov.in/12/regional-and-assistant-regional-transport-officers/en"
+source_name = "Transport Department, Karnataka: Regional and Assistant Regional Transport Officers"
+fetched = 2026-10-08
+city = "Bengaluru"
+helpline = "9449863459"
+helpline_source = "https://transport.karnataka.gov.in/2/contact-us/en"
+
+[[office]]
+id = "rto-ka01"
+code = "KA-01"
+name = "RTO Bengaluru Central (HSR Layout)"
+name_note = "The directory gives no area name for KA-01; 'Central' follows its email alias rtobngc."
+kind = "RTO"
+group = "Bengaluru Urban"
+address = "21st Main Road, Agara village, 1st Sector, H.S.R. Layout, Bengaluru 560102"
+landlines = ["080-25533525", "080-25533545"]
+fax = "080-25633525"
+cug = ["9449863425", "9449864001"]
+email = "rtobngc-ka@nic.in"
+
+[[office]]
+id = "rto-ka02"
+code = "KA-02"
+name = "RTO Bengaluru West (Rajajinagar)"
+kind = "RTO"
+group = "Bengaluru Urban"
+address = "Rajajinagar Shopping Complex, Bengaluru 560010"
+landlines = ["080-23324388"]
+fax = "080-23327188"
+cug = ["9449864002"]
+email = "rtobngw-ka@nic.in"
+
+[[office]]
+id = "rto-ka03"
+code = "KA-03"
+name = "RTO Bengaluru East (Kasturi Nagar)"
+kind = "RTO"
+group = "Bengaluru Urban"
+address = "CA-15, N.G.E.F East, Kasturi Nagar, Bengaluru 560043"
+landlines = ["080-29735218"]
+fax = "080-25205079"
+cug = ["9449864003"]
+email = "rtobnge-ka@nic.in"
+
+[[office]]
+id = "rto-ka04"
+code = "KA-04"
+name = "RTO Bengaluru North (Yeshwanthpur)"
+aliases = ["Yeswanthpur", "Yesvantpur", "Yashwanthpur", "Yeshwantpur"]
+kind = "RTO"
+group = "Bengaluru Urban"
+address = "3rd Floor, Shopping Complex, Railway Station Road, Yeshwanthpur, Bengaluru 560022"
+landlines = ["080-23376039", "080-23371538"]
+cug = ["9449863445", "9449864004"]
+email = "rtobngn-ka@nic.in"
+
+[[office]]
+id = "rto-ka05"
+code = "KA-05"
+name = "RTO Bengaluru South (Anjanapura)"
+kind = "RTO"
+group = "Bengaluru Urban"
+address = "Survey No. 64/1, Anjanapura, Uttarahalli Hobli, J.P. Nagar 9th Stage, Bengaluru 560108"
+landlines = ["080-26630989", "080-26633853"]
+fax = "080-22440838"
+cug = ["9449863448", "9449864005"]
+email = "rtobngs-ka@nic.in"
+
+[[office]]
+id = "rto-ka41"
+code = "KA-41"
+name = "RTO Jnanabharathi (Malathalli)"
+aliases = ["Mallathahalli", "Mallata Halli"]
+name_note = "The directory gives no area name for KA-41; 'Jnanabharathi' follows its email alias rtojnbt."
+kind = "RTO"
+group = "Bengaluru Urban"
+address = "Railway Men Layout, near Upkar Layout, Malathalli, Bengaluru 560056"
+landlines = ["080-23286712", "080-23286713"]
+cug = ["9449863474", "9449864041"]
+email = "rtojnbt-ka@nic.in"
+
+[[office]]
+id = "rto-ka43"
+code = "KA-43"
+name = "ARTO Devanahalli"
+kind = "ARTO"
+group = "Bengaluru Urban"
+address = "Rani Cross, NH-7, Devanahalli 562110"
+landlines = ["080-29780046"]
+cug = ["9449864043"]
+email = "artodhalli-ka@nic.in"
+
+[[office]]
+id = "rto-ka50"
+code = "KA-50"
+name = "RTO Yelahanka"
+aliases = ["Singanayakanahalli"]  # from the official address
+kind = "RTO"
+group = "Bengaluru Urban"
+address = "Survey No. 111, Singanayakanahalli Village, Yelahanka Hobli, Bengaluru North 560064"
+landlines = ["080-29729909", "080-29729908"]
+cug = ["9449863458", "9449864050"]
+email = "rtoylnk-ka@nic.in"
+
+[[office]]
+id = "rto-ka51"
+code = "KA-51"
+name = "RTO Electronic City"
+aliases = ["Electronics City"]
+kind = "RTO"
+group = "Bengaluru Urban"
+address = "Vijaya Bank Layout, BTM 4th Stage, 2nd Main, Deverachikkanahalli, Bengaluru 560076"
+landlines = ["080-29911921"]
+cug = ["9449863455", "9449864051"]
+email = "rtoecity-ka@nic.in"
+
+[[office]]
+id = "rto-ka53"
+code = "KA-53"
+name = "RTO K.R. Puram"
+aliases = ["Krishnarajapura", "KR Puram", "K R Puram"]
+kind = "RTO"
+group = "Bengaluru Urban"
+address = "5/4, Bhattarahalli, Old Madras Road, K.R. Puram, Bengaluru 560049"
+landlines = ["080-25617951", "080-25617959"]
+cug = ["9449863454", "9449864053"]
+email = "rtokrpur-ka@nic.in"
+published_errors = ["CUG list also shows 94449863453, which has 11 digits and cannot be dialled"]
+
+[[office]]
+id = "rto-ka57"
+code = "KA-57"
+name = "RTO Shanthinagar (STU and autorickshaw)"
+aliases = ["Shanti Nagar", "Shantinagar"]
+kind = "RTO"
+group = "Bengaluru Urban"
+address = "STU and Autorickshaw, Shanthinagar, Bengaluru 560027"
+landlines = ["080-22230051", "080-22230110"]
+cug = ["9449864057"]
+email = "rtoarstu-ka@nic.in"
+
+[[office]]
+id = "rto-ka59"
+code = "KA-59"
+name = "RTO Chandapura"
+kind = "RTO"
+group = "Bengaluru Urban"
+address = "Survey No. 194 and 195, Chandapura Anekal Main Road, Marasuru Village, Bengaluru 562106"
+landlines = ["080-27827265"]
+cug = ["9449864059"]
+email = "rto-chandapura@karnataka.gov.in"
+
+[[office]]
+id = "rto-ka52"
+code = "KA-52"
+name = "RTO Nelamangala"
+kind = "RTO"
+group = "Bengaluru Rural"
+address = "Survey No. 63, Gowdahalli Village, Dasanapura Hobli, Bengaluru North, Nelamangala 562162"
+landlines = ["080-29511295"]
+fax = "080-27728094"
+cug = ["9449864052"]
+email = "rtonmg-ka@nic.in"

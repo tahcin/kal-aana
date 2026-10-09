@@ -1,0 +1,180 @@
+# Statutory service timelines under the Karnataka Sakala Services Act, 2011.
+# Source: the official Sakala Service Compendium (English, dated 05-05-2026), linked from
+# https://sakala.kar.nic.in/index.aspx. `page` is the PDF page number (the printed page
+# number is in brackets in each comment). Only the services our office types handle are copied.
+#
+# days: the time the designated officer has to dispose of an application, in working days
+# unless `unit` says otherwise.
+# If it isn't met, the citizen can file a first appeal with the competent officer, then a
+# second appeal with the appellate authority (35 working days each for every service below).
+
+[meta]
+source_url = "https://sakala.kar.nic.in/Service%20Compendium/05-05-2026%20sakala_service_compendium_English%20(Final).pdf"
+source_name = "Sakala Service Compendium (English), 05-05-2026"
+portal_url = "https://sakala.kar.nic.in/index.aspx"
+fetched = 2026-10-08
+act = "Karnataka Sakala Services Act, 2011"
+
+[appeals.rto]
+designated_officer = "Deputy Commissioner for Transport / Senior RTO / RTO / ARTO"
+first_appeal = "Joint Commissioner for Transport"
+first_appeal_days = 35
+second_appeal = "Commissioner for Transport"  # "Commissioner for Transport and Road Safety" in S.No. 25-26
+second_appeal_days = 35
+
+[appeals.subregistrar]
+designated_officer = "Sub-Registrar"
+first_appeal = "District Registrar"
+first_appeal_days = 35
+second_appeal = "Inspector General of Registration and Commissioner of Stamps"
+second_appeal_days = 35
+
+# Transport Department (section 2.1). PDF pages 55-59 (printed 28-32).
+
+[[service]]
+id = "learners-licence"
+office_type = "rto"
+name = "Issue of learner's licence"
+days = 7
+page = 55  # printed 28, S.No. 1
+
+[[service]]
+id = "driving-licence"
+office_type = "rto"
+name = "Issue of driving licence"
+days = 20
+page = 55  # printed 28, S.No. 2
+
+[[service]]
+id = "vehicle-registration"
+office_type = "rto"
+name = "Registration of vehicle"
+days = 8
+page = 55  # printed 28, S.No. 3
+
+[[service]]
+id = "duplicate-licence"
+office_type = "rto"
+name = "Duplicate driving licence"
+days = 8
+page = 55  # printed 28, S.No. 4
+
+[[service]]
+id = "duplicate-rc"
+office_type = "rto"
+name = "Duplicate registration certificate"
+days = 12
+page = 55  # printed 28, S.No. 5
+
+[[service]]
+id = "duplicate-learners-licence"
+office_type = "rto"
+name = "Duplicate learner's licence"
+days = 3
+page = 56  # printed 29, S.No. 6
+
+[[service]]
+id = "international-driving-permit"
+office_type = "rto"
+name = "International driving permit"
+days = 5
+page = 57  # printed 30, S.No. 14
+
+[[service]]
+id = "temporary-registration"
+office_type = "rto"
+name = "Temporary registration"
+days = 3
+page = 57  # printed 30, S.No. 15
+
+[[service]]
+id = "transfer-of-ownership"
+office_type = "rto"
+name = "Transfer of vehicle ownership"
+days = 12
+page = 57  # printed 30, S.No. 16
+
+[[service]]
+id = "hypothecation"
+office_type = "rto"
+name = "Hypothecation entry (hire purchase, lease)"
+days = 8
+page = 58  # printed 31, S.No. 20
+
+[[service]]
+id = "clearance-certificate"
+office_type = "rto"
+name = "Clearance (NOC) certificate"
+days = 10
+page = 58  # printed 31, S.No. 21
+
+[[service]]
+id = "licence-renewal"
+office_type = "rto"
+name = "Renewal of driving licence"
+days = 10
+page = 58  # printed 31, S.No. 22
+
+[[service]]
+id = "rc-renewal"
+office_type = "rto"
+name = "Renewal of registration certificate (non-transport)"
+days = 12
+page = 59  # printed 32, S.No. 23
+
+[[service]]
+id = "add-vehicle-class"
+office_type = "rto"
+name = "Add a vehicle class to a driving licence"
+days = 15
+page = 59  # printed 32, S.No. 26
+
+# Stamps and Registration Department (section 35.1). PDF pages 311-312 (printed 284-285).
+
+[[service]]
+id = "property-registration"
+office_type = "subregistrar"
+name = "Registration of immovable property"
+days = 1
+page = 311  # printed 284, S.No. 1
+
+[[service]]
+id = "encumbrance-certificate"
+office_type = "subregistrar"
+name = "Encumbrance certificate (from 01-04-2004, Kaveri period)"
+days = 5
+page = 311  # printed 284, S.No. 5
+
+# The compendium also lists pre-2004 encumbrance certificates covering 41-80 years
+# (17 working days) and over 80 years (21 working days), PDF pages 311-312; not copied.
+[[service]]
+id = "encumbrance-certificate-pre-2004"
+office_type = "subregistrar"
+name = "Encumbrance certificate before 01-04-2004 (up to 40 years)"
+days = 13
+page = 311  # printed 284, S.No. 6
+
+[[service]]
+id = "certified-copy"
+office_type = "subregistrar"
+name = "Certified copy of a registered document"
+days = 3
+page = 312  # printed 285, S.No. 9
+
+[[service]]
+id = "marriage-registration-hindu"
+office_type = "subregistrar"
+name = "Registration of marriage (Hindu Marriage Act)"
+days = 1
+unit = "days"
+condition = "after the documents required under the Act and Rules are submitted"
+page = 312  # printed 285, S.No. 13
+
+[[service]]
+id = "marriage-registration-special"
+office_type = "subregistrar"
+name = "Registration of marriage (Special Marriage Act)"
+days = 1
+unit = "days"
+condition = "after the documents required under the Act and Rules are submitted"
+page = 312  # printed 285, S.No. 12

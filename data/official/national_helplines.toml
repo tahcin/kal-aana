@@ -1,0 +1,14 @@
+# National helplines that turn up on local office listings. A Maps listing that shows one of
+# these is reachable only through a national queue, not the office itself.
+
+[meta]
+office_type = "national"
+source_url = "https://parivahan.gov.in/en/content/contact-us"
+source_name = "Parivahan Sewa (Ministry of Road Transport and Highways): Contact Us"
+fetched = 2026-10-08
+
+[[helpline]]
+id = "parivahan-vahan"
+name = "Parivahan Sewa technical helpdesk (vehicle registration, fitness, tax, permits)"
+phone = "+91-120-4925505"
+hours = "06:00 to midnight"

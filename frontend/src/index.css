@@ -1,0 +1,89 @@
+@import "tailwindcss";
+@import "@fontsource-variable/inter";
+@import "@fontsource-variable/jetbrains-mono";
+@import "@fontsource-variable/newsreader/opsz.css";
+@import "maplibre-gl/dist/maplibre-gl.css";
+
+/* Civic and warm: cream paper, aubergine ink, jacaranda violet, an editorial serif for display and Inter for reading.
+   One colour per meaning on top of that: red broken, green kept, amber unverified, grey unchecked.
+   Light tokens are tuned so each colour reads at 4.5:1 or better on its own soft background, on paper and
+   on card, and white text reads at 4.5:1 or better on each solid colour. */
+@theme {
+  --font-sans: "Inter Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Newsreader Variable", "Iowan Old Style", Georgia, serif;
+  --font-mono: "JetBrains Mono Variable", ui-monospace, monospace;
+
+  /* Bengaluru, not a flag: filter-coffee cream paper, aubergine ink, jacaranda violet (the avenues every
+     spring) as the one brand colour, and marigold as a sparing celebratory pop. */
+  --color-paper: #f8f3ea;
+  --color-paper-2: #efe7d9;
+  --color-card: #fffdf9;
+  --color-ink: #1c1530;
+  --color-ink-2: #3f3555;
+  --color-muted: #6b6178;
+  --color-rule: #e6dccb;
+  --color-brand: #5a3fc0;
+  --color-brand-2: #7b5fe0;
+  --color-wash: #ece6fb;
+  --color-pop: #ffb31a;
+  --color-pop-soft: #fff1d1;
+
+  --color-broken: #c42a17;
+  --color-broken-soft: #fde7e3;
+  --color-kept: #0a7449;
+  --color-kept-soft: #dcf3e8;
+  --color-amber: #935f00;
+  --color-amber-soft: #fbf0d4;
+  --color-unknown: #69675f;
+  --color-unknown-soft: #e8e7e1;
+
+  --radius-panel: 2.25rem;
+  --shadow-float: 0 1px 2px rgb(40 22 80 / 0.06), 0 12px 32px -12px rgb(40 22 80 / 0.18), 0 40px 80px -40px rgb(40 22 80 / 0.25);
+  --shadow-soft: 0 1px 2px rgb(40 22 80 / 0.05), 0 8px 24px -14px rgb(40 22 80 / 0.16);
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+html { background: var(--color-paper); color: var(--color-ink); scroll-behavior: smooth; }
+body { font-family: var(--font-sans); font-feature-settings: "cv11", "ss01", "ss03"; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+::selection { background: var(--color-pop); color: #1c1530; }
+/* In the base layer, so a component can opt out with outline-none (the search inputs show focus by their caret and panel). */
+@layer base {
+  :focus-visible { outline: 2px solid var(--color-brand); outline-offset: 3px; border-radius: 8px; }
+}
+
+.tnum { font-variant-numeric: tabular-nums; }
+/* Display type: the serif, set tight. .headline is kept as the name every page already uses. */
+.headline, .display { font-family: var(--font-serif); font-weight: 420; letter-spacing: -0.025em; line-height: 1.02; font-optical-sizing: auto; }
+.serif { font-family: var(--font-serif); font-optical-sizing: auto; }
+
+/* A floating surface: the card colour, a hairline and the soft violet-tinted shadow. */
+.surface { background: var(--color-card); border: 1px solid color-mix(in srgb, var(--color-rule) 80%, transparent); box-shadow: var(--shadow-soft); }
+.surface-float { background: var(--color-card); box-shadow: var(--shadow-float); }
+/* Frosted glass for bars that sit over content. */
+.glass { background: color-mix(in srgb, var(--color-card) 72%, transparent); backdrop-filter: saturate(1.6) blur(18px); -webkit-backdrop-filter: saturate(1.6) blur(18px); }
+
+.maplibregl-ctrl-attrib { font-size: 11px; background: color-mix(in srgb, var(--color-card) 80%, transparent) !important; }
+.maplibregl-ctrl-attrib a { color: var(--color-muted) !important; }
+
+/* The wordmark changing language: a soft-edged mask sweeps left to right, erasing the old word as the new one is
+   written in just behind it, the way a pen moves along a line. */
+.wm-write, .wm-erase {
+  -webkit-mask-size: 260% 100%; mask-size: 260% 100%; -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat;
+  animation-duration: 1.15s; animation-timing-function: cubic-bezier(0.65, 0, 0.35, 1); animation-fill-mode: both;
+}
+/* Two names for the same sweep: a word that was just written in must restart the animation to be erased, and the
+   browser only restarts it when the name changes. */
+.wm-write { -webkit-mask-image: linear-gradient(90deg, #000 42%, transparent 58%); mask-image: linear-gradient(90deg, #000 42%, transparent 58%); animation-name: wm-write; animation-delay: 0.32s; }
+.wm-erase { -webkit-mask-image: linear-gradient(90deg, transparent 42%, #000 58%); mask-image: linear-gradient(90deg, transparent 42%, #000 58%); animation-name: wm-erase; }
+@keyframes wm-write { from { -webkit-mask-position: 100% 0; mask-position: 100% 0; } to { -webkit-mask-position: 0 0; mask-position: 0 0; } }
+@keyframes wm-erase { from { -webkit-mask-position: 100% 0; mask-position: 100% 0; } to { -webkit-mask-position: 0 0; mask-position: 0 0; } }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+}
+
+/* House style: no italics anywhere. Emphasis comes from weight, colour or a marigold highlight. */
+em, i, cite, q, blockquote, address, dfn, var { font-style: normal; }
+/* No italic faces are loaded; never let the browser fake a slanted one. */
+html { font-synthesis-style: none; }

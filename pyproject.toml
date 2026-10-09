@@ -1,0 +1,44 @@
+[project]
+name = "kal-aana"
+version = "0.1.0"
+description = "What Bengaluru's public offices promise, against what Google shows citizens and what reviewers report. Built on SerpApi."
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+requires-python = ">=3.11"
+dependencies = [
+    "fastapi>=0.142",
+    "phonenumbers>=9.0",
+    "python-dotenv>=1.2",
+    "uvicorn>=0.54",
+]
+
+[project.optional-dependencies]
+# Live searches (collect, citizen). Not needed for the demo, which runs from the committed snapshot.
+live = ["serpapi>=1.1"]
+# The MCP server for Claude Desktop and other assistants.
+mcp = ["mcp>=2.3,<3"]
+# Claude as the ask box's reader (KALAANA_READER=anthropic). Local models (Ollama, llama.cpp) need nothing extra.
+claude = ["anthropic>=1.0"]
+dev = ["kal-aana[live,mcp]", "pytest>=9.1", "httpx2>=2.13"]
+
+[project.scripts]
+kalaana = "kalaana.cli:main"
+kalaana-mcp = "kalaana.mcp_server:main"
+
+[build-system]
+requires = ["hatchling>=1.27"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["kalaana"]
+
+# The committed data travels inside the wheel, so `pip install .` (not just a clone) can run the demo.
+[tool.hatch.build.targets.wheel.force-include]
+"data/official" = "kalaana/data/official"
+"data/snapshot" = "kalaana/data/snapshot"
+"data/labels" = "kalaana/data/labels"
+"data/refined" = "kalaana/data/refined"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

@@ -1,0 +1,40 @@
+/* The evidence layer's own pieces: search receipts with a torn edge, the complaint letter's paper, and loading shimmer. */
+
+/* A receipt roll: a zigzag tear along the top and bottom edge. */
+.receipt {
+  --tooth: 7px;
+  background: var(--color-card);
+  -webkit-mask: conic-gradient(from -45deg at bottom, #0000, #000 1deg 89deg, #0000 90deg) bottom / calc(var(--tooth) * 2) var(--tooth) repeat-x,
+    conic-gradient(from 135deg at top, #0000, #000 1deg 89deg, #0000 90deg) top / calc(var(--tooth) * 2) var(--tooth) repeat-x,
+    linear-gradient(#000 0 0) center / 100% calc(100% - var(--tooth) * 2 + 1px) no-repeat;
+  mask: conic-gradient(from -45deg at bottom, #0000, #000 1deg 89deg, #0000 90deg) bottom / calc(var(--tooth) * 2) var(--tooth) repeat-x,
+    conic-gradient(from 135deg at top, #0000, #000 1deg 89deg, #0000 90deg) top / calc(var(--tooth) * 2) var(--tooth) repeat-x,
+    linear-gradient(#000 0 0) center / 100% calc(100% - var(--tooth) * 2 + 1px) no-repeat;
+  filter: drop-shadow(0 10px 18px rgb(40 22 80 / 0.10));
+}
+
+/* Letter paper: the card colour warmed a touch with marigold, with a faint margin rule. */
+.letter-paper {
+  background:
+    linear-gradient(90deg, transparent 2.75rem, color-mix(in srgb, var(--color-broken) 22%, transparent) 2.75rem calc(2.75rem + 1px), transparent calc(2.75rem + 1px)),
+    color-mix(in srgb, var(--color-card) 94%, var(--color-pop));
+}
+@media (max-width: 639px) {
+  .letter-paper { background: color-mix(in srgb, var(--color-card) 94%, var(--color-pop)); }
+}
+/* Fades the letter out at the bottom of its scroll box so the cut reads as "scroll for more". */
+.fade-bottom { -webkit-mask-image: linear-gradient(#000 calc(100% - 3rem), transparent); mask-image: linear-gradient(#000 calc(100% - 3rem), transparent); }
+
+/* Skeleton shimmer for loading states. */
+.skeleton {
+  background: linear-gradient(100deg, var(--color-paper-2) 30%, color-mix(in srgb, var(--color-paper-2) 40%, var(--color-card)) 50%, var(--color-paper-2) 70%);
+  background-size: 300% 100%;
+  animation: shimmer 1.6s var(--ease-out-expo) infinite;
+}
+@keyframes shimmer { from { background-position: 100% 0; } to { background-position: 0 0; } }
+
+/* A hand-drawn marigold underline for one key phrase. */
+.pop-underline {
+  background: linear-gradient(transparent 62%, color-mix(in srgb, var(--color-pop) 55%, transparent) 62% 92%, transparent 92%);
+  -webkit-box-decoration-break: clone; box-decoration-break: clone;
+}

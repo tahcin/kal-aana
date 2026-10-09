@@ -1,0 +1,2837 @@
+{
+ "city": "Bengaluru",
+ "office_type": "passport",
+ "profile": {
+  "label": "Passport Office",
+  "short": "passport office",
+  "plural": "passport offices",
+  "department": "Ministry of External Affairs",
+  "officer": "Regional Passport Officer",
+  "review_queries": [
+   "phone",
+   "agent",
+   "verification"
+  ],
+  "promise": "the Citizen's Charter",
+  "promise_name": "Passport Seva Citizen's Charter (Ministry of External Affairs)",
+  "directory_url": "https://www.passportindia.gov.in/psp/RPO/RPOContactUs"
+ },
+ "as_of": "2026-10-08",
+ "rules": {
+  "issue_window_days": 365,
+  "min_sample": 10,
+  "recent_days": 730,
+  "breach_margin_pct": 25
+ },
+ "headline": {
+  "offices": 4,
+  "official_phone": 4,
+  "official_landline": 4,
+  "listed": 4,
+  "not_found": [],
+  "listing_no_phone": 2,
+  "listing_official_phone": 0,
+  "listing_phone_shown": 2,
+  "listing_phone_not_in_directory": 0,
+  "shared_listing_numbers": [],
+  "listing_unclaimed": 3,
+  "ai_overviews": 3,
+  "ai_first_number_right": 2,
+  "ai_address_wrong": [],
+  "ai_first_number_from_listing": 0,
+  "bing_checked": 4,
+  "bing_found": 2,
+  "bing_no_phone": 0,
+  "bing_official_phone": 0,
+  "ai_mode_answers": 4,
+  "ai_mode_first_number_right": 2,
+  "ai_mode_address_wrong": [],
+  "citizen_checked": 4,
+  "sampled": 4,
+  "recent_breaches": 0,
+  "enough_evidence": 4
+ },
+ "offices": [
+  {
+   "id": "rpo-bengaluru",
+   "code": "",
+   "name": "Regional Passport Office, Bengaluru",
+   "display_name": "Regional Passport Office, Bengaluru",
+   "office_type": "passport",
+   "aliases": [
+    "Koramangala",
+    "RPO Bangalore",
+    "Bangalore Passport Office"
+   ],
+   "kind": "RPO",
+   "address": "8th Block, 80 Feet Road, Koramangala, Bengaluru, Karnataka 560095",
+   "pincode": "560095",
+   "email": "rpo.bangalore@cpo.gov.in",
+   "source_url": "https://www.passportindia.gov.in/psp/RPO/RPOContactUs",
+   "notes": [
+    "The site asks that passport enquiries and grievances go to grievance.rpoblr@mea.gov.in."
+   ],
+   "official_phones": [
+    {
+     "display": "080 2570 6100",
+     "label": "landline",
+     "tel": "+918025706100"
+    },
+    {
+     "display": "080 2570 6101",
+     "label": "landline",
+     "tel": "+918025706101"
+    },
+    {
+     "display": "080 2570 6102",
+     "label": "landline",
+     "tel": "+918025706102"
+    }
+   ],
+   "listing": {
+    "data_id": "0x3bae144e4c5f80c5:0x266bb73fac259fd3",
+    "place_id": "ChIJxYBfTE4UrjsR058lrD-3ayY",
+    "title": "Regional Passport Office",
+    "address": "42, 80 Feet Rd, opp. Passport office building, Rajendra Nagar, Koramangala, Bengaluru, Karnataka 560095",
+    "website": "http://passportindia.gov.in/",
+    "rating": 2.4,
+    "reviews": 1385,
+    "category": "Passport office",
+    "has_hours": true,
+    "unclaimed": false,
+    "lat": 12.945955,
+    "lng": 77.6191489,
+    "found_by": "Passport Seva Kendra",
+    "search_id": "6ac769e0f73581a08d4c4607",
+    "match": {
+     "office_id": "rpo-bengaluru",
+     "evidence": [
+      "pin",
+      "place"
+     ],
+     "reasons": [
+      "same PIN 560095",
+      "mentions Koramangala"
+     ],
+     "role": "office"
+    },
+    "maps_url": "https://www.google.com/maps/place/?q=place_id:ChIJxYBfTE4UrjsR058lrD-3ayY",
+    "phone_display": "1800 258 1800",
+    "phone_verdict": "department helpline",
+    "phone_detail": "a department-wide helpline"
+   },
+   "other_listings": [
+    {
+     "title": "Bangalore Koramangala passport office",
+     "role": "office",
+     "reviews": 3,
+     "unclaimed": true,
+     "phone_display": "",
+     "maps_url": "https://www.google.com/maps/place/?q=place_id:ChIJRUtLLQAVrjsR9EF3e_GdN20",
+     "reasons": [
+      "same PIN 560095",
+      "title mentions Koramangala"
+     ]
+    },
+    {
+     "title": "BANGALORE PASSPORT SOLUTIONS",
+     "role": "private",
+     "reviews": 9,
+     "unclaimed": false,
+     "phone_display": "",
+     "maps_url": "https://www.google.com/maps/place/?q=place_id:ChIJcc5ETE4UrjsRyud_h5TPdEE",
+     "reasons": [
+      "same PIN 560095",
+      "mentions Koramangala"
+     ]
+    },
+    {
+     "title": "BANGALORE PASSPORT SOLUTIONS",
+     "role": "private",
+     "reviews": 7,
+     "unclaimed": false,
+     "phone_display": "",
+     "maps_url": "https://www.google.com/maps/place/?q=place_id:ChIJLYPRheQUrjsRHdaGGjBgWuE",
+     "reasons": [
+      "phone 080 2570 6100 is in the official directory"
+     ]
+    }
+   ],
+   "reach": {
+    "score": 55,
+    "basis": "6 of 6 checks",
+    "checks": [
+     {
+      "id": "phone",
+      "label": "Google Maps shows a phone number",
+      "max_points": 25,
+      "passed": true,
+      "detail": "1800 258 1800",
+      "points": 25
+     },
+     {
+      "id": "own_number",
+      "label": "The number shown is the office's own",
+      "max_points": 20,
+      "passed": false,
+      "detail": "1800 258 1800 is a department-wide helpline, not this office.",
+      "points": 0
+     },
+     {
+      "id": "website",
+      "label": "Links to a government website",
+      "max_points": 10,
+      "passed": true,
+      "detail": "http://passportindia.gov.in/",
+      "points": 10
+     },
+     {
+      "id": "hours",
+      "label": "Shows opening hours",
+      "max_points": 10,
+      "passed": true,
+      "detail": "Hours listed.",
+      "points": 10
+     },
+     {
+      "id": "claimed",
+      "label": "Managed by its owner on Google",
+      "max_points": 10,
+      "passed": true,
+      "detail": "Not marked unclaimed.",
+      "points": 10
+     },
+     {
+      "id": "gets_through",
+      "label": "No review in the last 2 years reports failing to get through by phone",
+      "max_points": 25,
+      "passed": false,
+      "detail": "4 reviews report they couldn't get through, most recently on 2026-07-10.",
+      "points": 0
+     }
+    ]
+   },
+   "sample_size": 28,
+   "window_reviews": 19,
+   "span": [
+    "2026-09-10",
+    "2026-10-08"
+   ],
+   "enough_evidence": true,
+   "problem_reviews": 6,
+   "positive_reviews": 2,
+   "sampled": true,
+   "searched_individually": true,
+   "citizen_checked": true,
+   "issues": [
+    {
+     "category": "unreachable",
+     "label": "Can't reach them by phone",
+     "polarity": "problem",
+     "count": 0,
+     "of": 19,
+     "quotes": [
+      {
+       "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2tWRVJUUXdVa3BzUVVGcFdVSldNVE5QWTBoeVlVRRAB",
+       "text": "I’m extremely disappointed with my experience. The biggest issue is the complete lack of transparency. There is no clear communication about what documents or information are actually required, how decisions are made, or what applicants are expected to do next. Every visit feels like a guessing game.\n\nI’m not sure if this attitude is limited to this passport office or reflects a broader problem in government offices, but the level of arrogance and lack of empathy towards applicants is unacceptable. People come here because they need an essential government service, not because they have another option. Treating applicants as though their time has no value is simply disrespectful.\n\nI’ve already wasted three full working days coming here, only to leave without any resolution, without clear guidance, and without even knowing when I should return or how to move my application forward.\n\nThe standard response is always, “Raise a grievance” or “Call the office.” But what’s the point when no one answers the phone, responds to emails, or provides any meaningful update? A process that depends on communication is completely broken when the communication channels don’t work. It feels like no one knows what needs to be done, and no one takes responsibility. That is incredibly frustrating.\n\nThe saddest part is that writing this review probably won’t change anything because applicants don’t really have a choice. We can’t simply decide to take our business elsewhere. If I had the option, after the frustration, wasted time, and complete lack of accountability I’ve experienced, I would gladly cancel my application and never come back. Unfortunately, I need a passport, and this office knows people have no alternative.\n\nPeople deserve transparency, accountability, and basic respect. Right now, this process offers none of those.",
+       "evidence": "no one answers the phone",
+       "date": "2026-07-10",
+       "rating": 1.0,
+       "link": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2tWRVJUUXdVa3BzUVVGcFdVSldNVE5QWTBoeVlVRRAB!2m1!1s0x0:0x266bb73fac259fd3!3m1!1s2@1:CAIQACodChtycF9oOkVERTQwUkpsQUFpWUJWMTNPY0hyYUE%7C%7C?hl=en",
+       "language": "en",
+       "sample": "query:phone"
+      },
+      {
+       "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2poMlptY3djM28wWjJOaU5UbENWMnRvTFZKVlQxRRAB",
+       "text": "They  encourage Bribe and if you are not a local , there are huge discrimination . It is more than 40 days my passport is still under process for renewal , there was no call for police verification and i am sent to RPO , I responded back within 1 working day to RPO, and now its MORE  Than 08 days , no progress is made , I have escalated to every possible email , but no response . All of his while I have visited Bellandur passport office 3 times , Police - 4 times  and no reponse from RPO Bangalore",
+       "evidence": "email , but no response",
+       "date": "2026-03-10",
+       "rating": 1.0,
+       "link": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2poMlptY3djM28wWjJOaU5UbENWMnRvTFZKVlQxRRAB!2m1!1s0x0:0x266bb73fac259fd3!3m1!1s2@1:CAIQACodChtycF9oOjh2Zmcwc3o0Z2NiNTlCV2toLVJVT1E%7C%7C?hl=en",
+       "language": "en",
+       "sample": "query:verification"
+      },
+      {
+       "review_id": "Ci9DQUlRQUNvZENodHljRjlvT205d1pHdGxaVGRGWDI1NmNFUlpRMGRMTm1GUlpIYxAB",
+       "text": "I'm writing zero reviews to this head office. My husband since one year, he has been visiting this branch and trying to reach them by phone but no answer no updates. We are waiting for PCC clearance from one year. Am waiting to see my child,  please someone help me with this.whats going in this office, are they are expecting us to give money ....",
+       "evidence": "trying to reach them by phone but no answer",
+       "date": "2025-11-11",
+       "rating": 1.0,
+       "link": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT205d1pHdGxaVGRGWDI1NmNFUlpRMGRMTm1GUlpIYxAB!2m1!1s0x0:0x266bb73fac259fd3!3m1!1s2@1:CAIQACodChtycF9oOm9wZGtlZTdFX256cERZQ0dLNmFRZHc%7C%7C?hl=en",
+       "language": "en",
+       "sample": "query:phone"
+      }
+     ]
+    },
+    {
+     "category": "bribe",
+     "label": "Bribe demanded or paid",
+     "polarity": "problem",
+     "count": 1,
+     "of": 19,
+     "quotes": [
+      {
+       "review_id": "Ci9DQUlRQUNvZENodHljRjlvT25kSlJrbGFWMHN4UVVaNGJHRjZkMmRyVm0wdFlYYxAB",
+       "text": "most corrupt biggest country india is very poor poor service in history now",
+       "evidence": "corrupt",
+       "date": "2026-09-30",
+       "rating": 1.0,
+       "link": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT25kSlJrbGFWMHN4UVVaNGJHRjZkMmRyVm0wdFlYYxAB!2m1!1s0x0:0x266bb73fac259fd3!3m1!1s2@1:CAIQACodChtycF9oOndJRklaV0sxQUZ4bGF6d2drVm0tYXc%7C%7C?hl=en",
+       "language": "en",
+       "sample": "newest"
+      },
+      {
+       "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2poMlptY3djM28wWjJOaU5UbENWMnRvTFZKVlQxRRAB",
+       "text": "They  encourage Bribe and if you are not a local , there are huge discrimination . It is more than 40 days my passport is still under process for renewal , there was no call for police verification and i am sent to RPO , I responded back within 1 working day to RPO, and now its MORE  Than 08 days , no progress is made , I have escalated to every possible email , but no response . All of his while I have visited Bellandur passport office 3 times , Police - 4 times  and no reponse from RPO Bangalore",
+       "evidence": "Bribe",
+       "date": "2026-03-10",
+       "rating": 1.0,
+       "link": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2poMlptY3djM28wWjJOaU5UbENWMnRvTFZKVlQxRRAB!2m1!1s0x0:0x266bb73fac259fd3!3m1!1s2@1:CAIQACodChtycF9oOjh2Zmcwc3o0Z2NiNTlCV2toLVJVT1E%7C%7C?hl=en",
+       "language": "en",
+       "sample": "query:verification"
+      },
+      {
+       "review_id": "ChZDSUhNMG9nS0VJQ0FnSUM3OU9ySFFBEAE",
+       "text": "The service provided is severely lacking, with inadequate responses for individuals in need of passport assistance. Communication via phone and email is ineffective, and the staff at the facility near the gate appear unprofessional, exhibiting disorganization and a lack of proper conduct. Furthermore, there have been instances of staff soliciting bribes to expedite processes, which creates a troubling environment for users. Recently, I encountered a situation where an officer requested 8,000 rupees to facilitate my verification at the RPO. It is imperative that stringent measures are taken to address these issues, as the staff demonstrates a lack of respect and professionalism. Additionally, the flag representing Karnataka has not been properly maintained, further reflecting poorly on their commitment to service. I am extremely disappointed by this experience.Please take proper action regarding this and hire well educated staffs and cops..",
+       "evidence": "bribes",
+       "date": "2024-08-13",
+       "rating": 1.0,
+       "link": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChZDSUhNMG9nS0VJQ0FnSUM3OU9ySFFBEAE!2m1!1s0x0:0x266bb73fac259fd3!3m1!1s2@1:CIHM0ogKEICAgIC79OrHQA%7C%7C?hl=en",
+       "language": "en",
+       "sample": "query:phone"
+      }
+     ]
+    },
+    {
+     "category": "tout",
+     "label": "Agents or brokers involved",
+     "polarity": "problem",
+     "count": 0,
+     "of": 19,
+     "quotes": [
+      {
+       "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2t4eFltUmhSRTV1VlRneFdIbDVTV3gxWmt0dVdHYxAB",
+       "text": "Part 2 : During lunch hours (1:30 PM to 2:15 PM), applicants were not even allowed to sit inside the building and were asked to leave and return later, which was highly inconvenient, especially for families with infants.\n\nPost lunch, the situation worsened significantly. Tokens were reshuffled again, and people were called randomly into Ms. [name]’s cabin. This created chaos among the already frustrated crowd. Even applicants with early token numbers were pushed to the end—one person with token number 9 was called almost last, which felt completely unfair and unprofessional.\n\nAt the ground floor enquiry, a lady officer had clearly informed me that my issue would be resolved the same day. That was the only reason I waited there until evening. Otherwise, I would have left earlier and proceeded with reissue instead of wasting an entire day in such disorganized conditions.\n\nInside the cabin, it was evident that the officer was overwhelmed. However, the behavior displayed by Ms. [name] was highly unprofessional. There was constant shouting at applicants regardless of whether the mistake was theirs or not. There was no respect shown, even towards elderly people. Many applicants seemed to be facing similar issues, yet instead of providing guidance, the response was aggressive and dismissive.\n\nWhen my turn finally came, I was told that the photograph cannot be changed and that I would have to apply for a completely new passport. This directly contradicts the information provided by multiple customer care agents earlier. I even spoke to some staff members outside, who suggested that reprinting the passport could be an option, but this was not acknowledged or considered.\n\nAs a result, I was forced to book another appointment, travel again to Bangalore with my 6-month-old baby, spend another full day, and go through the entire passport process once again, including police verification. I also had to pay for a new passport for a mistake that was clearly not from my end.\n\nThis entire experience has caused unnecessary financial burden, time wastage, and significant stress. It was extremely frustrating to deal with such unorganized systems, lack of coordination, and unprofessional behavior from staff and constables.\n\nFor a central government office like this, which is expected to maintain efficiency and accountability, this experience was shocking. Public reviews online seem to reflect similar issues, and unfortunately, I had to go through the same.\n\nStrict action should be taken against such behavior. Officers handling public should maintain basic professionalism, patience, and accountability. If they are unable to manage public interaction or maintain their temperament, they should not be assigned to such roles.\n\nOverall, extremely poor management, no transparency in process, lack of accountability, and complete disregard for people’s time and effort. A very disappointing experience.",
+       "evidence": "agents",
+       "date": "2026-04-26",
+       "rating": 1.0,
+       "link": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2t4eFltUmhSRTV1VlRneFdIbDVTV3gxWmt0dVdHYxAB!2m1!1s0x0:0x266bb73fac259fd3!3m1!1s2@1:CAIQACodChtycF9oOkxxYmRhRE5uVTgxWHl5SWx1ZktuWGc%7C%7C?hl=en",
+       "language": "en",
+       "sample": "query:verification"
+      },
+      {
+       "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2xaMFVFOUlMVkJaVEhoaVNqSkJOQzB4VXpCblJWRRAB",
+       "text": "I have applied for Passport through Normal mode in POPSK jalahalli on 4th June without knowing the complication that going through POPSK would take time. Mine status on the passport seva app was showing \" application received with necessary documents\" till 16th June. I was boathered why the police verifiation process was still not  initiated since within 8 days (and some cases on the day or next day it should be initiated)  it should have been done. I decided to go to the RPO, kormangala office for a walk in enquiry. Even though getting in to the counter/ window where we can raise our enquiry is hectic ( big ques for getting tocken, prefernces for Online registed / elderly people/agents people etc), the person on the enquiry counter was so polite and addresses to the issue in a effective manner. He asked me to write a letter regarding my issue and he would forward it to the concerned officials in the office and told me that within a week they would initiate  the police verification. Kuddos to that person I got a message 19th june to go to the police station for verification.\nIf you have facing similar type of issue or any other type where in the status isnt changing for weeks, better to approach RTO office bangalore directly.\nTips: 1)Dont expect a telephone call to RPO or sending an email to grievance cell will solve ur problem as nobody will attend or answer to such things..\n2) Try to reach RPO by 8 am, so that you would be the front runner in the queue and you will be free by 11 am.",
+       "evidence": "agents",
+       "date": "2025-06-19",
+       "rating": 3.0,
+       "link": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2xaMFVFOUlMVkJaVEhoaVNqSkJOQzB4VXpCblJWRRAB!2m1!1s0x0:0x266bb73fac259fd3!3m1!1s2@1:CAIQACodChtycF9oOlZ0UE9ILVBZTHhiSjJBNC0xUzBnRVE%7C%7C?hl=en",
+       "language": "en",
+       "sample": "query:verification"
+      },
+      {
+       "review_id": "ChZDSUhNMG9nS0VLdlpzb25Fd2Y2VFhnEAE",
+       "text": "As really many people are facing an hectic with this passport center ,\nThere were no proper response and also there were no phone pickup by the team all the contact details provided in the website or non-responsive as mail also has been sent and there were no reply form the team neither reply or response and they are working for the money over here ,\n\nmany local agents are getting connected to get passport granted and demanding the money .\nI would request to take the necessary action on this service and make in future for the process in a smooth way!",
+       "evidence": "agents",
+       "date": "2025-06-12",
+       "rating": 1.0,
+       "link": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChZDSUhNMG9nS0VLdlpzb25Fd2Y2VFhnEAE!2m1!1s0x0:0x266bb73fac259fd3!3m1!1s2@1:CIHM0ogKEKvZsonEwf6TXg%7C%7C?hl=en",
+       "language": "en",
+       "sample": "query:phone"
+      }
+     ]
+    },
+    {
+     "category": "delay",
+     "label": "Waits beyond the promised time",
+     "polarity": "problem",
+     "count": 1,
+     "of": 19,
+     "quotes": [
+      {
+       "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2sweFdrVmZlbHBhVUV3MVpURlVPRjlvVWt4WWNtYxAB",
+       "text": "Extremely disappointing experience with the RPO office in Koramangala. It has been almost a year, and I still haven’t received my passport.\n\nI have visited the office multiple times, and my application is still showing as pending. Unfortunately, no one provides a clear explanation about where the process is delayed or what is causing the issue.\n\nEvery time I visit, I am told that I will receive my passport within 2 days or within a week. However, those timelines keep passing, and I have still not received my passport until today.\n\nThe way the staff communicate with applicants is also very disappointing. Instead of providing a proper explanation or guidance, they are often dismissive and do not communicate respectfully.\n\nAfter waiting for nearly a year and making multiple visits, I simply need a clear answer on why my passport is delayed and when I can actually expect to receive it.",
+       "evidence": "It has been almost a year",
+       "date": "2026-09-10",
+       "rating": 1.0,
+       "link": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2sweFdrVmZlbHBhVUV3MVpURlVPRjlvVWt4WWNtYxAB!2m1!1s0x0:0x266bb73fac259fd3!3m1!1s2@1:CAIQACodChtycF9oOk0xWkVfelpaUEw1ZTFUOF9oUkxYcmc%7C%7C?hl=en",
+       "language": "en",
+       "sample": "newest"
+      },
+      {
+       "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2kxcFRXOUxjbE5JV0VGVVIxUXdZMFJJUVZrM0xXYxAB",
+       "text": "My police verification done before 6 months,\nstill I have not receive my passport.",
+       "evidence": "6 months,\nstill",
+       "date": "2026-08-25",
+       "rating": 1.0,
+       "link": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2kxcFRXOUxjbE5JV0VGVVIxUXdZMFJJUVZrM0xXYxAB!2m1!1s0x0:0x266bb73fac259fd3!3m1!1s2@1:CAIQACodChtycF9oOi1pTW9LclNIWEFUR1QwY0RIQVk3LWc%7C%7C?hl=en",
+       "language": "en",
+       "sample": "query:verification"
+      },
+      {
+       "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2poMlptY3djM28wWjJOaU5UbENWMnRvTFZKVlQxRRAB",
+       "text": "They  encourage Bribe and if you are not a local , there are huge discrimination . It is more than 40 days my passport is still under process for renewal , there was no call for police verification and i am sent to RPO , I responded back within 1 working day to RPO, and now its MORE  Than 08 days , no progress is made , I have escalated to every possible email , but no response . All of his while I have visited Bellandur passport office 3 times , Police - 4 times  and no reponse from RPO Bangalore",
+       "evidence": "more than 40 days",
+       "date": "2026-03-10",
+       "rating": 1.0,
+       "link": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2poMlptY3djM28wWjJOaU5UbENWMnRvTFZKVlQxRRAB!2m1!1s0x0:0x266bb73fac259fd3!3m1!1s2@1:CAIQACodChtycF9oOjh2Zmcwc3o0Z2NiNTlCV2toLVJVT1E%7C%7C?hl=en",
+       "language": "en",
+       "sample": "query:verification"
+      }
+     ]
+    },
+    {
+     "category": "staff",
+     "label": "Staff absent, rude or unhelpful",
+     "polarity": "problem",
+     "count": 3,
+     "of": 19,
+     "quotes": [
+      {
+       "review_id": "Ci9DQUlRQUNvZENodHljRjlvT20xMFEyMDBSR3N3VWxwb1UzTlJZa3htV0dObE9WRRAB",
+       "text": "Very irresponsible",
+       "evidence": "irresponsible",
+       "date": "2026-09-28",
+       "rating": 1.0,
+       "link": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT20xMFEyMDBSR3N3VWxwb1UzTlJZa3htV0dObE9WRRAB!2m1!1s0x0:0x266bb73fac259fd3!3m1!1s2@1:CAIQACodChtycF9oOm10Q200RGswUlpoU3NRYkxmWGNlOVE%7C%7C?hl=en",
+       "language": "en",
+       "sample": "newest"
+      },
+      {
+       "review_id": "Ci9DQUlRQUNvZENodHljRjlvT25Jd1VuWllaRE5oTFZCUVlqWlphWGd4VG10M1ZVRRAB",
+       "text": "Worst people",
+       "evidence": "Worst people",
+       "date": "2026-09-28",
+       "rating": 1.0,
+       "link": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT25Jd1VuWllaRE5oTFZCUVlqWlphWGd4VG10M1ZVRRAB!2m1!1s0x0:0x266bb73fac259fd3!3m1!1s2@1:CAIQACodChtycF9oOnIwUnZYZDNhLVBQYjZZaXgxTmt3VUE%7C%7C?hl=en",
+       "language": "en",
+       "sample": "newest"
+      },
+      {
+       "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2kxWVdXVkdVWE5WU0dseFYzZFFSamhGYzFoNlZVRRAB",
+       "text": "Wost experiance.... No Response..... All Govenrnment Employees Are Irresponsible , Negligence, Persons fellows......",
+       "evidence": "Irresponsible",
+       "date": "2026-09-23",
+       "rating": 1.0,
+       "link": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2kxWVdXVkdVWE5WU0dseFYzZFFSamhGYzFoNlZVRRAB!2m1!1s0x0:0x266bb73fac259fd3!3m1!1s2@1:CAIQACodChtycF9oOi1YWWVGUXNVSGlxV3dQRjhFc1h6VUE%7C%7C?hl=en",
+       "language": "en",
+       "sample": "newest"
+      }
+     ]
+    },
+    {
+     "category": "portal",
+     "label": "Portal, server or website failures",
+     "polarity": "problem",
+     "count": 0,
+     "of": 19,
+     "quotes": [
+      {
+       "review_id": "ChZDSUhNMG9nS0VJQ0FnTURJbW8tMmNREAE",
+       "text": "I am writing to bring to your kind attention the delay in the processing of my 17-year-old son’s passport renewal application.\n\nDue to unavailability of appointments in Bangalore, we traveled to KGF on March 26th and successfully completed the application process there. The next day, we received a notification for police verification, which we promptly completed at our nearby station. The verification report was forwarded to the Koramangala Regional Passport Seva Kendra soon after.\n\nSince then, we have been regularly checking the status online and contacting the call center. The portal continues to show that \"police verification has not been cleared\". However, upon speaking with the call center representatives, we were informed that the police verification has indeed been approved at the local station and that the application is currently pending at the Koramangala Passport Office.\n\nWe have made repeated attempts over the last two weeks to contact the office by phone and online, but unfortunately without any success. Additionally, the passport portal has recently been experiencing technical issues, making it impossible to get updated information or book an appointment.\n\nWe are now in a difficult position as we have international travel planned for April 15th, and we are extremely concerned about the delay.",
+       "evidence": "technical issues",
+       "date": "2025-04-09",
+       "rating": 1.0,
+       "link": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChZDSUhNMG9nS0VJQ0FnTURJbW8tMmNREAE!2m1!1s0x0:0x266bb73fac259fd3!3m1!1s2@1:CIHM0ogKEICAgMDImo-2cQ%7C%7C?hl=en",
+       "language": "en",
+       "sample": "query:phone"
+      }
+     ]
+    },
+    {
+     "category": "closed",
+     "label": "Closed or not keeping its hours",
+     "polarity": "problem",
+     "count": 0,
+     "of": 19,
+     "quotes": [
+      {
+       "review_id": "ChdDSUhNMG9nS0VJQ0FnSURIaHY3VjdRRRAB",
+       "text": "As mentioned in most of the reviews, this RPO does have some issues. My passport renewal was stuck for more than a month. inspite of completing the verification successfully, The status was “police verification review pending at RPO” . I had to take walk-in appointment just to follow up on the delay which could have been completely avoided if they had properly streamlined process. It took me more than 3 hours just to clear that step of the process. I received the passport within 5 days after my visit. But Best of all, There was no reason for hold up, my application was cleared and it was just likely misplaced amongst the hordes of applications they get. Why does this happen with so much of vigilance and technology in place, no clue!\nTheir grievance email address doesnt work. They dont reply.\nPlease note they are closed on Wednesdays and weekends.\nAnd walk-in is available on token basis from 10am-12pm.",
+       "evidence": "they are closed",
+       "date": "2024-09-15",
+       "rating": 2.0,
+       "link": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChdDSUhNMG9nS0VJQ0FnSURIaHY3VjdRRRAB!2m1!1s0x0:0x266bb73fac259fd3!3m1!1s2@1:CIHM0ogKEICAgIDHhv7V7QE%7C%7C?hl=en",
+       "language": "en",
+       "sample": "query:verification"
+      },
+      {
+       "review_id": "ChZDSUhNMG9nS0VJQ0FnSUN1dDRUVWRBEAE",
+       "text": "A sleepy, lazy, lethargic government office where everything moves at snails pace. One needs to take online appointment to visit for any enquiries. Usually one gets that appointment only after a month or later. Well that is a different issue all together. For every small enquiry one needs to visit the office as no one ever picks the enquiry phone number that is available online. As one walks inside the ground floor, will get the taste of a typical government office. Out of 8 counters only 1 was open. The day I visited there was no one available at the inquiry counters who can understand and speak local language. This is really bad for a RPO. My slot was at 10:30, but had to wait for little more than an hour to get the  enquiry token as the printer was not working. The second floor is little better where you need to go prepared to wait endlessly to get any information. Look's like the building is under renovation for some time now.",
+       "evidence": "no one available",
+       "date": "2022-08-08",
+       "rating": 2.0,
+       "link": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChZDSUhNMG9nS0VJQ0FnSUN1dDRUVWRBEAE!2m1!1s0x0:0x266bb73fac259fd3!3m1!1s2@1:CIHM0ogKEICAgICut4TUdA%7C%7C?hl=en",
+       "language": "en",
+       "sample": "query:phone"
+      }
+     ]
+    },
+    {
+     "category": "queue",
+     "label": "Long queues and waiting",
+     "polarity": "problem",
+     "count": 1,
+     "of": 19,
+     "quotes": [
+      {
+       "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2tRMlJFVm1VbkJEVkV4M05qQmxaRkp3Ym1sdVRGRRAB",
+       "text": "Too long queues and make the applicants wait for long period of time.",
+       "evidence": "long queues",
+       "date": "2026-10-04",
+       "rating": 1.0,
+       "link": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2tRMlJFVm1VbkJEVkV4M05qQmxaRkp3Ym1sdVRGRRAB!2m1!1s0x0:0x266bb73fac259fd3!3m1!1s2@1:CAIQACodChtycF9oOkQ2REVmUnBDVEx3NjBlZFJwbmluTFE%7C%7C?hl=en-US",
+       "language": "en",
+       "sample": "newest"
+      },
+      {
+       "review_id": "ChdDSUhNMG9nS0VJQ0FnTUNZdU5YMTZBRRAB",
+       "text": "I had read the previous reviews and expected it to be little bad but it turned out to worst experience as people there don’t know how to explain the problem. I was made to wait for almost 4 hours for no reason.  All of them sitting idol and watching phone and discussing among themselves, walking around like bosses. I wondered what was the issue to hold the renewal of my passport?\n\nO",
+       "evidence": "wait for almost 4 hours",
+       "date": "2025-05-01",
+       "rating": 1.0,
+       "link": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChdDSUhNMG9nS0VJQ0FnTUNZdU5YMTZBRRAB!2m1!1s0x0:0x266bb73fac259fd3!3m1!1s2@1:CIHM0ogKEICAgMCYuNX16AE%7C%7C?hl=en",
+       "language": "en",
+       "sample": "query:phone"
+      },
+      {
+       "review_id": "ChdDSUhNMG9nS0VJQ0FnSURIaHY3VjdRRRAB",
+       "text": "As mentioned in most of the reviews, this RPO does have some issues. My passport renewal was stuck for more than a month. inspite of completing the verification successfully, The status was “police verification review pending at RPO” . I had to take walk-in appointment just to follow up on the delay which could have been completely avoided if they had properly streamlined process. It took me more than 3 hours just to clear that step of the process. I received the passport within 5 days after my visit. But Best of all, There was no reason for hold up, my application was cleared and it was just likely misplaced amongst the hordes of applications they get. Why does this happen with so much of vigilance and technology in place, no clue!\nTheir grievance email address doesnt work. They dont reply.\nPlease note they are closed on Wednesdays and weekends.\nAnd walk-in is available on token basis from 10am-12pm.",
+       "evidence": "took me more than 3 hours",
+       "date": "2024-09-15",
+       "rating": 2.0,
+       "link": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChdDSUhNMG9nS0VJQ0FnSURIaHY3VjdRRRAB!2m1!1s0x0:0x266bb73fac259fd3!3m1!1s2@1:CIHM0ogKEICAgIDHhv7V7QE%7C%7C?hl=en",
+       "language": "en",
+       "sample": "query:verification"
+      }
+     ]
+    },
+    {
+     "category": "helpful",
+     "label": "Helpful, quick service",
+     "polarity": "positive",
+     "count": 2,
+     "of": 19,
+     "quotes": [
+      {
+       "review_id": "Ci9DQUlRQUNvZENodHljRjlvT205ZlRqY3lVa041VTBoU01HODRhVkJyVGtGUVNuYxAB",
+       "text": "I went to RPO Bengaluru for passport surrender. It appears recently the RPO has transitioned to a 2-day visit. On first visit, original documents would be verified, photocopies would be submitted for approval.\n\nOn second visit (after 10-14 days), after approval biometrics/photo would be taken and given the surrender certificate with cancelled passport. You still need to carry all original documents. No one called me, so I did walk in after 10 days. Many other people did the same.\n\nI was initially told by PSK helpline that surrender can be done at any RPO which was incorrect. You should have an address proof to indicate that RPO can serve your location.\n\nIt was a bit chaotic at the RPO but officers were helpful and courteous. Process is very simple but you have to be patient. Be sure to carry all documents along with photocopy. There are plenty of shops nearby for getting photo/print outs.",
+       "evidence": "helpful",
+       "date": "2026-09-23",
+       "rating": 4.0,
+       "link": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT205ZlRqY3lVa041VTBoU01HODRhVkJyVGtGUVNuYxAB!2m1!1s0x0:0x266bb73fac259fd3!3m1!1s2@1:CAIQACodChtycF9oOm9fTjcyUkN5U0hSMG84aVBrTkFQSnc%7C%7C?hl=en",
+       "language": "en",
+       "sample": "newest"
+      },
+      {
+       "review_id": "Ci9DQUlRQUNvZENodHljRjlvT25SVU9VRnBkSGRMVTJRMU5qTjVWUzFuY2tWSFEwRRAB",
+       "text": "Guys its not at all like the reviews are!!\nFor me and my mom, the process went very smoothly.The staff is very supportive and helpful! Even the police officers there are helpful\nI had an appointment today and read the reviews yesterday and got scared of how it would go\nI don’t know about others but i and my mom didn’t face any problem anywhere\nIt only took us 1 hr for everything",
+       "evidence": "very supportive",
+       "date": "2026-09-21",
+       "rating": 5.0,
+       "link": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT25SVU9VRnBkSGRMVTJRMU5qTjVWUzFuY2tWSFEwRRAB!2m1!1s0x0:0x266bb73fac259fd3!3m1!1s2@1:CAIQACodChtycF9oOnRUOUFpdHdLU2Q1NjN5VS1nckVHQ0E%7C%7C?hl=en",
+       "language": "en",
+       "sample": "newest"
+      },
+      {
+       "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2xaMFVFOUlMVkJaVEhoaVNqSkJOQzB4VXpCblJWRRAB",
+       "text": "I have applied for Passport through Normal mode in POPSK jalahalli on 4th June without knowing the complication that going through POPSK would take time. Mine status on the passport seva app was showing \" application received with necessary documents\" till 16th June. I was boathered why the police verifiation process was still not  initiated since within 8 days (and some cases on the day or next day it should be initiated)  it should have been done. I decided to go to the RPO, kormangala office for a walk in enquiry. Even though getting in to the counter/ window where we can raise our enquiry is hectic ( big ques for getting tocken, prefernces for Online registed / elderly people/agents people etc), the person on the enquiry counter was so polite and addresses to the issue in a effective manner. He asked me to write a letter regarding my issue and he would forward it to the concerned officials in the office and told me that within a week they would initiate  the police verification. Kuddos to that person I got a message 19th june to go to the police station for verification.\nIf you have facing similar type of issue or any other type where in the status isnt changing for weeks, better to approach RTO office bangalore directly.\nTips: 1)Dont expect a telephone call to RPO or sending an email to grievance cell will solve ur problem as nobody will attend or answer to such things..\n2) Try to reach RPO by 8 am, so that you would be the front runner in the queue and you will be free by 11 am.",
+       "evidence": "polite",
+       "date": "2025-06-19",
+       "rating": 3.0,
+       "link": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2xaMFVFOUlMVkJaVEhoaVNqSkJOQzB4VXpCblJWRRAB!2m1!1s0x0:0x266bb73fac259fd3!3m1!1s2@1:CAIQACodChtycF9oOlZ0UE9ILVBZTHhiSjJBNC0xUzBnRVE%7C%7C?hl=en",
+       "language": "en",
+       "sample": "query:verification"
+      }
+     ]
+    }
+   ],
+   "breaches": [],
+   "agent_waits": [],
+   "older_breaches": 0,
+   "ai_overview": {
+    "text": "The Regional Passport Office in Bengaluru can be reached directly at 080-25706100, 080-25706101, or 080-25706102.\nYou can also contact the national toll-free helpline at 1800-258-1800 (available from 8:00 AM to 10:00 PM) for general passport inquiries and grievances.\nOffice Details\nAddress: 8th Block, 80 Feet Road, Koramangala, Bengaluru, Karnataka - 560095\nEmail: rpo.bangalore@mea.gov.in (or grievance.rpoblr@mea.gov.in for grievances)\nFax: 080-25706124\nOfficial Website: Passport Seva Portal\nIf you need help with booking an appointment, checking your application status, or finding the nearest Passport Seva Kendra (PSK) , let me know!",
+    "first_number": {
+     "phone": "+918025706100",
+     "display": "080 2570 6100",
+     "kind": "landline",
+     "surface": "ai_overview",
+     "source": "AI Overview",
+     "verdict": "this office",
+     "detail": "in the official directory for this office"
+    },
+    "searched_on": "2026-10-08",
+    "numbers": [
+     {
+      "phone": "+918025706100",
+      "display": "080 2570 6100",
+      "kind": "landline",
+      "surface": "ai_overview",
+      "source": "AI Overview",
+      "verdict": "this office",
+      "detail": "in the official directory for this office"
+     },
+     {
+      "phone": "+918025706101",
+      "display": "080 2570 6101",
+      "kind": "landline",
+      "surface": "ai_overview",
+      "source": "AI Overview",
+      "verdict": "this office",
+      "detail": "in the official directory for this office"
+     },
+     {
+      "phone": "+918025706102",
+      "display": "080 2570 6102",
+      "kind": "landline",
+      "surface": "ai_overview",
+      "source": "AI Overview",
+      "verdict": "this office",
+      "detail": "in the official directory for this office"
+     },
+     {
+      "phone": "+9118002581800",
+      "display": "1800 258 1800",
+      "kind": "toll_free",
+      "surface": "ai_overview",
+      "source": "AI Overview",
+      "verdict": "department helpline",
+      "detail": "a department-wide helpline"
+     },
+     {
+      "phone": "",
+      "display": "080 2570 6124",
+      "kind": "landline",
+      "surface": "ai_overview",
+      "source": "AI Overview",
+      "verdict": "not in the directory",
+      "detail": "not in the official directory"
+     }
+    ],
+    "pincodes": [
+     "560095"
+    ],
+    "address_matches": true,
+    "references": [
+     [
+      "Bangalore Passport Office Contact No.",
+      "https://www.indiacustomercare.com/bagalore-passport-office-address"
+     ],
+     [
+      "Regional Passport Office",
+      "https://www.google.com/searchviewer/10?svid=CAwSHRIbCgNwdnESFENnMHZaeTh4TVdJMmNXeHhhR1pmGAo"
+     ]
+    ],
+    "search_id": "6ac76a3e55ba65c89dbff2ec",
+    "query": "Regional Passport Office, Bengaluru phone number",
+    "repeats_listing_number": false
+   },
+   "ai_mode": {
+    "text": "Here are the contact numbers and details for the Regional Passport Office (RPO) in Bengaluru:\nNational Toll-Free Helpline: 1800-258-1800 (Available via the Passport Seva Portal)\nOffice Landline Numbers: 080-25706100, 080-25706101, and 080-25706102\nFax Number: 080-25706124\nOfficial Email: rpo.bangalore@mea.gov.in\nGrievance / Enquiry Email: grievance.rpoblr@mea.gov.in\nAddress: 8th Block, 80 Feet Road, Koramangala, Bengaluru, Karnataka - 560095\nNote: Direct office landlines can often be difficult to reach during peak hours. For official updates, appointment bookings, or status tracking, it is recommended to check the Passport India Official Website.\nIf you're dealing with a specific issue (like a delayed police verification or pending file status), let me know and I can guide you on how to escalate it or whether you need to visit the Koramangala office directly.",
+    "first_number": {
+     "phone": "+9118002581800",
+     "display": "1800 258 1800",
+     "kind": "toll_free",
+     "surface": "ai_mode",
+     "source": "AI Mode",
+     "verdict": "department helpline",
+     "detail": "a department-wide helpline"
+    },
+    "searched_on": "2026-10-08",
+    "numbers": [
+     {
+      "phone": "+9118002581800",
+      "display": "1800 258 1800",
+      "kind": "toll_free",
+      "surface": "ai_mode",
+      "source": "AI Mode",
+      "verdict": "department helpline",
+      "detail": "a department-wide helpline"
+     },
+     {
+      "phone": "+918025706100",
+      "display": "080 2570 6100",
+      "kind": "landline",
+      "surface": "ai_mode",
+      "source": "AI Mode",
+      "verdict": "this office",
+      "detail": "in the official directory for this office"
+     },
+     {
+      "phone": "+918025706101",
+      "display": "080 2570 6101",
+      "kind": "landline",
+      "surface": "ai_mode",
+      "source": "AI Mode",
+      "verdict": "this office",
+      "detail": "in the official directory for this office"
+     },
+     {
+      "phone": "+918025706102",
+      "display": "080 2570 6102",
+      "kind": "landline",
+      "surface": "ai_mode",
+      "source": "AI Mode",
+      "verdict": "this office",
+      "detail": "in the official directory for this office"
+     },
+     {
+      "phone": "",
+      "display": "080 2570 6124",
+      "kind": "landline",
+      "surface": "ai_mode",
+      "source": "AI Mode",
+      "verdict": "not in the directory",
+      "detail": "not in the official directory"
+     }
+    ],
+    "pincodes": [
+     "560095"
+    ],
+    "address_matches": true,
+    "references": [
+     [
+      "Bengaluru - Passport Seva",
+      "https://www.passportindia.gov.in/psp/RPO/BengaluruRPO"
+     ],
+     [
+      "Regional Passport Office",
+      "https://www.google.com/searchviewer/10?svid=CAwSHRIbCgNwdnESFENnMHZaeTh4TVdJMmNXeHhhR1pmGAo"
+     ],
+     [
+      "Bangalore Passport Office Contact No. - India Customer Care",
+      "https://www.indiacustomercare.com/bagalore-passport-office-address"
+     ]
+    ],
+    "search_id": "6ac76a5b95a6942b4d7066b9"
+   },
+   "citizen_search": {
+    "query": "Regional Passport Office, Bengaluru phone number",
+    "search_id": "6ac76a3e55ba65c89dbff2ec",
+    "numbers": [
+     {
+      "phone": "+9118002581800",
+      "display": "1800 258 1800",
+      "kind": "toll_free",
+      "surface": "knowledge_graph",
+      "source": "Regional Passport Office",
+      "verdict": "department helpline",
+      "detail": "a department-wide helpline"
+     },
+     {
+      "phone": "+9118002581800",
+      "display": "1800 258 1800",
+      "kind": "toll_free",
+      "surface": "snippet",
+      "source": "passportindia.gov.in",
+      "verdict": "department helpline",
+      "detail": "a department-wide helpline"
+     },
+     {
+      "phone": "+918025706100",
+      "display": "080 2570 6100",
+      "kind": "landline",
+      "surface": "snippet",
+      "source": "justdial.com",
+      "verdict": "this office",
+      "detail": "in the official directory for this office"
+     },
+     {
+      "phone": "",
+      "display": "011 2338 4497",
+      "kind": "landline",
+      "surface": "snippet",
+      "source": "sbnri.com",
+      "verdict": "not in the directory",
+      "detail": "not in the official directory"
+     },
+     {
+      "phone": "",
+      "display": "0261 222 8225",
+      "kind": "landline",
+      "surface": "snippet",
+      "source": "passportindia.gov.in",
+      "verdict": "not in the directory",
+      "detail": "not in the official directory"
+     },
+     {
+      "phone": "",
+      "display": "0261 222 8226",
+      "kind": "landline",
+      "surface": "snippet",
+      "source": "passportindia.gov.in",
+      "verdict": "not in the directory",
+      "detail": "not in the official directory"
+     }
+    ]
+   },
+   "bing": {
+    "found": true,
+    "title": "Regional Passport Office",
+    "how": "1 m from its Google Maps listing",
+    "search_id": "6ac76b2770e9d06b77f59886",
+    "query": "Regional Passport Office, Bengaluru",
+    "phone_display": "1800 258 1800",
+    "phone_verdict": "department helpline"
+   },
+   "trail": [
+    {
+     "engine": "google_maps",
+     "purpose": "Maps search for this office: \"Regional Passport Office, Bengaluru, Bengaluru\"",
+     "search_id": "6ac76a183d0e4e498e15cded",
+     "searched_at": "2026-10-08 10:02 UTC"
+    },
+    {
+     "engine": "google_maps_reviews",
+     "purpose": "Newest reviews of its listing",
+     "search_id": "6ac76a1d7223f438177f2ac7",
+     "searched_at": "2026-10-08 10:02 UTC"
+    },
+    {
+     "engine": "google_maps_reviews",
+     "purpose": "Newest reviews of its listing, next page",
+     "search_id": "6ac76a1eaf5fdc9824f907fb",
+     "searched_at": "2026-10-08 10:02 UTC"
+    },
+    {
+     "engine": "google_maps_reviews",
+     "purpose": "Reviews of its listing mentioning \"phone\"",
+     "search_id": "6ac76a1f3047f3573b88b760",
+     "searched_at": "2026-10-08 10:02 UTC"
+    },
+    {
+     "engine": "google_maps_reviews",
+     "purpose": "Reviews of its listing mentioning \"agent\"",
+     "search_id": "6ac76a2056043389d033f6cb",
+     "searched_at": "2026-10-08 10:02 UTC"
+    },
+    {
+     "engine": "google_maps_reviews",
+     "purpose": "Reviews of its listing mentioning \"verification\"",
+     "search_id": "6ac76a209bc9c991a15dfdaa",
+     "searched_at": "2026-10-08 10:02 UTC"
+    },
+    {
+     "engine": "google",
+     "purpose": "Google Search, as a citizen: \"Regional Passport Office, Bengaluru phone number\"",
+     "search_id": "6ac76a3e55ba65c89dbff2ec",
+     "searched_at": "2026-10-08 10:02 UTC"
+    },
+    {
+     "engine": "google_ai_overview",
+     "purpose": "Google's AI Overview for that search",
+     "search_id": "6ac76a4b998aad020208cfb6",
+     "searched_at": "2026-10-08 10:02 UTC"
+    },
+    {
+     "engine": "google_ai_mode",
+     "purpose": "The same question in Google's AI Mode",
+     "search_id": "6ac76a5b95a6942b4d7066b9",
+     "searched_at": "2026-10-08 10:03 UTC"
+    },
+    {
+     "engine": "bing_maps",
+     "purpose": "Bing Maps, the same office: \"Regional Passport Office, Bengaluru\"",
+     "search_id": "6ac76b2770e9d06b77f59886",
+     "searched_at": "2026-10-08 10:06 UTC"
+    }
+   ],
+   "busy": null
+  },
+  {
+   "id": "psk-lalbagh",
+   "code": "",
+   "name": "Passport Seva Kendra, Lalbagh",
+   "display_name": "Passport Seva Kendra, Lalbagh",
+   "office_type": "passport",
+   "aliases": [
+    "Lalbagh",
+    "Lal Bagh",
+    "Prestige Libra"
+   ],
+   "kind": "PSK",
+   "address": "No 45 Prestige Libra, Near Urvashi Theatre, Lalbagh Main Road, Bengaluru, Karnataka 560027",
+   "pincode": "560027",
+   "email": "rpo.bangalore@mea.gov.in",
+   "source_url": "https://www.passportindia.gov.in/psp/RPO/RPOPSK",
+   "notes": [],
+   "official_phones": [
+    {
+     "display": "080 2211 7711",
+     "label": "landline",
+     "tel": "+918022117711"
+    }
+   ],
+   "listing": {
+    "data_id": "0x3bae15dd0b1312bd:0x6be9b89b9280ab9e",
+    "place_id": "ChIJvRITC90VrjsRnquAkpu46Ws",
+    "title": "Passport Seva Kendra - Bengaluru",
+    "address": "Prestige Libra, 45, Lal Bagh Main Rd, Sudhama Nagar, Bengaluru, Karnataka 560027",
+    "website": "http://passportindia.gov.in/",
+    "rating": 3.6,
+    "reviews": 5384,
+    "category": "Passport office",
+    "has_hours": true,
+    "unclaimed": true,
+    "lat": 12.958152499999999,
+    "lng": 77.58674429999999,
+    "found_by": "Passport Seva Kendra",
+    "search_id": "6ac769e0f73581a08d4c4607",
+    "match": {
+     "office_id": "psk-lalbagh",
+     "evidence": [
+      "pin",
+      "place"
+     ],
+     "reasons": [
+      "same PIN 560027",
+      "mentions Lal Bagh"
+     ],
+     "role": "office"
+    },
+    "maps_url": "https://www.google.com/maps/place/?q=place_id:ChIJvRITC90VrjsRnquAkpu46Ws",
+    "phone_display": "1800 258 1800",
+    "phone_verdict": "department helpline",
+    "phone_detail": "a department-wide helpline"
+   },
+   "other_listings": [],
+   "reach": {
+    "score": 70,
+    "basis": "6 of 6 checks",
+    "checks": [
+     {
+      "id": "phone",
+      "label": "Google Maps shows a phone number",
+      "max_points": 25,
+      "passed": true,
+      "detail": "1800 258 1800",
+      "points": 25
+     },
+     {
+      "id": "own_number",
+      "label": "The number shown is the office's own",
+      "max_points": 20,
+      "passed": false,
+      "detail": "1800 258 1800 is a department-wide helpline, not this office.",
+      "points": 0
+     },
+     {
+      "id": "website",
+      "label": "Links to a government website",
+      "max_points": 10,
+      "passed": true,
+      "detail": "http://passportindia.gov.in/",
+      "points": 10
+     },
+     {
+      "id": "hours",
+      "label": "Shows opening hours",
+      "max_points": 10,
+      "passed": true,
+      "detail": "Hours listed.",
+      "points": 10
+     },
+     {
+      "id": "claimed",
+      "label": "Managed by its owner on Google",
+      "max_points": 10,
+      "passed": false,
+      "detail": "Google marks it unclaimed: no verified owner manages the listing.",
+      "points": 0
+     },
+     {
+      "id": "gets_through",
+      "label": "No review in the last 2 years reports failing to get through by phone",
+      "max_points": 25,
+      "passed": true,
+      "detail": "None of 18 reviews mentioning phones or calls do.",
+      "points": 25
+     }
+    ]
+   },
+   "sample_size": 25,
+   "window_reviews": 20,
+   "span": [
+    "2026-01-22",
+    "2026-10-07"
+   ],
+   "enough_evidence": true,
+   "problem_reviews": 6,
+   "positive_reviews": 3,
+   "sampled": true,
+   "searched_individually": true,
+   "citizen_checked": true,
+   "issues": [
+    {
+     "category": "unreachable",
+     "label": "Can't reach them by phone",
+     "polarity": "problem",
+     "count": 0,
+     "of": 20,
+     "quotes": []
+    },
+    {
+     "category": "bribe",
+     "label": "Bribe demanded or paid",
+     "polarity": "problem",
+     "count": 0,
+     "of": 20,
+     "quotes": []
+    },
+    {
+     "category": "tout",
+     "label": "Agents or brokers involved",
+     "polarity": "problem",
+     "count": 0,
+     "of": 20,
+     "quotes": [
+      {
+       "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2pOcGNsYzFNMlZuWW5kS1NrNWFhSEZ3VUZWU1VWRRAB",
+       "text": "Do not go for any Agent! Just login to psk website and you can apply for passport yourself. Tip to apply. Make sure any simple change or any details you add to ur passport you need to submit supporting document. For ex: if u renew or re-apply for passport and change status from single to married. You need to give ur marriage certificate which they won’t ask while you apply for it.",
+       "evidence": "Agent",
+       "date": "2026-07-21",
+       "rating": 4.0,
+       "link": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2pOcGNsYzFNMlZuWW5kS1NrNWFhSEZ3VUZWU1VWRRAB!2m1!1s0x0:0x6be9b89b9280ab9e!3m1!1s2@1:CAIQACodChtycF9oOjNpclc1M2VnYndKSk5aaHFwUFVSUVE%7C%7C?hl=en",
+       "language": "en",
+       "sample": "query:agent"
+      },
+      {
+       "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2pSUWJteGxiSGRSY1VaaWNHOTRXakpXZFhObllVRRAB",
+       "text": "I honestly expected the worst after reading many of the reviews here. I was pleasantly surprised at how great the service was. Now I can't comment on individual experience because that differs person to person. However, I would like to help out new applicants with a streamlined process on how to get things done efficiently.\n\n1. Make sure to have plenty of patience before you reach, 90% of the application process is the waiting game. Also try to choose a weekday slot, lesser crowd.\n2. Digilocker is your best friend. Ensure your documents are uploaded to the passport site before your scheduled date. This is  key to a smooth process.\n3. Once you reach, you'll be greeted to a crowd, ensure you pay attention to your \"REPORTED TIME\" which is usually 15 minutes behind your \"Appointment time\".  A guard comes and calls people in-between slots. Take your seat outside until then, there are chairs.\n4. Your appointment time is sacred. An applicant was rejected for being late by an hour. Ensure you reach early and take a seat until your \"Reported time\" is called out. Once called, stand in the line and you'll be let in. Carry a Xerox of your Online Application Receipt. This one has your ARN number on it.\n5. Once inside, head towards the token counter, usually, counter no 5 or 6 is the designated area for Digilocker but even if you are given a normal number, don't worry, once you go to Counter A, your uploaded Digilocker documents will automatically be detected by the system. Regardless of having a N or S in your token number. There is a manual entry procedure after you stand in the queue, where you enter your ARN and Date of Birth. You go back to the token counter and they'll give you a token number.\n6. Make sure to take a seat near the display screen and you'll go through 3 counters (A, B and C). Counter A takes your biometrics (fingerprints) and photo. So, you do not have to bring passport photos, a fresh photo will be taken on site. Counter A is also the place where you can correct all your entered details so don't worry if you've made a mistake on your passport application while applying. Address and document proofs can be changed too. Counter A takes roughly 10 minutes of waiting time as they have 30+ designated areas.\n7. Now the waiting game begins. The same token number will be used for Counter B and C. After you are done with A you will come to a new waiting area inside. Both B and C are displayed on a single screen so pay attention. It may take you 15 minutes or upto an hour depending on the crowd for each of this. It varies.\n8. You could be asked to go from C to A if something doesn't match and you start the process again. Remember to be very patient and alert. Afterall, it's a passport process, the gold standard of identity verification.\n9. Ensure you bring the long Aadhar card with the QR barcode and not the business card sized Aadhar. I saw people being rejected or told to get a printout of their Aadhar. Ensure all your documents are original and uploaded on the site, this is the big difference between a longer and a shorter wait time. Your original documents will be verified twice in B and C.\n10. Once you are done verifying at counter C (Congratulations!) you won't receive any physical acknowledgement receipt, it will automatically update on the passport site (login to see the progress). You will receive SMS alerts of your passport progress. You can head for the exit.\n\nWhile different people may have different experiences, I can't vouch that one agent's behavior would be better than the next. I can vouch for being polite even if they are rude, because ultimately, getting tensed or stressed never solves issues and it only aggravates the entire process.\n\nOnce your application is done. A nearby police station is assigned to you, you can check which one through the passport login. And expect a visit/call from them.\n\nAll the best. It took me 2-3 hours for everything and much of it is simply waiting inside the center. The offices are air conditioned so the waiting time went by quickly since I had music for company. Goodluck.",
+       "evidence": "agent",
+       "date": "2026-05-12",
+       "rating": 5.0,
+       "link": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2pSUWJteGxiSGRSY1VaaWNHOTRXakpXZFhObllVRRAB!2m1!1s0x0:0x6be9b89b9280ab9e!3m1!1s2@1:CAIQACodChtycF9oOjRQbmxlbHdRcUZicG94WjJWdXNnYUE%7C%7C?hl=en",
+       "language": "en",
+       "sample": "query:agent"
+      },
+      {
+       "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2pkbVp6SmlMWE5GVVhvNE5ISmxlWFpvZFY5QlkwRRAB",
+       "text": "Passport Kendra Review\n\nThe place was too crowded, no need to go early to secure first place. The security person will allow you as per reporting time only, 15 minutes before reporting time is sufficient.\n\nImportant: Once you enter you are not allowed to go out. Better to carry your choice of food as the counter serves limited food items and very expensive - sandwich, puff, 2 varieties of juice, samosa and 1 cake item.\n\nInitially, when you go inside you will get token only if all documents are clear. Post that you will have to wait till your turn comes, counter A, B and finally C.\n\nWe can see the token order in tv screens which they have displayed at the waiting area.\n\nCounter A : In this counter itself they would take photo, signature, spellings, address confirmation. Be very vigilant here, once entered it cannot be corrected until you take a fresh appointment and follow all the process. This counter is managed by TCS and they are very quick.\n\nCounter B : To get into this B part itself will take 1 and half hour time, too long to wait. If it is lunch hour, then expect 30mins more delay.\n\nHere they will check all original documents that you had submitted passport on the website or thru agent while getting an appointment.\n\nCounter C: Even this counter would take 1 hour waiting time. For us, this got more delayed because there are only 11 counters but 5 were operational.\n\nThis is the final process for approval of passport & final verification of documents, then Exit.\n\nIf the system goes down or due to unforeseen situation you might spend an entire day here.\n\nBest case: 3 hrs\nWorst case: entire day\n\nOther reasons for delay:\n\n1. Senior citizens are given first priority\n2. Medical reasons could get high priority\n3. If you go as a family, parents and 2 kids for passport renewal or new passport then you can start the children process only when you get the BN number. So, by then there could be 200 members who would have gone ahead of you. Even though you finish the process, you will still have to wait until your children turns come.\n\nImprovement needed:\n1. Streamline process if you go as a family, so that everybody can finish at once and not wait until the other has reached first stage\n2. Seats are very less and people end up standing for hours, including senior citizens\n3. At least have 2 South Indian simple meal (noon) apart from snack items\n4. Photocopy price to be reduced\n5. Additional washroom facility for a crowd of 500 people, not just 1",
+       "evidence": "agent",
+       "date": "2025-07-17",
+       "rating": 2.0,
+       "link": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2pkbVp6SmlMWE5GVVhvNE5ISmxlWFpvZFY5QlkwRRAB!2m1!1s0x0:0x6be9b89b9280ab9e!3m1!1s2@1:CAIQACodChtycF9oOjdmZzJiLXNFUXo4NHJleXZodV9BY0E%7C%7C?hl=en",
+       "language": "en",
+       "sample": "query:agent"
+      }
+     ]
+    },
+    {
+     "category": "delay",
+     "label": "Waits beyond the promised time",
+     "polarity": "problem",
+     "count": 2,
+     "of": 20,
+     "quotes": [
+      {
+       "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2twc1VYQTNUMkpTV0VaZlFVSjNRbGRJT0dWWFdVRRAB",
+       "text": "The previous time completed the process in 30 minutes (as senior citizen) & was expecting the same today.\nWas very disappointed.\nThe process took 1 hour 40 minutes via the senior citizen routing.\nFirstly at the online application stage fresh versus reissue not clear.  Suggest use ' Renewal ' other suitable word.\nAt step 1, getting a token number ( at senior citizen/ infant / Differently abled persons counter - All age group people were there. Two queues were at the same counter, as after first review of application & documents, entry of application no. was needed. So after review, one had to go & get application no. entered in system by a person & return to token counter.\nI spent about 1 hour in this queue though they were only 7 people ahead of me. Delay is due to people getting application no. entry & returning to same counter but in a pararell queue.\nAlso security guard outside had no instructions to allow senior citizens via separate queue to enter the entry waiting room.\nFrom after getting the token no. the process was better with guidance via the tv screen & directed through the 3 step process.\nThe token counter needs a rethink of the process & counter assistant to be given detailed process to be followed.\nThis will streamline the process. Also will ensure a cycle time if about 30 minutes for senior citizens.\nRegards.",
+       "evidence": "Delay",
+       "date": "2026-09-30",
+       "rating": 2.0,
+       "link": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2twc1VYQTNUMkpTV0VaZlFVSjNRbGRJT0dWWFdVRRAB!2m1!1s0x0:0x6be9b89b9280ab9e!3m1!1s2@1:CAIQACodChtycF9oOkpsUXA3T2JSWEZfQUJ3QldIOGVXWUE%7C%7C?hl=en",
+       "language": "en",
+       "sample": "newest"
+      },
+      {
+       "review_id": "Ci9DQUlRQUNvZENodHljRjlvT21OWE0wdE1abXBVYkVkWVMyTXhSRmhKVUdoVmJHYxAB",
+       "text": "The queuing system at this facility is poorly organized 👎, causing considerable delays. The limited food options provided are also unsatisfactory 🍔. These deficiencies significantly diminish the overall experience, often requiring a full day for completion 👎. My visit was inefficient and disappointing 😔.",
+       "evidence": "delays",
+       "date": "2026-09-29",
+       "rating": 2.0,
+       "link": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT21OWE0wdE1abXBVYkVkWVMyTXhSRmhKVUdoVmJHYxAB!2m1!1s0x0:0x6be9b89b9280ab9e!3m1!1s2@1:CAIQACodChtycF9oOmNXM0tMZmpUbEdYS2MxRFhJUGhVbGc%7C%7C?hl=en",
+       "language": "en",
+       "sample": "newest"
+      },
+      {
+       "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2kwNVdXWmxUMGhXZUZKVU5ESXpRVlp6WVZscFQyYxAB",
+       "text": "Severe overcrowding: Around 100 people were packed into the first verification area, with only fans and poor ventilation. The situation was suffocating, especially for seniors and children.\n\nDocument advisory mismatch: The online document advisory does not match the actual requirements. I was sent back three times for different photocopies/forms, each time waiting 30–40 minutes in the queue.\n\nUnnecessary additional process: The newly introduced kiosk requires another manual entry, followed by yet another queue for the token, adding to the confusion and delays.\n\nExcessive waiting: I spent nearly 2½ hours dealing with verification, documents and token queues before reaching the actual processing counters.\n\nPoor seating: With the huge rush, there were hardly any vacant chairs. At Counter C, I had to stand for nearly 30 minutes as no chair was available, even though seating should be prioritised for seniors and persons with disabilities.\nUnequal AC facilities: Air conditioning was excellent in the officials’ area but inadequate in the customer waiting areas.\n\nStaff coordination: Staff guidance was inconsistent and lacked courtesy. Applicants should be given complete and accurate information at the first verification itself. They didn't give chair and staff told me if you find any empty one pull it!\n\nOverall: The process is poorly coordinated and unnecessarily time-consuming. Tirupati Passport Seva Kendra is far better managed. The SOPs, document advisory and actual requirements need to be aligned urgently.",
+       "evidence": "delays",
+       "date": "2026-08-19",
+       "rating": 1.0,
+       "link": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2kwNVdXWmxUMGhXZUZKVU5ESXpRVlp6WVZscFQyYxAB!2m1!1s0x0:0x6be9b89b9280ab9e!3m1!1s2@1:CAIQACodChtycF9oOi05WWZlT0hWeFJUNDIzQVZzYVlpT2c%7C%7C?hl=en",
+       "language": "en",
+       "sample": "query:verification"
+      }
+     ]
+    },
+    {
+     "category": "staff",
+     "label": "Staff absent, rude or unhelpful",
+     "polarity": "problem",
+     "count": 2,
+     "of": 20,
+     "quotes": [
+      {
+       "review_id": "Ci9DQUlRQUNvZENodHljRjlvT25RelRXMUJZMlYxYVc5a2NuTnZiRXMzVEZNdFZtYxAB",
+       "text": "Pathetic. Useless token system with unprofessional guys sitting at the token desk to demean people. No clear instructions provided. Randomly asking for Tatkaal form which was not intimated before - form of a corrupt practice to force us to use the printing shop inside.\n\nSpent 4 hours even to get infant’s process done with both parents having passports and by being on Tatkaal scheme.",
+       "evidence": "unprofessional",
+       "date": "2026-10-06",
+       "rating": 1.0,
+       "link": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT25RelRXMUJZMlYxYVc5a2NuTnZiRXMzVEZNdFZtYxAB!2m1!1s0x0:0x6be9b89b9280ab9e!3m1!1s2@1:CAIQACodChtycF9oOnQzTW1BY2V1aW9kcnNvbEs3TFMtVmc%7C%7C?hl=en-US",
+       "language": "en",
+       "sample": "newest"
+      },
+      {
+       "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2xkM1FsRlZhelk0VnpGcWNGRjVaMjloZW1rM1QwRRAB",
+       "text": "Worst service and rude staffs.\n\nWe came here for passport renewal verification. Our slot was at 11:30am. We reached before 11am. They asked us to wait there. There was a long queue. They were calling for 10:30 slot batches at 11:40 only. We were allowed only at 1pm. And then they took 3hrs 30mins to process.\nThey simply said there is a server error for whole day.\nThe staffs working inside are so rude with applicants.",
+       "evidence": "rude",
+       "date": "2026-10-05",
+       "rating": 1.0,
+       "link": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2xkM1FsRlZhelk0VnpGcWNGRjVaMjloZW1rM1QwRRAB!2m1!1s0x0:0x6be9b89b9280ab9e!3m1!1s2@1:CAIQACodChtycF9oOld3QlFVazY4VzFqcFF5Z29hemk3T0E%7C%7C?hl=en-US",
+       "language": "en",
+       "sample": "newest"
+      },
+      {
+       "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2pkRGJVOU9SM05OU0dsalptZDZMV2RqVW1OM2FYYxAB",
+       "text": "Had worst experience with staff\nHad rental agreement with owners signature original documents\nSaying that is not valid, need owner's aadhaar and PAN or else wifi bill/gas bill\nHad wifi bill at phone. Told them can take print out but not allowing outside, telling to reschedule it, that's not permitted. They can simply take printout if they need as I had all other documents\n\nWorst staff. No one helpful there. Best take as many documents and original proofs before attending for appointment",
+       "evidence": "Worst staff",
+       "date": "2026-07-01",
+       "rating": 1.0,
+       "link": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2pkRGJVOU9SM05OU0dsalptZDZMV2RqVW1OM2FYYxAB!2m1!1s0x0:0x6be9b89b9280ab9e!3m1!1s2@1:CAIQACodChtycF9oOjdDbU9OR3NNSGljZmd6LWdjUmN3aXc%7C%7C?hl=en",
+       "language": "en",
+       "sample": "query:phone"
+      }
+     ]
+    },
+    {
+     "category": "portal",
+     "label": "Portal, server or website failures",
+     "polarity": "problem",
+     "count": 1,
+     "of": 20,
+     "quotes": [
+      {
+       "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2xkM1FsRlZhelk0VnpGcWNGRjVaMjloZW1rM1QwRRAB",
+       "text": "Worst service and rude staffs.\n\nWe came here for passport renewal verification. Our slot was at 11:30am. We reached before 11am. They asked us to wait there. There was a long queue. They were calling for 10:30 slot batches at 11:40 only. We were allowed only at 1pm. And then they took 3hrs 30mins to process.\nThey simply said there is a server error for whole day.\nThe staffs working inside are so rude with applicants.",
+       "evidence": "server error",
+       "date": "2026-10-05",
+       "rating": 1.0,
+       "link": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2xkM1FsRlZhelk0VnpGcWNGRjVaMjloZW1rM1QwRRAB!2m1!1s0x0:0x6be9b89b9280ab9e!3m1!1s2@1:CAIQACodChtycF9oOld3QlFVazY4VzFqcFF5Z29hemk3T0E%7C%7C?hl=en-US",
+       "language": "en",
+       "sample": "newest"
+      }
+     ]
+    },
+    {
+     "category": "closed",
+     "label": "Closed or not keeping its hours",
+     "polarity": "problem",
+     "count": 0,
+     "of": 20,
+     "quotes": []
+    },
+    {
+     "category": "queue",
+     "label": "Long queues and waiting",
+     "polarity": "problem",
+     "count": 4,
+     "of": 20,
+     "quotes": [
+      {
+       "review_id": "Ci9DQUlRQUNvZENodHljRjlvT25RelRXMUJZMlYxYVc5a2NuTnZiRXMzVEZNdFZtYxAB",
+       "text": "Pathetic. Useless token system with unprofessional guys sitting at the token desk to demean people. No clear instructions provided. Randomly asking for Tatkaal form which was not intimated before - form of a corrupt practice to force us to use the printing shop inside.\n\nSpent 4 hours even to get infant’s process done with both parents having passports and by being on Tatkaal scheme.",
+       "evidence": "Spent 4 hours",
+       "date": "2026-10-06",
+       "rating": 1.0,
+       "link": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT25RelRXMUJZMlYxYVc5a2NuTnZiRXMzVEZNdFZtYxAB!2m1!1s0x0:0x6be9b89b9280ab9e!3m1!1s2@1:CAIQACodChtycF9oOnQzTW1BY2V1aW9kcnNvbEs3TFMtVmc%7C%7C?hl=en-US",
+       "language": "en",
+       "sample": "newest"
+      },
+      {
+       "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2xkM1FsRlZhelk0VnpGcWNGRjVaMjloZW1rM1QwRRAB",
+       "text": "Worst service and rude staffs.\n\nWe came here for passport renewal verification. Our slot was at 11:30am. We reached before 11am. They asked us to wait there. There was a long queue. They were calling for 10:30 slot batches at 11:40 only. We were allowed only at 1pm. And then they took 3hrs 30mins to process.\nThey simply said there is a server error for whole day.\nThe staffs working inside are so rude with applicants.",
+       "evidence": "long queue",
+       "date": "2026-10-05",
+       "rating": 1.0,
+       "link": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2xkM1FsRlZhelk0VnpGcWNGRjVaMjloZW1rM1QwRRAB!2m1!1s0x0:0x6be9b89b9280ab9e!3m1!1s2@1:CAIQACodChtycF9oOld3QlFVazY4VzFqcFF5Z29hemk3T0E%7C%7C?hl=en-US",
+       "language": "en",
+       "sample": "newest"
+      },
+      {
+       "review_id": "Ci9DQUlRQUNvZENodHljRjlvT25oR1R6ZHJWR0Z0YkZOWlZXeG5SWE5XUzJWTmJsRRAB",
+       "text": "It's good! But always crowded! It took me 4 hours to complete the verification!\n\nThey haven't mentioned about manual verification step before going to different zones and getting a ticket!\n\nNo proper sign board where to start!\n\nI took tatkal ! So go to dedicated place to check you have bought all documents and manual verification of aadhar card and ARN number then generate token !\n\nAnd go to different zones!",
+       "evidence": "always crowded",
+       "date": "2026-10-04",
+       "rating": 3.0,
+       "link": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT25oR1R6ZHJWR0Z0YkZOWlZXeG5SWE5XUzJWTmJsRRAB!2m1!1s0x0:0x6be9b89b9280ab9e!3m1!1s2@1:CAIQACodChtycF9oOnhGTzdrVGFtbFNZVWxnRXNWS2VNblE%7C%7C?hl=en",
+       "language": "en",
+       "sample": "newest"
+      }
+     ]
+    },
+    {
+     "category": "helpful",
+     "label": "Helpful, quick service",
+     "polarity": "positive",
+     "count": 3,
+     "of": 20,
+     "quotes": [
+      {
+       "review_id": "Ci9DQUlRQUNvZENodHljRjlvT210R09IVnZWR0V6WjIxZmRGSXpNMDFIWW14SVoyYxAB",
+       "text": "excellent the flow of process is very good except for manual entry section where we have to go one step back",
+       "evidence": "excellent",
+       "date": "2026-10-04",
+       "rating": 5.0,
+       "link": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT210R09IVnZWR0V6WjIxZmRGSXpNMDFIWW14SVoyYxAB!2m1!1s0x0:0x6be9b89b9280ab9e!3m1!1s2@1:CAIQACodChtycF9oOmtGOHVvVGEzZ21fdFIzM01HYmxIZ2c%7C%7C?hl=en",
+       "language": "en",
+       "sample": "newest"
+      },
+      {
+       "review_id": "Ci9DQUlRQUNvZENodHljRjlvT25ab1MzUkljM0ZWT0VoamEwVllhMlp0WlhrMGNHYxAB",
+       "text": "Good service",
+       "evidence": "Good service",
+       "date": "2026-10-04",
+       "rating": 5.0,
+       "link": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT25ab1MzUkljM0ZWT0VoamEwVllhMlp0WlhrMGNHYxAB!2m1!1s0x0:0x6be9b89b9280ab9e!3m1!1s2@1:CAIQACodChtycF9oOnZoS3RIc3FVOEhja0VYa2ZtZXk0cGc%7C%7C?hl=en",
+       "language": "en",
+       "sample": "newest"
+      },
+      {
+       "review_id": "Ci9DQUlRQUNvZENodHljRjlvT25kaGNGSjRPWE5mV1RWc1JVdFhSRVZhYXpCbE1XYxAB",
+       "text": "Went with our child (under 4) for a fresh passport and were pleasantly surprised. Minors are given priority like senior citizens, and the staff kindly allowed both of us parents in. The priority queue moved quickly through counters A, B and C, and we were in and out in about 30 minutes. Really thankful. Kudos to the staff at PSK Lalbagh for making it so smooth for families with little kids! ⭐⭐⭐⭐⭐",
+       "evidence": "smooth",
+       "date": "2026-09-29",
+       "rating": 5.0,
+       "link": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT25kaGNGSjRPWE5mV1RWc1JVdFhSRVZhYXpCbE1XYxAB!2m1!1s0x0:0x6be9b89b9280ab9e!3m1!1s2@1:CAIQACodChtycF9oOndhcFJ4OXNfWTVsRUtXREVaazBlMWc%7C%7C?hl=en",
+       "language": "en",
+       "sample": "newest"
+      }
+     ]
+    }
+   ],
+   "breaches": [],
+   "agent_waits": [],
+   "older_breaches": 0,
+   "ai_overview": null,
+   "ai_mode": {
+    "text": "The contact details for the Passport Seva Kendra (PSK) at Lalbagh Road, Bengaluru are listed below:\nLandline Phone Number: 080-22117711\nNational Toll-Free Helpline: 1800-258-1800 (Official Passport Seva Portal support)\nAddress: No. 45, Prestige Libra, Lalbagh Main Road (Near Urvashi Theatre), Sudhama Nagar, Bengaluru, Karnataka - 560027\nWould you like assistance with booking an appointment, checking document requirements, or finding the status of your application?",
+    "first_number": {
+     "phone": "+918022117711",
+     "display": "080 2211 7711",
+     "kind": "landline",
+     "surface": "ai_mode",
+     "source": "AI Mode",
+     "verdict": "this office",
+     "detail": "in the official directory for this office"
+    },
+    "searched_on": "2026-10-08",
+    "numbers": [
+     {
+      "phone": "+918022117711",
+      "display": "080 2211 7711",
+      "kind": "landline",
+      "surface": "ai_mode",
+      "source": "AI Mode",
+      "verdict": "this office",
+      "detail": "in the official directory for this office"
+     },
+     {
+      "phone": "+9118002581800",
+      "display": "1800 258 1800",
+      "kind": "toll_free",
+      "surface": "ai_mode",
+      "source": "AI Mode",
+      "verdict": "department helpline",
+      "detail": "a department-wide helpline"
+     }
+    ],
+    "pincodes": [
+     "560027"
+    ],
+    "address_matches": true,
+    "references": [
+     [
+      "Bengaluru",
+      "https://www.passportindia.gov.in/psp/RPO/BengaluruRPO"
+     ],
+     [
+      "Bangalore Passport Office Contact No. - India Customer Care",
+      "https://www.indiacustomercare.com/bagalore-passport-office-address"
+     ],
+     [
+      "Passport Seva Kendra - Bengaluru",
+      "https://www.google.com/searchviewer/10?svid=CAwSGxIZCgNwdnESEkNnc3ZaeTh4ZEhGbWVuTmljdxgK"
+     ]
+    ],
+    "search_id": "6ac76a68a204abf0c69bb753"
+   },
+   "citizen_search": {
+    "query": "Passport Seva Kendra, Lalbagh phone number",
+    "search_id": "6ac76a6131a60125bf1962cc",
+    "numbers": [
+     {
+      "phone": "+9118002581800",
+      "display": "1800 258 1800",
+      "kind": "toll_free",
+      "surface": "knowledge_graph",
+      "source": "Passport Seva Kendra - Bengaluru",
+      "verdict": "department helpline",
+      "detail": "a department-wide helpline"
+     },
+     {
+      "phone": "+9118002581800",
+      "display": "1800 258 1800",
+      "kind": "toll_free",
+      "surface": "snippet",
+      "source": "passportindia.gov.in",
+      "verdict": "department helpline",
+      "detail": "a department-wide helpline"
+     },
+     {
+      "phone": "",
+      "display": "040 6672 0567",
+      "kind": "landline",
+      "surface": "snippet",
+      "source": "passportindia.gov.in",
+      "verdict": "not in the directory",
+      "detail": "not in the official directory"
+     },
+     {
+      "phone": "",
+      "display": "040 6672 0581",
+      "kind": "landline",
+      "surface": "snippet",
+      "source": "passportindia.gov.in",
+      "verdict": "not in the directory",
+      "detail": "not in the official directory"
+     },
+     {
+      "phone": "+918022117711",
+      "display": "080 2211 7711",
+      "kind": "landline",
+      "surface": "snippet",
+      "source": "indiacustomercare.com",
+      "verdict": "this office",
+      "detail": "in the official directory for this office"
+     },
+     {
+      "phone": "+918025639137",
+      "display": "080 2563 9137",
+      "kind": "landline",
+      "surface": "snippet",
+      "source": "indiacustomercare.com",
+      "verdict": "another office",
+      "detail": "the official number of Passport Seva Kendra, Whitefield"
+     },
+     {
+      "phone": "",
+      "display": "0836 235 8738",
+      "kind": "landline",
+      "surface": "snippet",
+      "source": "indiacustomercare.com",
+      "verdict": "not in the directory",
+      "detail": "not in the official directory"
+     },
+     {
+      "phone": "",
+      "display": "011 2338 4497",
+      "kind": "landline",
+      "surface": "snippet",
+      "source": "bankbazaar.com",
+      "verdict": "not in the directory",
+      "detail": "not in the official directory"
+     },
+     {
+      "phone": "",
+      "display": "011 2338 4461",
+      "kind": "landline",
+      "surface": "snippet",
+      "source": "bankbazaar.com",
+      "verdict": "not in the directory",
+      "detail": "not in the official directory"
+     }
+    ]
+   },
+   "bing": {
+    "found": true,
+    "title": "Passport Seva Kendra - Bengaluru",
+    "how": "2 m from its Google Maps listing",
+    "search_id": "6ac76b35ac176503d3512522",
+    "query": "Passport Seva Kendra, Lalbagh",
+    "phone_display": "1800 258 1800",
+    "phone_verdict": "department helpline"
+   },
+   "trail": [
+    {
+     "engine": "google_maps",
+     "purpose": "Maps search for this office: \"Passport Seva Kendra, Lalbagh, Bengaluru\"",
+     "search_id": "6ac76a1a3047f32a1dd879a7",
+     "searched_at": "2026-10-08 10:02 UTC"
+    },
+    {
+     "engine": "google_maps_reviews",
+     "purpose": "Newest reviews of its listing",
+     "search_id": "6ac76a25a26f564e09c1bb01",
+     "searched_at": "2026-10-08 10:02 UTC"
+    },
+    {
+     "engine": "google_maps_reviews",
+     "purpose": "Newest reviews of its listing, next page",
+     "search_id": "6ac76a26acb3e421f36faf95",
+     "searched_at": "2026-10-08 10:02 UTC"
+    },
+    {
+     "engine": "google_maps_reviews",
+     "purpose": "Reviews of its listing mentioning \"phone\"",
+     "search_id": "6ac76a273a92066cb734fd82",
+     "searched_at": "2026-10-08 10:02 UTC"
+    },
+    {
+     "engine": "google_maps_reviews",
+     "purpose": "Reviews of its listing mentioning \"agent\"",
+     "search_id": "6ac76a28ae39f39b0f9e728c",
+     "searched_at": "2026-10-08 10:02 UTC"
+    },
+    {
+     "engine": "google_maps_reviews",
+     "purpose": "Reviews of its listing mentioning \"verification\"",
+     "search_id": "6ac76a29b333ee29f147278d",
+     "searched_at": "2026-10-08 10:02 UTC"
+    },
+    {
+     "engine": "google",
+     "purpose": "Google Search, as a citizen: \"Passport Seva Kendra, Lalbagh phone number\"",
+     "search_id": "6ac76a6131a60125bf1962cc",
+     "searched_at": "2026-10-08 10:03 UTC"
+    },
+    {
+     "engine": "google_ai_mode",
+     "purpose": "The same question in Google's AI Mode",
+     "search_id": "6ac76a68a204abf0c69bb753",
+     "searched_at": "2026-10-08 10:03 UTC"
+    },
+    {
+     "engine": "bing_maps",
+     "purpose": "Bing Maps, the same office: \"Passport Seva Kendra, Lalbagh\"",
+     "search_id": "6ac76b35ac176503d3512522",
+     "searched_at": "2026-10-08 10:06 UTC"
+    }
+   ],
+   "busy": null
+  },
+  {
+   "id": "psk-whitefield",
+   "code": "",
+   "name": "Passport Seva Kendra, Whitefield",
+   "display_name": "Passport Seva Kendra, Whitefield",
+   "office_type": "passport",
+   "aliases": [
+    "Whitefield",
+    "Sai Arcade",
+    "Marathahalli"
+   ],
+   "kind": "PSK",
+   "address": "GM Tech Park, No. 116, Road No. 3, EPIP Zone, Whitefield, Bengaluru 560066",
+   "pincode": "560066",
+   "email": "rpo.bangalore@mea.gov.in",
+   "source_url": "https://www.passportindia.gov.in/psp/RPO/RPOPSK",
+   "notes": [
+    "Replaced PSK Sai Arcade (Marathahalli) from 5 October 2026. Its Google listing has reviews from before then (from 22 September), and they are included in its review sample."
+   ],
+   "official_phones": [
+    {
+     "display": "080 2563 9137",
+     "label": "landline",
+     "tel": "+918025639137"
+    }
+   ],
+   "listing": {
+    "data_id": "0x3bae11000c630585:0xd8a525a4777999de",
+    "place_id": "ChIJhQVjDAARrjsR3pl5d6Qlpdg",
+    "title": "Passport Seva Kendra - Whitefield",
+    "address": "Shailendra Techpark 116, Rd Number 3, Vijayanagar, KIADB Export Promotion Industrial Area, Whitefield, Bengaluru, Karnataka 560066",
+    "website": "",
+    "rating": 3.1,
+    "reviews": 25,
+    "category": "Government office",
+    "has_hours": false,
+    "unclaimed": true,
+    "lat": 12.978505499999999,
+    "lng": 77.7249673,
+    "found_by": "Passport Seva Kendra",
+    "search_id": "6ac769e0f73581a08d4c4607",
+    "match": {
+     "office_id": "psk-whitefield",
+     "evidence": [
+      "pin",
+      "title"
+     ],
+     "reasons": [
+      "same PIN 560066",
+      "title mentions Whitefield"
+     ],
+     "role": "office"
+    },
+    "maps_url": "https://www.google.com/maps/place/?q=place_id:ChIJhQVjDAARrjsR3pl5d6Qlpdg"
+   },
+   "other_listings": [
+    {
+     "title": "Sai Arcade Passport Office Parking (Employees only)",
+     "role": "facility",
+     "reviews": 151,
+     "unclaimed": true,
+     "phone_display": "",
+     "maps_url": "https://www.google.com/maps/place/?q=place_id:ChIJ5WwlcQATrjsRAb8duMqb6Aw",
+     "reasons": [
+      "title mentions Sai Arcade"
+     ]
+    }
+   ],
+   "reach": {
+    "score": 0,
+    "basis": "4 of 6 checks",
+    "checks": [
+     {
+      "id": "phone",
+      "label": "Google Maps shows a phone number",
+      "max_points": 25,
+      "passed": false,
+      "detail": "No phone on the listing citizens find first.",
+      "points": 0
+     },
+     {
+      "id": "own_number",
+      "label": "The number shown is the office's own",
+      "max_points": 20,
+      "passed": null,
+      "detail": "No number shown to check.",
+      "points": 0
+     },
+     {
+      "id": "website",
+      "label": "Links to a government website",
+      "max_points": 10,
+      "passed": false,
+      "detail": "No website on the listing.",
+      "points": 0
+     },
+     {
+      "id": "hours",
+      "label": "Shows opening hours",
+      "max_points": 10,
+      "passed": false,
+      "detail": "No hours on the listing.",
+      "points": 0
+     },
+     {
+      "id": "claimed",
+      "label": "Managed by its owner on Google",
+      "max_points": 10,
+      "passed": false,
+      "detail": "Google marks it unclaimed: no verified owner manages the listing.",
+      "points": 0
+     },
+     {
+      "id": "gets_through",
+      "label": "No review in the last 2 years reports failing to get through by phone",
+      "max_points": 25,
+      "passed": null,
+      "detail": "0 reviews mention phones or calls (at least 3 needed to pass).",
+      "points": 0
+     }
+    ]
+   },
+   "sample_size": 22,
+   "window_reviews": 15,
+   "span": [
+    "2026-09-22",
+    "2026-10-08"
+   ],
+   "enough_evidence": true,
+   "problem_reviews": 5,
+   "positive_reviews": 1,
+   "sampled": true,
+   "searched_individually": true,
+   "citizen_checked": true,
+   "issues": [
+    {
+     "category": "unreachable",
+     "label": "Can't reach them by phone",
+     "polarity": "problem",
+     "count": 0,
+     "of": 15,
+     "quotes": []
+    },
+    {
+     "category": "bribe",
+     "label": "Bribe demanded or paid",
+     "polarity": "problem",
+     "count": 0,
+     "of": 15,
+     "quotes": []
+    },
+    {
+     "category": "tout",
+     "label": "Agents or brokers involved",
+     "polarity": "problem",
+     "count": 0,
+     "of": 15,
+     "quotes": []
+    },
+    {
+     "category": "delay",
+     "label": "Waits beyond the promised time",
+     "polarity": "problem",
+     "count": 1,
+     "of": 15,
+     "quotes": [
+      {
+       "review_id": "Ci9DQUlRQUNvZENodHljRjlvT25oS2VrWldiakY1Y1ZsaGVUQkxYelo2U2w5c2QyYxAB",
+       "text": "Very bad experience. It took more than 4hours for the whole process to finish. There are very few people in B and C counters which delays the overall process. Think it of as a whole day activity if you are coming here",
+       "evidence": "delays",
+       "date": "2026-10-06",
+       "rating": 1.0,
+       "link": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT25oS2VrWldiakY1Y1ZsaGVUQkxYelo2U2w5c2QyYxAB!2m1!1s0x0:0xd8a525a4777999de!3m1!1s2@1:CAIQACodChtycF9oOnhKekZWbjF5cVlheTBLXzZ6Sl9sd2c%7C%7C?hl=en",
+       "language": "en",
+       "sample": "newest"
+      }
+     ]
+    },
+    {
+     "category": "staff",
+     "label": "Staff absent, rude or unhelpful",
+     "polarity": "problem",
+     "count": 2,
+     "of": 15,
+     "quotes": [
+      {
+       "review_id": "Ci9DQUlRQUNvZENodHljRjlvT25oUlduUk9TbmwyT1ZWdE56WnRRalZVYlZkSGVsRRAB",
+       "text": "Worst experience ever. I had booked for an appointment in Marathahalli but I got a message that my appointment location has changed to Whitefield. I reached a bit early, but there was no waiting area, so I had to wait outside in the hot sun.  There was no one to guide or proper signboards to go to counter they mentioned at the gate.  It took over 3 hours for the re-issue of my passport, despite there being no issues with my documents. While we were waiting, there weren’t enough seats for everyone. The A and B counters went smoothly, but the C counter had only 4 people, and it kept moving very slowly. There were also babies who were made to wait for long hours. I always thought they were supposed to be given priority. utter chaos",
+       "evidence": "no one to guide",
+       "date": "2026-10-07",
+       "rating": 1.0,
+       "link": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT25oUlduUk9TbmwyT1ZWdE56WnRRalZVYlZkSGVsRRAB!2m1!1s0x0:0xd8a525a4777999de!3m1!1s2@1:CAIQACodChtycF9oOnhRWnROSnl2OVVtNzZtQjVUbVdHelE%7C%7C?hl=en-US",
+       "language": "en",
+       "sample": "newest"
+      },
+      {
+       "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2tsS1RHUjBSRTFQTFdRMlZUaHJjV2h2YTJkMVJsRRAB",
+       "text": "Rude staff. Not at all helpfull. They have no idea what their job is. There was chaos in the office. Took four hours for them to tell me photocopy of rent agreement is not valid and asked me to come the next day .very very mismanaged",
+       "evidence": "Rude",
+       "date": "2026-10-06",
+       "rating": 1.0,
+       "link": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2tsS1RHUjBSRTFQTFdRMlZUaHJjV2h2YTJkMVJsRRAB!2m1!1s0x0:0xd8a525a4777999de!3m1!1s2@1:CAIQACodChtycF9oOklKTGR0RE1PLWQ2VThrcWhva2d1RlE%7C%7C?hl=en",
+       "language": "en",
+       "sample": "newest"
+      }
+     ]
+    },
+    {
+     "category": "portal",
+     "label": "Portal, server or website failures",
+     "polarity": "problem",
+     "count": 0,
+     "of": 15,
+     "quotes": []
+    },
+    {
+     "category": "closed",
+     "label": "Closed or not keeping its hours",
+     "polarity": "problem",
+     "count": 0,
+     "of": 15,
+     "quotes": []
+    },
+    {
+     "category": "queue",
+     "label": "Long queues and waiting",
+     "polarity": "problem",
+     "count": 5,
+     "of": 15,
+     "quotes": [
+      {
+       "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2taMU5VZzJiRTlaUm10VU5rZFBUMVZrV0hrMk5tYxAB",
+       "text": "Firstly, the parking for four wheelers is very limited. You may end up parking on the road itself. The office is pretty close to the Nallurhalli metro station.\n\nIt's a new facility and there are a lot of teething issues. The security staff and staff at the token counter need to more clear with instructions. Once you enter the premises, please join the queue based on your appointment type to get your documents verified. Once verified, you are asked to register at the kiosk. Kindly use your ARN No to register and head back to the counter for getting your token assigned.\n\nThe A counters are plenty and expect things to complete pretty soon. The B & C counters took a bit longer as we opted for the normal passport type. The Sr [name] and Tatkal were prioritised more.\n\nRequesting the team to have atleast one counter marked for the Normal passport applicants. In total, took around 2 Hours and 15 minutes.",
+       "evidence": "took around 2 Hours",
+       "date": "2026-10-07",
+       "rating": 3.0,
+       "link": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2taMU5VZzJiRTlaUm10VU5rZFBUMVZrV0hrMk5tYxAB!2m1!1s0x0:0xd8a525a4777999de!3m1!1s2@1:CAIQACodChtycF9oOkZ1NUg2bE9ZRmtUNkdPT1VkWHk2Nmc%7C%7C?hl=en-US",
+       "language": "en",
+       "sample": "newest"
+      },
+      {
+       "review_id": "Ci9DQUlRQUNvZENodHljRjlvT25oUlduUk9TbmwyT1ZWdE56WnRRalZVYlZkSGVsRRAB",
+       "text": "Worst experience ever. I had booked for an appointment in Marathahalli but I got a message that my appointment location has changed to Whitefield. I reached a bit early, but there was no waiting area, so I had to wait outside in the hot sun.  There was no one to guide or proper signboards to go to counter they mentioned at the gate.  It took over 3 hours for the re-issue of my passport, despite there being no issues with my documents. While we were waiting, there weren’t enough seats for everyone. The A and B counters went smoothly, but the C counter had only 4 people, and it kept moving very slowly. There were also babies who were made to wait for long hours. I always thought they were supposed to be given priority. utter chaos",
+       "evidence": "took over 3 hours",
+       "date": "2026-10-07",
+       "rating": 1.0,
+       "link": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT25oUlduUk9TbmwyT1ZWdE56WnRRalZVYlZkSGVsRRAB!2m1!1s0x0:0xd8a525a4777999de!3m1!1s2@1:CAIQACodChtycF9oOnhRWnROSnl2OVVtNzZtQjVUbVdHelE%7C%7C?hl=en-US",
+       "language": "en",
+       "sample": "newest"
+      },
+      {
+       "review_id": "Ci9DQUlRQUNvZENodHljRjlvT25CV2VYcFJWemsyTW13MVdHc3lSakZFTXpOWWMwRRAB",
+       "text": "I guess it is a new center, applied via Tatkal mode and just stuck at Counter C. Fewer people to manage, overall process took 4 hours, which was horrible. There were people with kids and all of us were stuck. Processes need to be much better.",
+       "evidence": "took 4 hours",
+       "date": "2026-10-07",
+       "rating": 2.0,
+       "link": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT25CV2VYcFJWemsyTW13MVdHc3lSakZFTXpOWWMwRRAB!2m1!1s0x0:0xd8a525a4777999de!3m1!1s2@1:CAIQACodChtycF9oOnBWeXpRVzk2Mmw1WGsyRjFEMzNYc0E%7C%7C?hl=en",
+       "language": "en",
+       "sample": "newest"
+      }
+     ]
+    },
+    {
+     "category": "helpful",
+     "label": "Helpful, quick service",
+     "polarity": "positive",
+     "count": 1,
+     "of": 15,
+     "quotes": [
+      {
+       "review_id": "Ci9DQUlRQUNvZENodHljRjlvT25WUmRsOURiRXN4VjNKcGRETXpjVmxXVW1JeVlWRRAB",
+       "text": "Fast and efficient",
+       "evidence": "efficient",
+       "date": "2026-10-05",
+       "rating": 5.0,
+       "link": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT25WUmRsOURiRXN4VjNKcGRETXpjVmxXVW1JeVlWRRAB!2m1!1s0x0:0xd8a525a4777999de!3m1!1s2@1:CAIQACodChtycF9oOnVRdl9DbEsxV3JpdDMzcVlWUmIyYVE%7C%7C?hl=en",
+       "language": "en",
+       "sample": "newest"
+      }
+     ]
+    }
+   ],
+   "breaches": [],
+   "agent_waits": [],
+   "older_breaches": 0,
+   "ai_overview": {
+    "text": "The central helpline number for the Passport Seva Kendra is 1800-258-1800, as direct local branch numbers for individual Passport Seva Kendra (PSK) centers are not publicly assigned or maintained.\nPassport Seva Kendra - Whitefield Details\nNew Address: GM Tech Park, No. 116, Road No. 3, Near Nallurhalli Metro Station, EPIP Zone, Whitefield, Bengaluru – 560066 (shifted from Sai Arcade starting October 5, 2026) .\nNational Call Centre / Helpline: 1800-258-1800 (available for general inquiries, tracking, and lodging grievances).\nOfficial Website: Passport Seva\nIf you need help with booking an appointment, checking document requirements, or finding a different Kendra in Bengaluru, let me know!",
+    "first_number": {
+     "phone": "+9118002581800",
+     "display": "1800 258 1800",
+     "kind": "toll_free",
+     "surface": "ai_overview",
+     "source": "AI Overview",
+     "verdict": "department helpline",
+     "detail": "a department-wide helpline"
+    },
+    "searched_on": "2026-10-08",
+    "numbers": [
+     {
+      "phone": "+9118002581800",
+      "display": "1800 258 1800",
+      "kind": "toll_free",
+      "surface": "ai_overview",
+      "source": "AI Overview",
+      "verdict": "department helpline",
+      "detail": "a department-wide helpline"
+     }
+    ],
+    "pincodes": [
+     "560066"
+    ],
+    "address_matches": true,
+    "references": [
+     [
+      "Call Centre / Helpdesk - Passport Seva",
+      "https://www.passportindia.gov.in/psp/FaqCallCentre"
+     ],
+     [
+      "Passport Seva Kendra, GM Tech Park 📍 No. 116, Road ...",
+      "https://www.instagram.com/reel/DeGgbMCh1TR/"
+     ],
+     [
+      "A post on instagram.com",
+      "https://www.instagram.com/reel/DeHoodZTeE0/"
+     ]
+    ],
+    "search_id": "6ac76b4c368070e0d7b87dc9",
+    "query": "Passport Seva Kendra, Whitefield phone number",
+    "repeats_listing_number": false
+   },
+   "ai_mode": {
+    "text": "The Passport Seva Kendra (PSK) in Whitefield does not have a direct publicly listed local phone number for the individual center. Instead, all inquiries, appointments, and support are handled through the central national toll-free helpline managed by the Ministry of External Affairs.\nNational Toll-Free Helpline: Call 1800-258-1800 (Available on the Passport Seva Contact Us page).\nRegional Passport Office (RPO) Bengaluru Contact: For escalated queries or grievances, you can contact the Koramangala office at 080-25706100, 080-25706101, or 080-25706102, or via email at rpo.bangalore@mea.gov.in.\nNew Location Note:\nIf you are visiting physically, note that PSK Whitefield operates at its new address: GM Tech Park, No. 116, Road No. 3, Near Nallurhalli Metro Station, EPIP Zone, Whitefield, Bengaluru 560066.\nWould you like help with booking an appointment, checking the status of your application, or finding the list of required documents?",
+    "first_number": {
+     "phone": "+9118002581800",
+     "display": "1800 258 1800",
+     "kind": "toll_free",
+     "surface": "ai_mode",
+     "source": "AI Mode",
+     "verdict": "department helpline",
+     "detail": "a department-wide helpline"
+    },
+    "searched_on": "2026-10-08",
+    "numbers": [
+     {
+      "phone": "+9118002581800",
+      "display": "1800 258 1800",
+      "kind": "toll_free",
+      "surface": "ai_mode",
+      "source": "AI Mode",
+      "verdict": "department helpline",
+      "detail": "a department-wide helpline"
+     },
+     {
+      "phone": "+918025706100",
+      "display": "080 2570 6100",
+      "kind": "landline",
+      "surface": "ai_mode",
+      "source": "AI Mode",
+      "verdict": "regional office",
+      "detail": "the official number of Regional Passport Office, Bengaluru, which runs this centre"
+     },
+     {
+      "phone": "+918025706101",
+      "display": "080 2570 6101",
+      "kind": "landline",
+      "surface": "ai_mode",
+      "source": "AI Mode",
+      "verdict": "regional office",
+      "detail": "the official number of Regional Passport Office, Bengaluru, which runs this centre"
+     },
+     {
+      "phone": "+918025706102",
+      "display": "080 2570 6102",
+      "kind": "landline",
+      "surface": "ai_mode",
+      "source": "AI Mode",
+      "verdict": "regional office",
+      "detail": "the official number of Regional Passport Office, Bengaluru, which runs this centre"
+     }
+    ],
+    "pincodes": [
+     "560066"
+    ],
+    "address_matches": true,
+    "references": [
+     [
+      "Contact Us - Passport Seva",
+      "https://www.passportindia.gov.in/psp/contactUs"
+     ],
+     [
+      "Bangalore Passport Office Contact No.",
+      "https://www.indiacustomercare.com/bagalore-passport-office-address"
+     ]
+    ],
+    "search_id": "6ac76b5ce3e176fe5a9b5ed2"
+   },
+   "citizen_search": {
+    "query": "Passport Seva Kendra, Whitefield phone number",
+    "search_id": "6ac76b4c368070e0d7b87dc9",
+    "numbers": []
+   },
+   "bing": {
+    "found": false,
+    "title": "",
+    "how": "",
+    "search_id": "6ac76b36256086203299d897",
+    "query": "Passport Seva Kendra, Whitefield",
+    "phone_display": "",
+    "phone_verdict": null
+   },
+   "trail": [
+    {
+     "engine": "google_maps",
+     "purpose": "Maps search for this office: \"Passport Seva Kendra, Whitefield, Bengaluru\"",
+     "search_id": "6ac76a1b2b15b9bdd56124ea",
+     "searched_at": "2026-10-08 10:02 UTC"
+    },
+    {
+     "engine": "google_maps_reviews",
+     "purpose": "Newest reviews of its listing",
+     "search_id": "6ac76a2b41ffc853dc4bdb75",
+     "searched_at": "2026-10-08 10:02 UTC"
+    },
+    {
+     "engine": "google_maps_reviews",
+     "purpose": "Newest reviews of its listing, next page",
+     "search_id": "6ac76a2cd649a90db9c133b0",
+     "searched_at": "2026-10-08 10:02 UTC"
+    },
+    {
+     "engine": "google_maps_reviews",
+     "purpose": "Reviews of its listing mentioning \"phone\"",
+     "search_id": "6ac76a2e2ddc432b146c4ac2",
+     "searched_at": "2026-10-08 10:02 UTC"
+    },
+    {
+     "engine": "google_maps_reviews",
+     "purpose": "Reviews of its listing mentioning \"agent\"",
+     "search_id": "6ac76a2e55ba65b52487dc3e",
+     "searched_at": "2026-10-08 10:02 UTC"
+    },
+    {
+     "engine": "google_maps_reviews",
+     "purpose": "Reviews of its listing mentioning \"verification\"",
+     "search_id": "6ac76a30b7ff9da01975a83c",
+     "searched_at": "2026-10-08 10:02 UTC"
+    },
+    {
+     "engine": "google_maps_reviews",
+     "purpose": "Newest reviews of another of its listings",
+     "search_id": "6ac76a3127c2b04aef050e4c",
+     "searched_at": "2026-10-08 10:02 UTC"
+    },
+    {
+     "engine": "google",
+     "purpose": "Google Search, as a citizen: \"Passport Seva Kendra, Whitefield phone number\"",
+     "search_id": "6ac76b4c368070e0d7b87dc9",
+     "searched_at": "2026-10-08 10:07 UTC"
+    },
+    {
+     "engine": "google_ai_overview",
+     "purpose": "Google's AI Overview for that search",
+     "search_id": "6ac76b4fea58e8535751d500",
+     "searched_at": "2026-10-08 10:07 UTC"
+    },
+    {
+     "engine": "google_ai_mode",
+     "purpose": "The same question in Google's AI Mode",
+     "search_id": "6ac76b5ce3e176fe5a9b5ed2",
+     "searched_at": "2026-10-08 10:07 UTC"
+    },
+    {
+     "engine": "bing_maps",
+     "purpose": "Bing Maps, the same office: \"Passport Seva Kendra, Whitefield\"",
+     "search_id": "6ac76b36256086203299d897",
+     "searched_at": "2026-10-08 10:06 UTC"
+    }
+   ],
+   "busy": null
+  },
+  {
+   "id": "popsk-jalahalli",
+   "code": "",
+   "name": "Post Office Passport Seva Kendra, Jalahalli",
+   "display_name": "Post Office Passport Seva Kendra, Jalahalli",
+   "office_type": "passport",
+   "aliases": [
+    "Jalahalli"
+   ],
+   "kind": "POPSK",
+   "address": "Jalahalli Post Office, BEL Road, Opp BEL Market, Jalahalli, Bengaluru 560013",
+   "pincode": "560013",
+   "email": "rpo.bangalore@mea.gov.in",
+   "source_url": "https://www.passportindia.gov.in/psp/RPO/RPOPSK",
+   "notes": [
+    "The site lists the RPO's main line (080-25706100) as this office's phone."
+   ],
+   "official_phones": [
+    {
+     "display": "080 2570 6100",
+     "label": "landline",
+     "tel": "+918025706100"
+    }
+   ],
+   "listing": {
+    "data_id": "0x3bae3d6061e9267f:0xbde1a383f2b71986",
+    "place_id": "ChIJfybpYWA9rjsRhhm38oOj4b0",
+    "title": "PSK Jalahalli",
+    "address": "3H23+F43, Bengaluru, Karnataka 560013",
+    "website": "",
+    "rating": 3,
+    "reviews": 211,
+    "category": "Passport office",
+    "has_hours": true,
+    "unclaimed": true,
+    "lat": 13.051127699999999,
+    "lng": 77.5528044,
+    "found_by": "Passport Seva Kendra",
+    "search_id": "6ac769e0f73581a08d4c4607",
+    "match": {
+     "office_id": "popsk-jalahalli",
+     "evidence": [
+      "pin",
+      "title"
+     ],
+     "reasons": [
+      "same PIN 560013",
+      "title mentions Jalahalli"
+     ],
+     "role": "office"
+    },
+    "maps_url": "https://www.google.com/maps/place/?q=place_id:ChIJfybpYWA9rjsRhhm38oOj4b0"
+   },
+   "other_listings": [],
+   "reach": {
+    "score": 44,
+    "basis": "5 of 6 checks",
+    "checks": [
+     {
+      "id": "phone",
+      "label": "Google Maps shows a phone number",
+      "max_points": 25,
+      "passed": false,
+      "detail": "No phone on the listing citizens find first.",
+      "points": 0
+     },
+     {
+      "id": "own_number",
+      "label": "The number shown is the office's own",
+      "max_points": 20,
+      "passed": null,
+      "detail": "No number shown to check.",
+      "points": 0
+     },
+     {
+      "id": "website",
+      "label": "Links to a government website",
+      "max_points": 10,
+      "passed": false,
+      "detail": "No website on the listing.",
+      "points": 0
+     },
+     {
+      "id": "hours",
+      "label": "Shows opening hours",
+      "max_points": 10,
+      "passed": true,
+      "detail": "Hours listed.",
+      "points": 10
+     },
+     {
+      "id": "claimed",
+      "label": "Managed by its owner on Google",
+      "max_points": 10,
+      "passed": false,
+      "detail": "Google marks it unclaimed: no verified owner manages the listing.",
+      "points": 0
+     },
+     {
+      "id": "gets_through",
+      "label": "No review in the last 2 years reports failing to get through by phone",
+      "max_points": 25,
+      "passed": true,
+      "detail": "None of 6 reviews mentioning phones or calls do.",
+      "points": 25
+     }
+    ]
+   },
+   "sample_size": 28,
+   "window_reviews": 20,
+   "span": [
+    "2026-03-25",
+    "2026-10-07"
+   ],
+   "enough_evidence": true,
+   "problem_reviews": 3,
+   "positive_reviews": 5,
+   "sampled": true,
+   "searched_individually": true,
+   "citizen_checked": true,
+   "issues": [
+    {
+     "category": "unreachable",
+     "label": "Can't reach them by phone",
+     "polarity": "problem",
+     "count": 0,
+     "of": 20,
+     "quotes": []
+    },
+    {
+     "category": "bribe",
+     "label": "Bribe demanded or paid",
+     "polarity": "problem",
+     "count": 0,
+     "of": 20,
+     "quotes": []
+    },
+    {
+     "category": "tout",
+     "label": "Agents or brokers involved",
+     "polarity": "problem",
+     "count": 0,
+     "of": 20,
+     "quotes": [
+      {
+       "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2tGaGNtVlpaVXQ0Vm01bVZuUlBabmx6TTNkZk5XYxAB",
+       "text": "I had an appointment of 1215pm and was finally allowed inside at 1600. There is no order and the whole process is a mess. They are super slow and not meant to handle the volume of applicants. No value for someone's time. Even after getting in, they started asking for additional documents and sending you over 4kms to get printouts and none of those documents ended up being needed. The application was stuck for over 3 weeks until i decided to get in touch with an agent who clearly mentioned that the files from this PSK are generally processed last and end up having extended waiting times. Its always better to just go to lal bagh instead",
+       "evidence": "agent",
+       "date": "2026-02-17",
+       "rating": 1.0,
+       "link": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2tGaGNtVlpaVXQ0Vm01bVZuUlBabmx6TTNkZk5XYxAB!2m1!1s0x0:0xbde1a383f2b71986!3m1!1s2@1:CAIQACodChtycF9oOkFhcmVZZUt4Vm5mVnRPZnlzM3dfNWc%7C%7C?hl=en",
+       "language": "en",
+       "sample": "query:agent"
+      },
+      {
+       "review_id": "ChdDSUhNMG9nS0VOQ3N5b2Y4Z3JfTC1nRRAB",
+       "text": "Documents needed.\n1. PAN / Voter id\n2. SSLC MARKS CARD\n3. AADHAR CARD\n+ Marriage certificate or couple photo with signature of both with there annexture.\nDOB and Name should compulsorily match in all submitted documents, get xerox and not printout of same. Aadhar shouldn't have question mark.\n\nWell after having a smooth expirence getting my Passport done at Lalbagh, sent my parents to Jalahalli PSK as it was better accessible to us and nearby, Both my parents application are in hold due to poor scan done by [name] agent and another for submitting aaadhar printout copy with question mark. The person checking the documents could have straight rejected the non qulifiable documents instead of making us wait and run behind other office appointments, I was angry about Lalbagh staff with their strictness with documents verification before but after facing issues with my parents documentation at Jalahalli PSK, I think it's good approach and they should train their PSK employees like the well trained one's at Lalbagh PSK. Better dispoint me in the beginning then making the process it's self a regrettable one.",
+       "evidence": "agent",
+       "date": "2025-05-09",
+       "rating": 2.0,
+       "link": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChdDSUhNMG9nS0VOQ3N5b2Y4Z3JfTC1nRRAB!2m1!1s0x0:0xbde1a383f2b71986!3m1!1s2@1:CIHM0ogKENCsyof8gr_L-gE%7C%7C?hl=en",
+       "language": "en",
+       "sample": "query:agent"
+      },
+      {
+       "review_id": "ChdDSUhNMG9nS0VJQ0FnSURwbjZXLXFnRRAB",
+       "text": "WORST EXPERIENCE. DONT GO HERE. We submitted our application on 4th August. Police verification finished by 15th August. Checked the status on 18th August, said the application is being processed at the RPO, Bengaluru. Kept checking the status till 31st August, but STILL THE SAME. So what do I do, call up the passport grievance cell, but they say please visit the RPO. Too far, tried to contact the RPO on phone. NO RESPONSE! TRIED CALLING ALL THREE NUNBERS FOR A WHOLE FREAKING DAY, NO RESPONSE! Tried other means of communication from 20th August via email, tweet. BAM! NO RESPONSE! This is the pathetic state of affairs at the POPSKs . Go there ONLY IF YOU ARE READY TO WAIT FOR 2-3 MONTHS FOR YOUR PASSPORT (Turns out that you gotta pay the agents to get it done asap. That's the racket they are running,)Apparently, that is the waiting time because the so called Passport Officer doesn't process the applications received via other PSKs in the same pace as he does for other applications received via PSK Lalbagh even though you have paid the same amount. It's been a month now of NO responses from their side and they say \"Acche Din\" and we are just waiting for the passports to arrive even though all the formalities are completed. There is no zero star rating on Google, otherwise I would have given the same.",
+       "evidence": "agents",
+       "date": "2023-09-01",
+       "rating": 1.0,
+       "link": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChdDSUhNMG9nS0VJQ0FnSURwbjZXLXFnRRAB!2m1!1s0x0:0xbde1a383f2b71986!3m1!1s2@1:CIHM0ogKEICAgIDpn6W-qgE%7C%7C?hl=en",
+       "language": "en",
+       "sample": "query:phone"
+      }
+     ]
+    },
+    {
+     "category": "delay",
+     "label": "Waits beyond the promised time",
+     "polarity": "problem",
+     "count": 2,
+     "of": 20,
+     "quotes": [
+      {
+       "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2tGa1JXWlJNRUpMVDJSek5uTXdVVXhOVW1KTVNHYxAB",
+       "text": "Always delay",
+       "evidence": "delay",
+       "date": "2026-09-08",
+       "rating": 1.0,
+       "link": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2tGa1JXWlJNRUpMVDJSek5uTXdVVXhOVW1KTVNHYxAB!2m1!1s0x0:0xbde1a383f2b71986!3m1!1s2@1:CAIQACodChtycF9oOkFkRWZRMEJLT2RzNnMwUUxNUmJMSGc%7C%7C?hl=en",
+       "language": "en",
+       "sample": "newest"
+      },
+      {
+       "review_id": "Ci9DQUlRQUNvZENodHljRjlvT21kaVQwdHlUbHBRYm5GWE4zVlpMVzlhYVVsTGFWRRAB",
+       "text": "Worst experience more than 3 month after process stilll didn't received the passport",
+       "evidence": "more than 3 month",
+       "date": "2026-03-25",
+       "rating": 1.0,
+       "link": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT21kaVQwdHlUbHBRYm5GWE4zVlpMVzlhYVVsTGFWRRAB!2m1!1s0x0:0xbde1a383f2b71986!3m1!1s2@1:CAIQACodChtycF9oOmdiT0tyTlpQbnFXN3VZLW9aaUlLaVE%7C%7C?hl=en",
+       "language": "en",
+       "sample": "newest"
+      },
+      {
+       "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2pCSk9YQnhjMkpOZUcxWFZ6TXpVVlZmUTB4Q2EwRRAB",
+       "text": "I Applied my daughter renewal passport but still pending… y even police verification also done last year 7 feb I apply till now not received passport",
+       "evidence": "still pending",
+       "date": "2026-04-17",
+       "rating": 1.0,
+       "link": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2pCSk9YQnhjMkpOZUcxWFZ6TXpVVlZmUTB4Q2EwRRAB!2m1!1s0x0:0xbde1a383f2b71986!3m1!1s2@1:CAIQACodChtycF9oOjBJOXBxc2JNeG1XVzMzUVVfQ0xCa0E%7C%7C?hl=en",
+       "language": "en",
+       "sample": "query:verification"
+      }
+     ]
+    },
+    {
+     "category": "staff",
+     "label": "Staff absent, rude or unhelpful",
+     "polarity": "problem",
+     "count": 0,
+     "of": 20,
+     "quotes": [
+      {
+       "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2pVM1lXRlVWbTFPV2pCSFoyMXNSbWhsY0dwUmVYYxAB",
+       "text": "The worst passport office in Bangalore.\nToday is 29 October 2025. I have been waiting for my passport for the last 15 days. As per the scheduled appointment I had submitted all the documents on 14 October 2025 to the passport seva kendra of Jalahalli Bangalore, due to the incompetent, untrained, unprofessional staff of the seva kendra my passport file is kept pending by the Bangalore regional passport office, after a long wait I made a lot of enquiries regarding my file and got to know, because of the mistake of the incompetent genius staff who verified my documents put the verification seal on my 10th marksheet on the back of the sheet instead on the front sheet and did not scan it at all, my file is kept as pending by the Bangalore regional passport office. I don't know what sort of hideous training has been given to the staffs.The sad part here is I did not receive any intimation from the Bangalore regional passport office (Koramangala) regarding this issue and I have been blindly waiting for my passport for the past 15 days and when I enquire about this to the helpline centre the staff does not respond properly to my request in short they provide no help at all. When I reached out to the Jalahalli seva kendra with regards to their mistake they do not lift a finger to sort out this problem and later I was asked to get the verification seal on the front sheet of my 10th marksheet and speedpost the document  to the Bangalore regional passport office and I still haven't received any status update regarding my file moreover when I enquire about this to the help center I am asked to wait for a few more days apparently it will take a month more for me to get my passport all because of a stupid mistake of one untrained staff of the seva kendra, I had to take leaves from my work figure out what the problem is and take steps to solve it on my own when the problem was caused  by the so called central government staff who is unprofessional and not serious about their work.",
+       "evidence": "incompetent",
+       "date": "2025-10-28",
+       "rating": 1.0,
+       "link": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2pVM1lXRlVWbTFPV2pCSFoyMXNSbWhsY0dwUmVYYxAB!2m1!1s0x0:0xbde1a383f2b71986!3m1!1s2@1:CAIQACodChtycF9oOjU3YWFUVm1OWjBHZ21sRmhlcGpReXc%7C%7C?hl=en",
+       "language": "en",
+       "sample": "query:verification"
+      },
+      {
+       "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2xCaldtcHpiekJvVFZSaE0wdFZWbmhzUm5sd2VXYxAB",
+       "text": "Hiiiii whoever reading this, will be surely help you.....\nIf u need ur passport urgently means donot think of going here......visit to lalbaag.....\nI'm waiting from june month to get my passport in my hand , doc verification police' verification all done......3 months almost completed from the day of application.....\n\nWhen it comes to staff working there, i felt little rude, they should think, they are the only one to help people,\nA gentle reply from staff would make people more happy, that's all they need to improve......I know they are stressed at their work but yes this is how the world is.....\nMy process was smoothly went\nCarry sufficient documents even though you feel you dont need them, especially who are married take their marriage certificate, they ask for it for sure, i don't know why.......be on time 15min late is quite okay,as per my experience otherwise u will not be attended,\nThats all from my side.....",
+       "evidence": "rude",
+       "date": "2025-08-01",
+       "rating": 3.0,
+       "link": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2xCaldtcHpiekJvVFZSaE0wdFZWbmhzUm5sd2VXYxAB!2m1!1s0x0:0xbde1a383f2b71986!3m1!1s2@1:CAIQACodChtycF9oOlBjWmpzbzBoTVRhM0tVVnhsRnlweWc%7C%7C?hl=en",
+       "language": "en",
+       "sample": "query:verification"
+      }
+     ]
+    },
+    {
+     "category": "portal",
+     "label": "Portal, server or website failures",
+     "polarity": "problem",
+     "count": 0,
+     "of": 20,
+     "quotes": []
+    },
+    {
+     "category": "closed",
+     "label": "Closed or not keeping its hours",
+     "polarity": "problem",
+     "count": 0,
+     "of": 20,
+     "quotes": []
+    },
+    {
+     "category": "queue",
+     "label": "Long queues and waiting",
+     "polarity": "problem",
+     "count": 1,
+     "of": 20,
+     "quotes": [
+      {
+       "review_id": "Ci9DQUlRQUNvZENodHljRjlvT25SMFdHeDBVbEJOU1hwVFQxbExkbko2TlRaM1pIYxAB",
+       "text": "Worst service ever in passport seva kendra,Came as per the appointment but waited for 4hours very poor service never ever take appointment for this Jalahalli PSK office",
+       "evidence": "waited for 4hours",
+       "date": "2026-07-16",
+       "rating": 1.0,
+       "link": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT25SMFdHeDBVbEJOU1hwVFQxbExkbko2TlRaM1pIYxAB!2m1!1s0x0:0xbde1a383f2b71986!3m1!1s2@1:CAIQACodChtycF9oOnR0WGx0UlBNSXpTT1lLdnJ6NTZ3ZHc%7C%7C?hl=en",
+       "language": "en",
+       "sample": "newest"
+      },
+      {
+       "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2t0T1ZrRlZWVXRrYUhGR1RGYzFaRTB4UWpVemJFRRAB",
+       "text": "Worst experience, take a day off if you would like to wait peacefully it's not happening as per your schedule for sure And there should be quick documentation verification desk, instead you wait for 2-3 hrs and end up with insufficient/inadequate documents",
+       "evidence": "wait for 2-3 hrs",
+       "date": "2025-12-18",
+       "rating": 2.0,
+       "link": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2t0T1ZrRlZWVXRrYUhGR1RGYzFaRTB4UWpVemJFRRAB!2m1!1s0x0:0xbde1a383f2b71986!3m1!1s2@1:CAIQACodChtycF9oOktOVkFVVUtkaHFGTFc1ZE0xQjUzbEE%7C%7C?hl=en",
+       "language": "en",
+       "sample": "query:verification"
+      }
+     ]
+    },
+    {
+     "category": "helpful",
+     "label": "Helpful, quick service",
+     "polarity": "positive",
+     "count": 5,
+     "of": 20,
+     "quotes": [
+      {
+       "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2xsdU1GcHJUMXBMVlVwU1F6WlhURmt0ZGpWd1NrRRAB",
+       "text": "I got good service",
+       "evidence": "good service",
+       "date": "2026-09-19",
+       "rating": 5.0,
+       "link": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2xsdU1GcHJUMXBMVlVwU1F6WlhURmt0ZGpWd1NrRRAB!2m1!1s0x0:0xbde1a383f2b71986!3m1!1s2@1:CAIQACodChtycF9oOlluMFprT1pLVUpSQzZXTFktdjVwSkE%7C%7C?hl=en-US",
+       "language": "en",
+       "sample": "newest"
+      },
+      {
+       "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2pSVk1FeGZPVkJHZVU5TVFXMTROMGRSZGxGTVIzYxAB",
+       "text": "cooperative friendly government staff’s without attitude and delays, Love this place i recommend this place to others for easy work on your requirements ID proofs and documents.",
+       "evidence": "cooperative",
+       "date": "2026-09-10",
+       "rating": 5.0,
+       "link": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2pSVk1FeGZPVkJHZVU5TVFXMTROMGRSZGxGTVIzYxAB!2m1!1s0x0:0xbde1a383f2b71986!3m1!1s2@1:CAIQACodChtycF9oOjRVMExfOVBGeU9MQW14N0dRdlFMR3c%7C%7C?hl=en",
+       "language": "en",
+       "sample": "newest"
+      },
+      {
+       "review_id": "Ci9DQUlRQUNvZENodHljRjlvT2s1eE9VTXdObXBVYmtrMlNFTnBRVTFSY1Rkek5WRRAB",
+       "text": "I have visited this place for few clarifications before applying for a address change on my passport. Security allowed me to talk to the officer incharge with love and the officer responded very respectfully. This approach of lady officer makes the customer very comfortable. Thank you very much. I really recommend this place for any requirement with anyone 's passport. Homely place.",
+       "evidence": "Thank you",
+       "date": "2026-08-14",
+       "rating": 5.0,
+       "link": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2s1eE9VTXdObXBVYmtrMlNFTnBRVTFSY1Rkek5WRRAB!2m1!1s0x0:0xbde1a383f2b71986!3m1!1s2@1:CAIQACodChtycF9oOk5xOUMwNmpUbkk2SENpQU1RcTdzNVE%7C%7C?hl=en",
+       "language": "en",
+       "sample": "newest"
+      }
+     ]
+    }
+   ],
+   "breaches": [],
+   "agent_waits": [],
+   "older_breaches": 0,
+   "ai_overview": {
+    "text": "The contact number for the Post Office Passport Seva Kendra (POPSK) in Jalahalli is 8025706100 or the general national passport toll-free helpline at 1800-258-1800, as listed by Bajaj General Insurance .\nLocation & Details\nAddress: Jalahalli Post Office, BEL Road, Opposite BEL Market, Jalahalli, Bengaluru - 560013\nOperational Hours: Monday to Friday (9:30 AM to 6:00 PM)\nGeneral Support: You can also check status updates or details directly through the Official Passport India Portal .\nIf you'd like, I can help you with:\nDocuments required for a fresh passport or renewal\nSteps to book an appointment online",
+    "first_number": {
+     "phone": "+918025706100",
+     "display": "080 2570 6100",
+     "kind": "landline",
+     "surface": "ai_overview",
+     "source": "AI Overview",
+     "verdict": "this office",
+     "detail": "in the official directory for this office"
+    },
+    "searched_on": "2026-10-08",
+    "numbers": [
+     {
+      "phone": "+918025706100",
+      "display": "080 2570 6100",
+      "kind": "landline",
+      "surface": "ai_overview",
+      "source": "AI Overview",
+      "verdict": "this office",
+      "detail": "in the official directory for this office"
+     },
+     {
+      "phone": "+9118002581800",
+      "display": "1800 258 1800",
+      "kind": "toll_free",
+      "surface": "ai_overview",
+      "source": "AI Overview",
+      "verdict": "department helpline",
+      "detail": "a department-wide helpline"
+     }
+    ],
+    "pincodes": [
+     "560013"
+    ],
+    "address_matches": true,
+    "references": [
+     [
+      "Passport Seva Kendra Bangalore: Location, Timings and ...",
+      "https://www.bajajgeneralinsurance.com/blog/travel-insurance-articles/passport-office-in-bangalore.html"
+     ],
+     [
+      "Call Centre",
+      "https://www.passportindia.gov.in/psp/FaqCallCentre"
+     ]
+    ],
+    "search_id": "6ac76b6df607a9fdb9efa8bf",
+    "query": "Post Office Passport Seva Kendra, Jalahalli phone number",
+    "repeats_listing_number": false
+   },
+   "ai_mode": {
+    "text": "The contact details and general helpline for the Post Office Passport Seva Kendra (POPSK) in Jalahalli, Bengaluru are:\nDirect/Local Contact Number: 080-25706100 (Listed via Bajaj General Insurance)\nNational Passport Seva Helpline: 1800-258-1800 (Toll-free general enquiry line)\nAddress: Jalahalli Post Office, BEL Road, Opposite BEL Market, Jalahalli, Bengaluru - 560013\nTimings: Monday to Friday, 9:30 AM to 6:00 PM (Closed on Saturdays, Sundays, and public holidays)\nIf you need help with appointment booking procedures or the list of documents required for your visit, let me know!",
+    "first_number": {
+     "phone": "+918025706100",
+     "display": "080 2570 6100",
+     "kind": "landline",
+     "surface": "ai_mode",
+     "source": "AI Mode",
+     "verdict": "this office",
+     "detail": "in the official directory for this office"
+    },
+    "searched_on": "2026-10-08",
+    "numbers": [
+     {
+      "phone": "+918025706100",
+      "display": "080 2570 6100",
+      "kind": "landline",
+      "surface": "ai_mode",
+      "source": "AI Mode",
+      "verdict": "this office",
+      "detail": "in the official directory for this office"
+     },
+     {
+      "phone": "+9118002581800",
+      "display": "1800 258 1800",
+      "kind": "toll_free",
+      "surface": "ai_mode",
+      "source": "AI Mode",
+      "verdict": "department helpline",
+      "detail": "a department-wide helpline"
+     }
+    ],
+    "pincodes": [
+     "560013"
+    ],
+    "address_matches": true,
+    "references": [
+     [
+      "Passport Seva Kendra in Jalahalli,Bangalore - Government Organisations near me in Bangalore - Justdial",
+      "https://www.justdial.com/Bangalore/Passport-Seva-Kendra-Opposite-Bel-Post-Office-Jalahalli/080PXX80-XX80-190316181706-A7U3_BZDET"
+     ],
+     [
+      "Passport Seva Kendra Bangalore: Location, Timings and ...",
+      "https://www.bajajgeneralinsurance.com/blog/travel-insurance-articles/passport-office-in-bangalore.html"
+     ]
+    ],
+    "search_id": "6ac76b837223f44380afb2c4"
+   },
+   "citizen_search": {
+    "query": "Post Office Passport Seva Kendra, Jalahalli phone number",
+    "search_id": "6ac76b6df607a9fdb9efa8bf",
+    "numbers": [
+     {
+      "phone": "",
+      "display": "080 2838 7040",
+      "kind": "landline",
+      "surface": "local_pack",
+      "source": "Jalahalli Post Office",
+      "verdict": "not in the directory",
+      "detail": "not in the official directory"
+     },
+     {
+      "phone": "+9118002581800",
+      "display": "1800 258 1800",
+      "kind": "toll_free",
+      "surface": "snippet",
+      "source": "justdial.com",
+      "verdict": "department helpline",
+      "detail": "a department-wide helpline"
+     },
+     {
+      "phone": "+918025706100",
+      "display": "080 2570 6100",
+      "kind": "landline",
+      "surface": "snippet",
+      "source": "bajajgeneralinsurance.com",
+      "verdict": "this office",
+      "detail": "in the official directory for this office"
+     },
+     {
+      "phone": "",
+      "display": "011 2309 6110",
+      "kind": "landline",
+      "surface": "snippet",
+      "source": "indiapost.gov.in",
+      "verdict": "not in the directory",
+      "detail": "not in the official directory"
+     },
+     {
+      "phone": "",
+      "display": "1800 11 8282",
+      "kind": "toll_free",
+      "surface": "snippet",
+      "source": "indiapost.gov.in",
+      "verdict": "not in the directory",
+      "detail": "not in the official directory"
+     },
+     {
+      "phone": "+918025639137",
+      "display": "080 2563 9137",
+      "kind": "landline",
+      "surface": "snippet",
+      "source": "indiacustomercare.com",
+      "verdict": "another office",
+      "detail": "the official number of Passport Seva Kendra, Whitefield"
+     }
+    ]
+   },
+   "bing": {
+    "found": false,
+    "title": "",
+    "how": "",
+    "search_id": "6ac76b3a88de92da957bc0d9",
+    "query": "Post Office Passport Seva Kendra, Jalahalli",
+    "phone_display": "",
+    "phone_verdict": null
+   },
+   "trail": [
+    {
+     "engine": "google_maps",
+     "purpose": "Maps search for this office: \"Post Office Passport Seva Kendra, Jalahalli, Bengaluru\"",
+     "search_id": "6ac76a1c8d42f819ae559b3b",
+     "searched_at": "2026-10-08 10:02 UTC"
+    },
+    {
+     "engine": "google_maps_reviews",
+     "purpose": "Newest reviews of its listing",
+     "search_id": "6ac76a331f56fa532bedc756",
+     "searched_at": "2026-10-08 10:02 UTC"
+    },
+    {
+     "engine": "google_maps_reviews",
+     "purpose": "Newest reviews of its listing, next page",
+     "search_id": "6ac76a33792d68bd6d9f75d4",
+     "searched_at": "2026-10-08 10:02 UTC"
+    },
+    {
+     "engine": "google_maps_reviews",
+     "purpose": "Reviews of its listing mentioning \"phone\"",
+     "search_id": "6ac76a35f5c2f83a9961053b",
+     "searched_at": "2026-10-08 10:02 UTC"
+    },
+    {
+     "engine": "google_maps_reviews",
+     "purpose": "Reviews of its listing mentioning \"agent\"",
+     "search_id": "6ac76a3671a41da7b580eb2c",
+     "searched_at": "2026-10-08 10:02 UTC"
+    },
+    {
+     "engine": "google_maps_reviews",
+     "purpose": "Reviews of its listing mentioning \"verification\"",
+     "search_id": "6ac76a3c5c4bf4e00d6fa29d",
+     "searched_at": "2026-10-08 10:02 UTC"
+    },
+    {
+     "engine": "google",
+     "purpose": "Google Search, as a citizen: \"Post Office Passport Seva Kendra, Jalahalli phone number\"",
+     "search_id": "6ac76b6df607a9fdb9efa8bf",
+     "searched_at": "2026-10-08 10:07 UTC"
+    },
+    {
+     "engine": "google_ai_overview",
+     "purpose": "Google's AI Overview for that search",
+     "search_id": "6ac76b7594c42b0eb8a857df",
+     "searched_at": "2026-10-08 10:07 UTC"
+    },
+    {
+     "engine": "google_ai_mode",
+     "purpose": "The same question in Google's AI Mode",
+     "search_id": "6ac76b837223f44380afb2c4",
+     "searched_at": "2026-10-08 10:08 UTC"
+    },
+    {
+     "engine": "bing_maps",
+     "purpose": "Bing Maps, the same office: \"Post Office Passport Seva Kendra, Jalahalli\"",
+     "search_id": "6ac76b3a88de92da957bc0d9",
+     "searched_at": "2026-10-08 10:06 UTC"
+    }
+   ],
+   "busy": null
+  }
+ ],
+ "timelines": [
+  {
+   "id": "passport-fresh",
+   "office_type": "passport",
+   "name": "Fresh passport (normal)",
+   "days": 30,
+   "source_url": "https://services1.passportindia.gov.in/AppOnlineProject/pdf/Citizen_Charter.pdf",
+   "unit": "working days",
+   "page": null,
+   "condition": "",
+   "excludes": "police verification period",
+   "citation": "https://services1.passportindia.gov.in/AppOnlineProject/pdf/Citizen_Charter.pdf",
+   "limit": "30 working days"
+  },
+  {
+   "id": "passport-reissue",
+   "office_type": "passport",
+   "name": "Passport re-issue (no pre-police verification needed)",
+   "days": 7,
+   "source_url": "https://services1.passportindia.gov.in/AppOnlineProject/pdf/Citizen_Charter.pdf",
+   "unit": "working days",
+   "page": null,
+   "condition": "",
+   "excludes": "",
+   "citation": "https://services1.passportindia.gov.in/AppOnlineProject/pdf/Citizen_Charter.pdf",
+   "limit": "7 working days"
+  },
+  {
+   "id": "passport-reissue-pv",
+   "office_type": "passport",
+   "name": "Passport re-issue (police verification needed)",
+   "days": 30,
+   "source_url": "https://services1.passportindia.gov.in/AppOnlineProject/pdf/Citizen_Charter.pdf",
+   "unit": "working days",
+   "page": null,
+   "condition": "",
+   "excludes": "police verification period",
+   "citation": "https://services1.passportindia.gov.in/AppOnlineProject/pdf/Citizen_Charter.pdf",
+   "limit": "30 working days"
+  },
+  {
+   "id": "passport-tatkaal",
+   "office_type": "passport",
+   "name": "Tatkaal passport",
+   "days": 3,
+   "source_url": "https://services1.passportindia.gov.in/AppOnlineProject/pdf/Citizen_Charter.pdf",
+   "unit": "working days",
+   "page": null,
+   "condition": "if the applicant is eligible under the Tatkaal scheme",
+   "excludes": "",
+   "citation": "https://services1.passportindia.gov.in/AppOnlineProject/pdf/Citizen_Charter.pdf",
+   "limit": "3 working days"
+  },
+  {
+   "id": "police-clearance-certificate",
+   "office_type": "passport",
+   "name": "Police clearance certificate",
+   "days": 7,
+   "source_url": "https://services1.passportindia.gov.in/AppOnlineProject/pdf/Citizen_Charter.pdf",
+   "unit": "working days",
+   "page": null,
+   "condition": "",
+   "excludes": "police verification period",
+   "citation": "https://services1.passportindia.gov.in/AppOnlineProject/pdf/Citizen_Charter.pdf",
+   "limit": "7 working days"
+  }
+ ],
+ "appeals": null,
+ "helpline": "1800 258 1800",
+ "grievance": {
+  "portals": [
+   "https://www.passportindia.gov.in/psp/Grievance",
+   "https://pgportal.gov.in"
+  ],
+  "phones": [
+   "011-23384519",
+   "011-23384497"
+  ],
+  "email": "passport.pg@mea.gov.in",
+  "source_name": "Passport Seva Citizen's Charter (current; cites a fee notification dated 20.06.2026)",
+  "complaint_to": "rpo-bengaluru",
+  "complaint_email": "grievance.rpoblr@mea.gov.in",
+  "source_url": "https://services1.passportindia.gov.in/AppOnlineProject/pdf/Citizen_Charter.pdf"
+ },
+ "unmatched": [
+  {
+   "title": "Passport Seva Kendra",
+   "why": "no official office in this city matched (shares no phone, code, PIN or place name)"
+  },
+  {
+   "title": "Passport Seva Kendra to Agency",
+   "why": "no official office in this city matched (shares no phone, code, PIN or place name)"
+  },
+  {
+   "title": "Passport Sewa Kendra",
+   "why": "no official office in this city matched (shares no phone, code, PIN or place name)"
+  },
+  {
+   "title": "Passport Seva Kendra Pay & Park Entrance/Exit",
+   "why": "Google lists it as 'Parking lot'"
+  },
+  {
+   "title": "Regional Passport Office, Bareilly",
+   "why": "no official office in this city matched (shares no phone, code, PIN or place name)"
+  },
+  {
+   "title": "Passport seva kendra",
+   "why": "no official office in this city matched (shares no phone, code, PIN or place name)"
+  },
+  {
+   "title": "PASSPORT SEVA KENDRA AGENCY",
+   "why": "Google lists it as 'Internet cafe'"
+  },
+  {
+   "title": "Passport services",
+   "why": "Google lists it as 'Passport Agent'"
+  },
+  {
+   "title": "Passport Seva Kendra",
+   "why": "Google lists it as 'Internet cafe'"
+  },
+  {
+   "title": "Passport seva",
+   "why": "no official office in this city matched (shares no phone, code, PIN or place name)"
+  },
+  {
+   "title": "G S Passport Seva",
+   "why": "no official office in this city matched (shares no phone, code, PIN or place name)"
+  },
+  {
+   "title": "Post Office Passport Seva Kendra Tumakuru",
+   "why": "no official office in this city matched (shares no phone, code, PIN or place name)"
+  },
+  {
+   "title": "Hosur Passport Service- Passport , Tourist Visa , Certificate Embassy Attestation + MOFA , Gazette publish.",
+   "why": "same department, but not an office citizens apply at"
+  },
+  {
+   "title": "Passport Seva Kendra Agent",
+   "why": "Google lists it as 'Passport Agent'"
+  },
+  {
+   "title": "BANGALORE PASSPORT SOLUTIONS",
+   "why": "no official office in this city matched (shares no phone, code, PIN or place name)"
+  },
+  {
+   "title": "PASSPORT BENGALURU CENTER | PAN CENTER | R T NAGAR BENGALURU",
+   "why": "Google lists it as 'Passport Agent'"
+  },
+  {
+   "title": "Passport Service Centre",
+   "why": "Google lists it as 'Passport Agent'"
+  },
+  {
+   "title": "Passport Seva Kendra Maddur(Mandya)",
+   "why": "no official office in this city matched (shares no phone, code, PIN or place name)"
+  },
+  {
+   "title": "BANGALORE PASSPORT SOLUTIONS",
+   "why": "no official office in this city matched (shares no phone, code, PIN or place name)"
+  },
+  {
+   "title": "RC PASSPORT HARE KRISHNA ⭕❗⭕",
+   "why": "Google lists it as 'Passport Agent'"
+  },
+  {
+   "title": "Myidentiti Solutions",
+   "why": "Google lists it as 'Passport Agent'"
+  },
+  {
+   "title": "SangU Passport Seva kendra",
+   "why": "Google lists it as 'Passport Agent'"
+  },
+  {
+   "title": "passport services",
+   "why": "Google lists it as 'Passport Agent'"
+  },
+  {
+   "title": "PASSPORT OFFICE",
+   "why": "Google lists it as 'Passport Agent'"
+  },
+  {
+   "title": "Passport Services",
+   "why": "Google lists it as 'Passport Agent'"
+  },
+  {
+   "title": "Psk Marathalli",
+   "why": "no official office in this city matched (shares no phone, code, PIN or place name)"
+  },
+  {
+   "title": "BANGALORE PASSPORT SOLUTIONS",
+   "why": "no official office in this city matched (shares no phone, code, PIN or place name)"
+  },
+  {
+   "title": "ADHAAR CENTER AND PASSPORT SERVICE",
+   "why": "Google lists it as 'Passport Agent'"
+  },
+  {
+   "title": "Passport office",
+   "why": "Google lists it as 'Corporate office'"
+  },
+  {
+   "title": "PAN and Passport Online Kendra",
+   "why": "Google lists it as 'Internet cafe'"
+  },
+  {
+   "title": "Smile Seva Kendra",
+   "why": "Google lists it as 'Social welfare center'"
+  },
+  {
+   "title": "Passport Agents in Bangalore",
+   "why": "Google lists it as 'Passport Agent'"
+  },
+  {
+   "title": "Smot Pro",
+   "why": "Google lists it as 'Passport Agent'"
+  },
+  {
+   "title": "Smot Pro | Passport Renewal | Apply for Passport | Tatkal Passport | Passport Agents in Bangalore",
+   "why": "no official office in this city matched (shares no phone, code, PIN or place name)"
+  },
+  {
+   "title": "Legion India Passports",
+   "why": "no official office in this city matched (shares no phone, code, PIN or place name)"
+  },
+  {
+   "title": "Smot Pro | Passport Renewal in Bangalore",
+   "why": "no official office in this city matched (shares no phone, code, PIN or place name)"
+  },
+  {
+   "title": "SmotPro India Pvt Ltd",
+   "why": "no official office in this city matched (shares no phone, code, PIN or place name)"
+  },
+  {
+   "title": "VFS Global Bengaluru",
+   "why": "same department, but not an office citizens apply at"
+  },
+  {
+   "title": "passport office",
+   "why": "Google lists it as 'Corporate office'"
+  },
+  {
+   "title": "Passport & Visa Assistance in Bangalore | Airwins India",
+   "why": "Google lists it as 'Visa and passport office'"
+  },
+  {
+   "title": "SmotPro India Pvt Ltd",
+   "why": "no official office in this city matched (shares no phone, code, PIN or place name)"
+  },
+  {
+   "title": "Airwin India Passport & Visa Service",
+   "why": "Google lists it as 'Visa and passport office'"
+  },
+  {
+   "title": "GS PASSPORT OFFICE",
+   "why": "no official office in this city matched (shares no phone, code, PIN or place name)"
+  },
+  {
+   "title": "SSS Passport Office In Hosur",
+   "why": "no official office in this city matched (shares no phone, code, PIN or place name)"
+  },
+  {
+   "title": "Online Passport Agents in Bangalore",
+   "why": "no official office in this city matched (shares no phone, code, PIN or place name)"
+  },
+  {
+   "title": "PASSPORT , VISA & INSURANCE - eMUDRA DSC services",
+   "why": "Google lists it as 'Passport Agent'"
+  }
+ ],
+ "lookalikes": [
+  {
+   "title": "Passport Seva Kendra",
+   "category": "Passport office",
+   "pincode": "560058",
+   "reviews": 19,
+   "lat": 13.0181,
+   "lng": 77.5154
+  },
+  {
+   "title": "Passport Seva Kendra to Agency",
+   "category": "Passport office",
+   "pincode": "560056",
+   "reviews": 29,
+   "lat": 12.9498,
+   "lng": 77.4903
+  },
+  {
+   "title": "Passport Sewa Kendra",
+   "category": "Passport office",
+   "pincode": "560105",
+   "reviews": 94,
+   "lat": 12.801,
+   "lng": 77.6914
+  },
+  {
+   "title": "PASSPORT SEVA KENDRA AGENCY",
+   "category": "Internet cafe",
+   "pincode": "560050",
+   "reviews": 26,
+   "lat": 12.9415,
+   "lng": 77.5583
+  },
+  {
+   "title": "Passport Seva Kendra",
+   "category": "Internet cafe",
+   "pincode": "560091",
+   "reviews": 4,
+   "lat": 12.9817,
+   "lng": 77.4809
+  },
+  {
+   "title": "Passport Seva Kendra Agent",
+   "category": "Passport Agent",
+   "pincode": "560098",
+   "reviews": 6,
+   "lat": 12.9207,
+   "lng": 77.5129
+  },
+  {
+   "title": "SangU Passport Seva kendra",
+   "category": "Passport Agent",
+   "pincode": "560076",
+   "reviews": 0,
+   "lat": 12.9057,
+   "lng": 77.6118
+  },
+  {
+   "title": "PASSPORT OFFICE",
+   "category": "Passport Agent",
+   "pincode": "560057",
+   "reviews": 38,
+   "lat": 13.0438,
+   "lng": 77.5133
+  },
+  {
+   "title": "passport office",
+   "category": "Corporate office",
+   "pincode": "560102",
+   "reviews": 0,
+   "lat": 12.9124,
+   "lng": 77.6362
+  }
+ ],
+ "sweep": [
+  {
+   "engine": "google_maps",
+   "purpose": "Maps sweep: \"Passport Seva Kendra\"",
+   "search_id": "6ac769e0f73581a08d4c4607",
+   "searched_at": "2026-10-08 10:01 UTC"
+  },
+  {
+   "engine": "google_maps",
+   "purpose": "Maps sweep: \"Passport Seva Kendra\", page 2",
+   "search_id": "6ac76a165c018fc645763e02",
+   "searched_at": "2026-10-08 10:01 UTC"
+  },
+  {
+   "engine": "google_maps",
+   "purpose": "Maps sweep: \"Passport Office\"",
+   "search_id": "6ac769e11fad36770658fb32",
+   "searched_at": "2026-10-08 10:01 UTC"
+  },
+  {
+   "engine": "google_maps",
+   "purpose": "Maps sweep: \"Passport Office\", page 2",
+   "search_id": "6ac76a17bf04d56915fb2859",
+   "searched_at": "2026-10-08 10:01 UTC"
+  }
+ ],
+ "searches_by_engine": {
+  "google_maps": 8,
+  "google_maps_reviews": 21,
+  "google": 4,
+  "google_ai_overview": 3,
+  "google_ai_mode": 4,
+  "bing_maps": 4
+ },
+ "searches": 44
+}

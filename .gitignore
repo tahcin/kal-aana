@@ -1,0 +1,26 @@
+# Secrets: copy .env.example to .env
+.env
+
+# Raw SerpApi responses and full collections hold reviewer details and unmasked review text.
+# Only the masked snapshot (data/snapshot/), the official data and the labelled sets are committed.
+data/cache/
+data/collected/
+# Names found by reading the quotes, masked in every quote (kalaana/redact.py). Never commit a list of names.
+data/private/
+
+__pycache__/
+*.pyc
+*.egg-info/
+build/
+dist/
+.venv/
+.pytest_cache/
+.claude/
+.DS_Store
+
+# The React app: dependencies stay local; its build (kalaana/static/app/) is committed so running needs no Node.
+frontend/node_modules/
+
+# Wrangler's local state (Cloudflare deploys)
+.wrangler/
+frontend/.wrangler/

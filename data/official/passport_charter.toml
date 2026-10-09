@@ -1,0 +1,106 @@
+# Passport services are run by the Ministry of External Affairs (central government), so
+# they are not under Sakala. Their promised timelines come from the MEA Citizen's Charter.
+#
+# Every timeline below runs "from the date of receipt of complete documentation". Rows with
+# `excludes` also leave out the police verification (PV) period. The charter sets no timeline
+# for police verification itself, so a wait that is mostly PV cannot be called a charter breach.
+
+[meta]
+office_type = "passport"
+city = "Bengaluru"
+source_url = "https://services1.passportindia.gov.in/AppOnlineProject/pdf/Citizen_Charter.pdf"
+source_name = "Passport Seva Citizen's Charter (current; cites a fee notification dated 20.06.2026)"
+previous_version_url = "https://www.mea.gov.in/images/attach/Citizen_Charter_2025.pdf"
+fetched = 2026-10-08
+helpline = "1800-258-1800"
+grievance_portals = ["https://www.passportindia.gov.in/psp/Grievance", "https://pgportal.gov.in"]
+grievance_phones = ["011-23384519", "011-23384497"]
+grievance_email = "passport.pg@mea.gov.in"
+# The RPO Bengaluru's own site: "All Passport related enquiries/grievances may only be sent to" this address.
+# Every Bengaluru PSK and POPSK reports to the RPO, so a complaint letter goes there.
+complaint_to = "rpo-bengaluru"
+complaint_email = "grievance.rpoblr@mea.gov.in"
+
+[[service]]
+id = "passport-fresh"
+name = "Fresh passport (normal)"
+days = 30
+excludes = "police verification period"
+
+[[service]]
+id = "passport-reissue"
+name = "Passport re-issue (no pre-police verification needed)"
+days = 7
+
+[[service]]
+id = "passport-reissue-pv"
+name = "Passport re-issue (police verification needed)"
+days = 30
+excludes = "police verification period"
+
+[[service]]
+id = "passport-tatkaal"
+name = "Tatkaal passport"
+days = 3
+condition = "if the applicant is eligible under the Tatkaal scheme"
+
+[[service]]
+id = "police-clearance-certificate"
+name = "Police clearance certificate"
+days = 7
+excludes = "police verification period"
+
+# Passport offices in Bengaluru, from the RPO Bengaluru's own list of its Passport Seva Kendras
+# (passportindia.gov.in, "Passport Seva Kendra" page of the Bengaluru RPO site, read 2026-10-08) and
+# its "Contact Us" page. Only the offices inside the city are included; the RPO's mobile vans have
+# no phone and are left out. Staff names are deliberately omitted. Emails are written out from the
+# site's "[dot]/[at]" form.
+#
+# PSK Whitefield replaced PSK Sai Arcade (Marathahalli) on 2026-10-05, three days before our
+# searches. "Sai Arcade" is kept as an alias so the old Google listing is matched to the office
+# that replaced it, and the office card can say where it now is.
+#
+# aliases: added by us, not from the source.
+
+[[office]]
+id = "rpo-bengaluru"
+name = "Regional Passport Office, Bengaluru"
+kind = "RPO"
+address = "8th Block, 80 Feet Road, Koramangala, Bengaluru, Karnataka 560095"
+landlines = ["080-25706100", "080-25706101", "080-25706102"]
+email = "rpo.bangalore@cpo.gov.in"
+source_url = "https://www.passportindia.gov.in/psp/RPO/RPOContactUs"
+note = "The site asks that passport enquiries and grievances go to grievance.rpoblr@mea.gov.in."
+aliases = ["Koramangala", "RPO Bangalore", "Bangalore Passport Office"]
+
+[[office]]
+id = "psk-lalbagh"
+name = "Passport Seva Kendra, Lalbagh"
+kind = "PSK"
+address = "No 45 Prestige Libra, Near Urvashi Theatre, Lalbagh Main Road, Bengaluru, Karnataka 560027"
+landlines = ["080-22117711"]
+email = "rpo.bangalore@mea.gov.in"
+source_url = "https://www.passportindia.gov.in/psp/RPO/RPOPSK"
+aliases = ["Lalbagh", "Lal Bagh", "Prestige Libra"]
+
+[[office]]
+id = "psk-whitefield"
+name = "Passport Seva Kendra, Whitefield"
+kind = "PSK"
+address = "GM Tech Park, No. 116, Road No. 3, EPIP Zone, Whitefield, Bengaluru 560066"
+landlines = ["080-25639137"]
+email = "rpo.bangalore@mea.gov.in"
+source_url = "https://www.passportindia.gov.in/psp/RPO/RPOPSK"
+note = "Replaced PSK Sai Arcade (Marathahalli) from 5 October 2026. Its Google listing has reviews from before then (from 22 September), and they are included in its review sample."
+aliases = ["Whitefield", "Sai Arcade", "Marathahalli"]
+
+[[office]]
+id = "popsk-jalahalli"
+name = "Post Office Passport Seva Kendra, Jalahalli"
+kind = "POPSK"
+address = "Jalahalli Post Office, BEL Road, Opp BEL Market, Jalahalli, Bengaluru 560013"
+landlines = ["080-25706100"]
+email = "rpo.bangalore@mea.gov.in"
+source_url = "https://www.passportindia.gov.in/psp/RPO/RPOPSK"
+note = "The site lists the RPO's main line (080-25706100) as this office's phone."
+aliases = ["Jalahalli"]

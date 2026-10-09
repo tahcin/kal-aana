@@ -1,0 +1,20 @@
+/* Poster for the "unanswered call" hero: the scene's first frame in CSS, shown at first paint and whenever WebGL is
+   unavailable. The window light, a ring tone spreading from the left margin, and the rotary dial in from the right. */
+.kh-poster-call {
+  --kc-r: calc(clamp(600px, 100svh - 5rem, 900px) * 0.5);
+  --kc-dial: calc(100% + var(--kc-r) * 0.34) 56%;
+  --kc-ring: rgb(90 63 192 / 0.22);
+  --kc-src: 6.5% 18%;
+  background:
+    radial-gradient(circle at var(--kc-src), transparent 118px, var(--kc-ring) 119px, transparent 121px),
+    radial-gradient(circle at var(--kc-src), transparent 104px, rgb(90 63 192 / 0.1) 105px, transparent 107px),
+    radial-gradient(circle at var(--kc-src), transparent 200px, rgb(90 63 192 / 0.14) 201px, transparent 204px),
+    radial-gradient(circle var(--kc-r) at var(--kc-dial), #a596e4 0, #a08fe6 86%, #f4efe8 90%, #e9e1d6 98%, rgb(120 96 200 / 0.18) 100%, transparent 106%),
+    radial-gradient(70% 60% at 50% 74%, rgb(255 196 120 / 0.16), transparent 70%),
+    radial-gradient(60% 50% at 80% -8%, rgb(255 250 240 / 0.5), transparent 70%),
+    linear-gradient(180deg, #e2d8f9 0%, #f5eff6 50%, #fef1e5 100%);
+}
+/* On a phone the dial is only a corner, below the examples. */
+@media (max-width: 767px) {
+  .kh-poster-call { --kc-r: min(46vw, 190px); --kc-dial: calc(100% + var(--kc-r) * 0.06) calc(100% + var(--kc-r) * 0.2); --kc-src: 10% 81%; }
+}

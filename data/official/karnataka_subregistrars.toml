@@ -1,0 +1,387 @@
+# Sub-registrar offices in Bengaluru (Urban), as published by the Department of
+# Stamps and Registration, Government of Karnataka. Staff names are deliberately omitted.
+# The directory lists one mobile number per office (two for a few); there are no landlines.
+# group: the district registrar office the sub-registrar reports to.
+# aliases: added by us, not from the source. Other spellings of the office's area that Google
+# Maps uses (Maps often drops the Kannada final "a": Gandhinagara, Gandhinagar).
+
+[meta]
+office_type = "subregistrar"
+source_url = "https://igr.karnataka.gov.in/14/sub-registrars/en"
+source_name = "Department of Stamps and Registration, Karnataka: Sub-registrars"
+fetched = 2026-10-08
+city = "Bengaluru"
+
+[[office]]
+id = "sro-gandhinagara"
+name = "Gandhinagara"
+group = "Gandhinagar"
+address = "Sub-Registrar Office, Gandhinagar,3rd and 4th Floor, Annexue Building, Bangalore D.C. Office Compound, Bangalore-560009"
+phones = ["8147103913"]
+email = "sr.gandhinagar@karnataka.gov.in"
+aliases = ["Gandhinagar", "Gandhi Nagar"]
+
+[[office]]
+id = "sro-malleshwaram"
+name = "Malleshwaram"
+group = "Gandhinagar"
+address = "Sub Registrar Office Malleshwaram, No17,Maruthi Palaza, 2nd Floor, 2nd Main Road, Vyalikaval Extension Bangalore 560003"
+phones = ["9448417142"]
+email = "sr.malleswaram@karnataka.gov.in"
+aliases = ["Malleswaram"]
+
+[[office]]
+id = "sro-ganganagara"
+name = "Ganganagara"
+group = "Gandhinagar"
+address = "Sub-Registrar’s Office,Ganganagar No 46, 1st Floor ,Near SBI Bank, Bellary Main Road R T Nagar Post Ganganagar Bangalore-560032"
+phones = ["9480311855"]
+email = "sr.ganganagar@karnataka.gov.in"
+aliases = ["Ganganagar"]
+
+[[office]]
+id = "sro-hebbala"
+name = "Hebbala"
+group = "Gandhinagar"
+address = "Sub-Registrar’s Office, Hebbala , No 07 ,80 Feet Road, H.M.T Layout ,R T Nagar Post ,Bangalore -560032"
+phones = ["8722801598"]
+email = "sr.hebbal@karnataka.gov.in"
+aliases = ["Hebbal"]
+
+[[office]]
+id = "sro-kacharakanahalli"
+name = "Kacharakanahalli"
+group = "Gandhinagar"
+address = "Sub-Registrar’s Office, Kacharakanahalli,No. 798 ,Ramanjini Complex ,Philomena Hospital Road ,Patel Munivenkatappa Layout ,Nagawara , Bangalore -560045"
+phones = ["9448533240"]
+email = "sr.kachknhalli@karnataka.gov.in"
+aliases = ["Kacharkanahalli"]
+
+[[office]]
+id = "sro-byatarayanapura"
+name = "Byatarayanapura"
+group = "Gandhinagar"
+address = "Sub-Registrar’s Office,Byatarayanapura , 1st Floor ,3rd Cross ,B.B.M.P Ward No 8 ,Near Balamuri Ganapathi Temple , Kodigehalli Main Road ,Tatanagar ,Bangalore -560092"
+phones = ["9481926511"]
+email = "sr.byataraynpr@karnataka.gov.in"
+
+[[office]]
+id = "sro-yelahanka"
+name = "Yelahanka"
+group = "Gandhinagar"
+address = "Sub-Registrar Office, Yelahanka ,Mini Vidhana Soudha ,Yelahanka ,Bangalore -560064"
+phones = ["9611557169"]
+email = "sr.yelahanka@karnataka.gov.in"
+
+[[office]]
+id = "sro-jala"
+name = "Jala"
+group = "Gandhinagar"
+address = "Sub-Registrar’s Office Jala, Sericulture Cum Farmers Service Co-Operative Bank Ltd., Chikkajala, Near Nada Kacheri, Opp. Chikkajala Police Station, Nh7, Bellary Road,Bangalore North Taluk, Bangalore-562 157"
+phones = ["9886365139"]
+email = "sr.jala@karnataka.gov.in"
+aliases = ["Chikkajala"]
+
+[[office]]
+id = "sro-hesaraghatta"
+name = "Hesaraghatta"
+group = "Gandhinagar"
+address = "Sub-Registrar’s Office Jala, Sericulture Cum Farmers Service Co-Operative Bank Ltd., Chikkajala, Near Nada Kacheri, Opp. Chikkajala Police Station, Nh7, Bellary Road,Bangalore North Taluk, Bangalore-562 157"
+phones = ["7795444664"]
+note = "The official directory gives this office the same address as Jala (copied as published)."
+email = "sr.hesarghatta@karnataka.gov.in"
+aliases = ["Hessarghatta", "Hesarghatta"]
+
+[[office]]
+id = "sro-bda"
+name = "Additional District Registrar Office, BDA"
+group = "Gandhinagar"
+address = "Additional district registrar, annexed to Bda head office, kumarapark west, bangalore-560020"
+phones = ["8431414090"]
+email = "sr.bda@karnataka.gov.in"
+
+[[office]]
+id = "sro-jayanagara"
+name = "Jayanagara"
+group = "Jayanagar"
+address = "SubRegistrar Office Jayanagar No 623, NO 4, Old, 622, 10th C Main Rd, 4th Block, Jayanagar, Bengaluru- 56001"
+phones = ["9743897932"]
+email = "sr.jayanagar@karnataka.gov.in"
+aliases = ["Jayanagar", "Jaya Nagar"]
+published_errors = ["The PIN code is published as 56001, which has only five digits"]
+
+[[office]]
+id = "sro-shantinagara"
+name = "Shantinagara"
+group = "Jayanagar"
+address = "SubRegistrar Office Ground floor, BMTC, TTMC building, 58, Kengal Hanumanthaiah Rd, shanthi nagar, Sudhama Nagar, Bengaluru -560027"
+phones = ["8951691101"]
+email = "sr.shantinagar@karnataka.gov.in"
+aliases = ["Shantinagar", "Shanthinagar", "Shanthi Nagar", "Shanti Nagar"]
+
+[[office]]
+id = "sro-btm-layout"
+name = "BTM Layout"
+group = "Jayanagar"
+address = "SubRegistrar Office MRS Mansion, 12th Main Rd, KEB Colony, 1st Stage, BTM 1st Stage, Bengaluru - 560029"
+phones = ["9036010030"]
+email = "sr.btmlayout@karnataka.gov.in"
+
+[[office]]
+id = "sro-kengeri"
+name = "Kengeri"
+group = "Jayanagar"
+address = "SubRegistrar Office SLN Complex, Mysore Rd, Fort Kengeri, Kengeri, Bengaluru -560060"
+phones = ["9901249215"]
+email = "sr.kengeri@karnataka.gov.in"
+
+[[office]]
+id = "sro-rajarajeshwari-nagara"
+name = "Rajarajeshwari Nagara"
+group = "Jayanagar"
+address = "SubRegistrar Office D M chambers, Uttarahalli Main Rd, Channasandra, Rajarajeshwari Nagar, Bengaluru - 560098"
+phones = ["9590786155"]
+email = "sr.rajrajesngr@karnataka.gov.in"
+aliases = ["Rajarajeshwari Nagar", "RR Nagar"]
+
+[[office]]
+id = "sro-jp-nagara"
+name = "JP Nagara"
+group = "Jayanagar"
+address = "SubRegistrar Office J P Nagar, 8, Anjanapura Main Rd, Amruth Nagar, Anjanadri Layout, Konanakunte, Bengaluru -560062"
+phones = ["9449277278"]
+email = "sr.jpnagar@karnataka.gov.in"
+aliases = ["JP Nagar", "J P Nagar", "J.P. Nagar"]
+
+[[office]]
+id = "sro-bhommanahalli"
+name = "Bhommanahalli"
+group = "Jayanagar"
+address = "SubRegistrar Office 80, 7th Cross Rd, KHB Block Koramangala, Koramangala 4-B Block, 4th Block, Koramangala, Bengaluru-560034"
+phones = ["9739668848", "9449664777"]
+email = "sr.bommanhalli@karnataka.gov.in"
+aliases = ["Bommanahalli"]
+
+[[office]]
+id = "sro-beguru"
+name = "Beguru"
+group = "Jayanagar"
+address = "SubRegistrar Office Beguru, VJPF+3XF, Begur Rd, Joseph Layout, Devarachikkana Halli, Bengaluru- 560114"
+phones = ["9731509726"]
+email = "sr.begur@karnataka.gov.in"
+aliases = ["Begur"]
+
+[[office]]
+id = "sro-tavarekere"
+name = "Tavarekere"
+group = "Jayanagar"
+address = "SubRegistrar Office Tavarekere, XC73+P52, Thavarekere- 562130"
+phones = ["8105097979"]
+email = "sr.tavarekere@karnataka.gov.in"
+aliases = ["Thavarekere"]
+
+[[office]]
+id = "sro-basavanagudi"
+name = "Basavanagudi"
+group = "Basavanagudi"
+address = "Sub-Registrar Office, Basavanagudi, No. 183, 1st Floor, Poojyaya Arcade, Gandhibazar Main Road, Basavagudi, Bangalore 560 004"
+phones = ["9448332315"]
+email = "sr.basavangudi@karnataka.gov.in"
+
+[[office]]
+id = "sro-chamarajpet"
+name = "Chamarajpet"
+group = "Basavanagudi"
+address = "Sub-Registrar Office, Chamarajpet, 3rd Main Road, Near Rameshwara Temple, Chamarajpet , Bangalore - 560 018"
+phones = ["9449747650"]
+email = "sr.chamarajpet@karnataka.gov.in"
+aliases = ["Chamrajpet", "Chamraj pete", "Chamarajpete"]
+
+[[office]]
+id = "sro-banashankari"
+name = "Banashankari"
+group = "Basavanagudi"
+address = "Sub-Registrar Office, Banashankari, Agriculture Procure Co-Op Marketing Society Building (APMC), Kanakapura Road, Banashankari, Bangalore-560050"
+phones = ["9886600089"]
+email = "sr.banshankari@karnataka.gov.in"
+
+[[office]]
+id = "sro-anekal"
+name = "Anekal"
+group = "Basavanagudi"
+address = "Sub-Registrar Office, Anekal, No. 172/1, 1st Floor, Prerana Complex, Mirza Road, Anekal Town, Bangalore - 562106"
+phones = ["9916887092"]
+email = "sr.anekal@karnataka.gov.in"
+
+[[office]]
+id = "sro-attibele"
+name = "Attibele"
+group = "Basavanagudi"
+address = "Sub-Registrar Office, Attibele, No.430, Anna Building, Hennagara Gate, Bommasandra Industrial Area, Hosur Main Road, Bangalore-560105"
+phones = ["9986092878"]
+email = "sr.attibele@karnataka.gov.in"
+
+[[office]]
+id = "sro-sarjapura"
+name = "Sarjapura"
+group = "Basavanagudi"
+address = "Sub-Registrar Office, Sarjapura, RRL Tower, 2nd floor, Ward no. 10, Bangalaore Main Road, Sompura Gate, Sarjapura, Sarjapura hobli, Anekal Taluk, Bangalore - 562125"
+phones = ["9845514444"]
+email = "sr.sarjapura@karnataka.gov.in"
+aliases = ["Sarjapur"]
+
+[[office]]
+id = "sro-jigani"
+name = "Jigani"
+group = "Basavanagudi"
+address = "Sub-Registrar Office, Jigani, House No 459/39/2, Bannerghatta Village, Opp.Police Station, Bannerghatta, Bangalore-560083"
+phones = ["9113979924"]
+email = "sr.jigani@karnataka.gov.in"
+
+[[office]]
+id = "sro-rajajinagara"
+name = "Rajajinagara"
+group = "Rajajinagar"
+address = "Sub-Registrar Office Rajajinagara, No. 89/B, 5th Main Road, Industrial Estate, Rajajinagar, Bengaluru-560044"
+phones = ["9632506595"]
+email = "sr.rajajinagar@karnataka.gov.in"
+aliases = ["Rajajinagar", "Rajaji Nagar"]
+
+[[office]]
+id = "sro-yeshwanthpura"
+name = "Yeshwanthpura"
+group = "Rajajinagar"
+address = "Sub-Registrar Office Yeshwanthpura No.199, 3B Complex 1st floor, 13th Cross, West of Chord Road 2nd stage Bangalore -560086"
+phones = ["9611573710"]
+email = "sr.yeshwanthpr@karnataka.gov.in"
+aliases = ["Yeshwanthpur", "Yeshwantpur", "Yesvantpur", "Yeswanthpur"]
+
+[[office]]
+id = "sro-peenya"
+name = "Peenya"
+group = "Rajajinagar"
+address = "Sub-Registrar Office Peenya, No. 488, 2nd Floor, KIADB Building, ‘P’ Block, 14th cross, IV Phase, 2nd cross Peenya II Stage, Bangalore-560058."
+phones = ["9611434066"]
+email = "sr.peenya@karnataka.gov.in"
+
+[[office]]
+id = "sro-srirampura"
+name = "Srirampura"
+group = "Rajajinagar"
+address = "Sub-Registrar Office Srirampura, No. 1250-51, Opp to AARPEE ASHRAY Convention Hall Agraharadasarahalli, Magadi Main Road, Bangalore – 560058"
+phones = ["9035846169"]
+email = "sr.srirampura@karnataka.gov.in"
+aliases = ["Sri Rampura", "Srirampuram"]
+
+[[office]]
+id = "sro-laggere"
+name = "Laggere"
+group = "Rajajinagar"
+address = "Sub-Registrar’s Office Laggere, NO 455,MASTHI ARCADE, 50 FEET ROAD, LAGGERE MAIN ROAD, NEAR LAGGERE CIRCLE, BENGALURU-560058"
+phones = ["7022231478"]
+email = "sr.laggere@karnataka.gov.in"
+
+[[office]]
+id = "sro-nagarabhavi"
+name = "Nagarabhavi"
+group = "Rajajinagar"
+address = "Sub-Registrar’s Office Nagarabhavi, No-3, Leela Arcade 2rd Floor Nagharbhavi 2nd Stage Behind Bda ComplexBangalore-560072"
+phones = ["9980110345"]
+email = "sr.nagarabavi@karnataka.gov.in"
+aliases = ["Nagarbhavi"]
+
+[[office]]
+id = "sro-madanayakanahalli"
+name = "Madanayakanahalli"
+group = "Rajajinagar"
+address = "Sub-Registrar’s Office Madanayakanahalli NO-35/36, SAHAKARA BHAVANA, VYAVASAYA SEVA SAHAKARA SANGHA (R) MADANAYAKANAHALLI DASANAPURA HOBLI BENGALURU-562162"
+phones = ["7349020864"]
+email = "sr.madanayak@karnataka.gov.in"
+
+[[office]]
+id = "sro-dasanapura"
+name = "Dasanapura"
+group = "Rajajinagar"
+address = "Sub-Registrar’s Office, Dasanapura No.33/4, B.H Road, Devannana Palya, Dasanapura, Bangalore North Taluk, Bangalore-562123"
+phones = ["9353484410"]
+email = "sr.dasanapura@karnataka.gov.in"
+
+[[office]]
+id = "sro-vijayanagara"
+name = "Vijayanagara"
+group = "Rajajinagar"
+address = "Sub-Registrar Office Vijayanagara,NO.161/1-1 2ND FLOOR M.C.LAYOUT 18TH CROS, C.B.H.S LAYOUT NEAR VIJAYANAGAR WATER TANK, VIJAYNAGAR BANGALORE-560040"
+phones = ["9448788610"]
+email = "sr.vijayanagar@karnataka.gov.in"
+aliases = ["Vijayanagar", "Vijaya Nagar"]
+
+[[office]]
+id = "sro-shivajinagara"
+name = "Shivajinagara"
+group = "Shivajinagar"
+address = "Sub-Registrar Office Shivajinagara, No. 122/2 3rd Floor Monarch Chambers Infantry Road Shivajinagar Nagar, Bangalore-560001"
+phones = ["8951776707"]
+email = "sr.shivajinagr@karnataka.gov.in"
+aliases = ["Shivajinagar", "Shivaji Nagar"]
+
+[[office]]
+id = "sro-kr-puram"
+name = "KR Puram"
+group = "Shivajinagar"
+address = "Sub-Registrar office KR Puram, SLV Sunrise Building Opposite to new police quarters office, Bangalore-560036"
+phones = ["9741561442"]
+email = "sr.krpuram@karnataka.gov.in"
+aliases = ["Krishnarajapura", "Krishnarajapuram", "K R Puram", "K.R. Puram"]
+
+[[office]]
+id = "sro-varthuru"
+name = "Varthuru"
+group = "Shivajinagar"
+address = "Sub-Registrar’s Office, Varthuru , B.M Complex, 1st Floor Opp. Dharamaraya swamy Temple, Mutsandra Road, Varthur, Bangalore-560087"
+phones = ["7338563454"]
+email = "sr.varthur@karnataka.gov.in"
+aliases = ["Varthur"]
+
+[[office]]
+id = "sro-bidarahalli"
+name = "Bidarahalli"
+group = "Shivajinagar"
+address = "Sub-Registrar’s Office, NH4, Havalahalli, Manjushree Building Toyoto Showroom near , Bidarahalli Bangalore-560 036."
+phones = ["9945368775"]
+email = "sr.bidarahalli@karnataka.gov.in"
+
+[[office]]
+id = "sro-banasavadi"
+name = "Banasavadi"
+group = "Shivajinagar"
+address = "Sub-Registrar’s Office, Banasavadi No.740/1, BMP Khata No.25, 1st Floor, 9th B Main Road, HRBR Layout, 1st Block, Kalyanagar, Banasawadi, Bangalore-560043"
+phones = ["9743060965"]
+email = "sr.banaswadi@karnataka.gov.in"
+aliases = ["Banaswadi"]
+
+[[office]]
+id = "sro-mahadevpura"
+name = "Mahadevpura"
+group = "Shivajinagar"
+address = "Sub-Registrar’s Office, Mahadevpura No.52 Kamadenu Nagara,1st stage, 2nd Main Road B.Narayanapura, Behind HP Company, Bangalore 560 016"
+phones = ["9663231044"]
+email = "sr.mahadevpura@karnataka.gov.in"
+aliases = ["Mahadevapura"]
+
+[[office]]
+id = "sro-indira-nagar"
+name = "Indira Nagar"
+group = "Shivajinagar"
+address = "Sub-Registrar Office Indira Nagar, Domlur BDA Complex, Bangalore-560038"
+phones = ["9742230622", "9164667526"]
+email = "sr.indiranagar@karnataka.gov.in"
+aliases = ["Indiranagar"]
+
+[[office]]
+id = "sro-halasooru"
+name = "Halasooru"
+group = "Shivajinagar"
+address = "Sub-Registrar Office Halasooru, B.B.M.P Building, Tank Bund Road, Ulsoor Lake, Ulsoor, Bangalore-560008."
+phones = ["9060525468"]
+email = "sr.halsoor@karnataka.gov.in"
+aliases = ["Halasuru", "Ulsoor"]

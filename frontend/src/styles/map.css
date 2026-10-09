@@ -1,0 +1,17 @@
+/* The map page: MapLibre's controls dressed to match the floating glass panels. */
+.kal-map .maplibregl-ctrl-group {
+  background: color-mix(in srgb, var(--color-card) 78%, transparent);
+  backdrop-filter: saturate(1.6) blur(16px);
+  -webkit-backdrop-filter: saturate(1.6) blur(16px);
+  border: 1px solid color-mix(in srgb, var(--color-rule) 85%, transparent);
+  border-radius: 14px;
+  box-shadow: var(--shadow-soft);
+  overflow: hidden;
+}
+.kal-map .maplibregl-ctrl-group button { width: 34px; height: 34px; }
+.kal-map .maplibregl-ctrl-group button + button { border-top-color: var(--color-rule); }
+.kal-map .maplibregl-ctrl-group button:hover { background: color-mix(in srgb, var(--color-wash) 70%, transparent); }
+.kal-map .maplibregl-ctrl-attrib { border-radius: 10px 0 0 0; }
+
+/* deck.gl's hover tooltip, as a small card. */
+.kal-map .deck-tooltip { white-space: pre-line; }
