@@ -1,4 +1,4 @@
-var N=Object.defineProperty;var $=(l,e,s)=>e in l?N(l,e,{enumerable:!0,configurable:!0,writable:!0,value:s}):l[e]=s;var n=(l,e,s)=>$(l,typeof e!="symbol"?e+"":e,s);import{r as b,j as x}from"./react-DI_DoK0i.js";import{u as j}from"./index-KcxdJW2J.js";import"./router-BQTWBCEV.js";import"./motion--R3qeNyJ.js";const A=16,S=16,W=`#version 300 es
+var N=Object.defineProperty;var $=(l,e,s)=>e in l?N(l,e,{enumerable:!0,configurable:!0,writable:!0,value:s}):l[e]=s;var n=(l,e,s)=>$(l,typeof e!="symbol"?e+"":e,s);import{r as b,j as x}from"./react-DI_DoK0i.js";import{u as j}from"./index-J_qCTeF1.js";import"./router-BQTWBCEV.js";import"./motion--R3qeNyJ.js";const A=16,S=16,W=`#version 300 es
 void main() {
   vec2 p = vec2(float((gl_VertexID << 1) & 2), float(gl_VertexID & 2));
   gl_Position = vec4(p * 2. - 1., 0., 1.);

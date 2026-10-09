@@ -363,7 +363,7 @@ export default function Method() {
               <span className="grid size-11 shrink-0 place-items-center rounded-full bg-card text-brand"><EyeOff className="size-5" aria-hidden /></span>
               <div className="space-y-3 text-[1.02rem] leading-relaxed text-ink-2">
                 <p>No reviewer names or profiles are stored. Names of staff and agents, vehicle numbers, and any mobile number that isn't in an official directory are masked in every quote, and an automated test fails if one ever reaches a published file. This reports on offices, not individuals.</p>
-                <p>Kal Aana keeps no record of your conversation: it stays in your browser tab. With the Claude reader, your messages go to Anthropic's API to write the reply, and a live search sends a short query to SerpApi, whose results are kept on the server for an hour.</p>
+                <p>Kal Aana keeps no record of your conversation: it stays in your browser tab. When a model writes the answers, your messages go to that model's API (on this site, Claude through Anthropic's API), and a live search sends a short query to SerpApi, whose results are kept on the server for an hour.</p>
               </div>
             </div>
           </Section>
@@ -398,7 +398,7 @@ claude mcp add kal-aana -- .venv/bin/kalaana-mcp`}</Code>
             <div className="space-y-4">
               <p className={prose}>
                 You describe the problem in your own words, and the answer is built from the saved data, plus a live search when the data
-                doesn't cover it. With the Claude reader, Claude Sonnet 5.5 runs as an agent over ten tools: find the office, its numbers,
+                doesn't cover it. With a model reader (any OpenAI-compatible API; this site runs Claude Sonnet 5.5), the model works as an agent over ten tools: find the office, its numbers,
                 Google's AI answers, your wait against the limit, reviews, a complaint letter, a report card, the usual busy hours, and
                 rationed live SerpApi searches of government sites and Google News.
               </p>
@@ -415,10 +415,10 @@ claude mcp add kal-aana -- .venv/bin/kalaana-mcp`}</Code>
             </div>
             <div className="mt-8 grid gap-3 sm:grid-cols-2">
               {[
-                ["Claude (Sonnet 5.5)", 'pip install -e ".[claude]"\nKALAANA_READER=anthropic ANTHROPIC_API_KEY=... kalaana serve'],
-                ["A local model with Ollama", "KALAANA_READER=ollama KALAANA_MODEL=gemma3:4b kalaana serve"],
-                ["A local llama.cpp server", "KALAANA_READER=llamacpp LLAMACPP_URL=http://localhost:8080 kalaana serve"],
-                ["Any OpenAI-compatible API", "KALAANA_READER=openai OPENAI_BASE_URL=... OPENAI_API_KEY=... KALAANA_MODEL=... kalaana serve"],
+                ["Any OpenAI-compatible API (the full agent)", "KALAANA_READER=openai OPENAI_BASE_URL=... OPENAI_API_KEY=... KALAANA_MODEL=... kalaana serve"],
+                ["A local model with tools (Ollama)", "KALAANA_READER=openai OPENAI_BASE_URL=http://localhost:11434/v1 KALAANA_MODEL=... kalaana serve"],
+                ["Claude with prompt caching", 'pip install -e ".[claude]"\nKALAANA_READER=anthropic ANTHROPIC_API_KEY=... kalaana serve'],
+                ["A local field reader only", "KALAANA_READER=ollama KALAANA_MODEL=gemma3:4b kalaana serve"],
               ].map(([title, cmd]) => (
                 <div key={title} className="rounded-[1.5rem] border border-rule p-5">
                   <p className="font-semibold">{title}</p>

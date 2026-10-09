@@ -1,17 +1,23 @@
-"""Optional language models that read the ask box's free text into fields. Rules always check the result.
+"""The language model behind the chat and the ask box. Rules always check the result.
 
 Pick one with KALAANA_READER (default: rules only, offline and free):
 
-    ollama      a local model through Ollama          KALAANA_MODEL (default gemma3:4b), OLLAMA_URL
-    llamacpp    a local llama.cpp server               LLAMACPP_URL (default http://localhost:8080)
-    openai      any OpenAI-compatible API              OPENAI_BASE_URL, OPENAI_API_KEY, KALAANA_MODEL
-                (OpenAI, Groq, OpenRouter, Gemini's OpenAI endpoint, LM Studio, vLLM...)
-    anthropic   Claude, through the Anthropic SDK      ANTHROPIC_API_KEY, KALAANA_MODEL (default claude-haiku-5-5);
-                                                       needs: pip install -e ".[claude]". Stops calling once the estimated
-                                                       spend reaches KALAANA_ASK_BUDGET_USD (default 10), kept in
-                                                       data/private/ask-spend.json
+    openai      any OpenAI-compatible Chat Completions API      OPENAI_BASE_URL (default https://api.openai.com/v1),
+                                                                OPENAI_API_KEY, KALAANA_MODEL
+                e.g. Claude (https://api.anthropic.com/v1/, model claude-sonnet-5-5; ANTHROPIC_API_KEY also works
+                there), OpenAI, Gemini's OpenAI endpoint, OpenRouter, Groq, or a local server: Ollama
+                (http://localhost:11434/v1), llama.cpp, LM Studio, vLLM. The model needs tool calling for the chat.
+    anthropic   Claude through the Anthropic SDK (adds prompt    ANTHROPIC_API_KEY, KALAANA_MODEL (default claude-haiku-5-5);
+                caching, so repeat questions cost less)         needs: pip install -e ".[claude]"
+    ollama      a local model through Ollama, fields only       KALAANA_MODEL (default gemma3:4b), OLLAMA_URL
+    llamacpp    a local llama.cpp server, fields only           LLAMACPP_URL (default http://localhost:8080)
 
-A model only proposes fields: the office it names, a service id from a fixed list, a date, an intent.
+With openai or anthropic, the chat runs the model as an agent over its tools (chat.py), and the ask box uses it to
+read fields. A cloud endpoint stops being called once the estimated spend reaches KALAANA_ASK_BUDGET_USD (default
+10), kept in data/private/ask-spend.json; a model not in PRICES is priced at the top of the range. A server on this
+machine (localhost) is free and isn't counted.
+
+In the ask box a model only proposes fields: the office it names, a service id from a fixed list, a date, an intent.
 ask.py then checks each one against the snapshot (the office must exist, the service must have a time limit
 under Sakala or the passport charter, the date can't be in the future), so a model can't invent an office or a deadline. If the model
 is down, slow or returns something unusable, the rules answer instead.
@@ -23,18 +29,22 @@ import http.client
 import json
 import math
 import os
+import ssl
 import tempfile
 import threading
 import urllib.error
+import urllib.parse
 import urllib.request
 from dataclasses import dataclass
+from functools import cache
 from pathlib import Path
 from typing import Any, Final
 
 TIMEOUT_S: Final = 15
 MAX_TOKENS: Final = 2048
 # Claude API prices in US dollars per million tokens (input, output), for the spend cap. Prompts here are tiny, far
-# under the 100K-token threshold where Haiku 5.5's price rises. An unknown model is priced at the top of the range.
+# under the 100K-token threshold where Haiku 5.5's price rises. Any other model (including another provider's) is
+# priced at the top of the range, so the cap holds whatever it really costs.
 PRICES: Final = {"claude-haiku-5-5": (0.10, 0.50), "claude-sonnet-5-5": (2.00, 10.00), "claude-opus-5-5": (4.00, 20.00)}
 FALLBACK_PRICE: Final = (10.00, 50.00)
 SPEND_FILE: Final = Path(__file__).resolve().parent.parent / "data" / "private" / "ask-spend.json"  # gitignored
@@ -94,21 +104,66 @@ def read(text: str, service_ids: list[str], today: str) -> Reading | None:
         reply = _post(f"{os.getenv('OLLAMA_URL', 'http://localhost:11434')}/api/chat", body)
         return _reading(reply.get("message", {}).get("content", ""), f"{model} (local, Ollama)")
     if kind in ("llamacpp", "openai"):
-        base = os.getenv("LLAMACPP_URL", "http://localhost:8080") + "/v1" if kind == "llamacpp" else \
-            os.getenv("OPENAI_BASE_URL", "https://api.openai.com/v1")
-        model = os.getenv("KALAANA_MODEL", "local" if kind == "llamacpp" else "")
-        if not model:
-            raise ReaderError("Set KALAANA_MODEL to the model name for the OpenAI-compatible API")
+        if kind == "llamacpp":
+            url, headers, model = os.getenv("LLAMACPP_URL", "http://localhost:8080").rstrip("/") + "/v1/chat/completions", {}, \
+                os.getenv("KALAANA_MODEL", "local")
+        else:
+            (url, headers), model = openai_endpoint(), openai_model()
+        paid = not is_local(url)
+        if paid:
+            check_budget()
         body = {"model": model, "temperature": 0,
                 "response_format": {"type": "json_schema", "json_schema": {"name": "reading", "strict": True, "schema": schema(service_ids)}},
                 "messages": [{"role": "system", "content": system}, {"role": "user", "content": message}]}
-        headers = {"Authorization": f"Bearer {os.getenv('OPENAI_API_KEY', '')}"} if kind == "openai" else {}
-        reply = _post(f"{base.rstrip('/')}/chat/completions", body, headers)
-        where = "local, llama.cpp" if kind == "llamacpp" else "cloud, OpenAI-compatible"
+        reply = _post(url, body, headers)
+        if paid:
+            usage = reply.get("usage") or {}
+            record_quietly(model, int(usage.get("prompt_tokens") or (len(system) + len(message)) // 2),
+                           int(usage.get("completion_tokens") or MAX_TOKENS))
+        where = "local, llama.cpp" if kind == "llamacpp" else f"{'local' if not paid else 'cloud'}, OpenAI-compatible"
         return _reading(((reply.get("choices") or [{}])[0].get("message") or {}).get("content", ""), f"{model} ({where})")
     if kind == "anthropic":
         return _anthropic(system, message, service_ids)
     raise ReaderError(f"Unknown KALAANA_READER {kind!r}: use rules, ollama, llamacpp, openai or anthropic")
+
+
+def openai_endpoint() -> tuple[str, dict[str, str]]:
+    """The OpenAI-compatible Chat Completions URL and its auth headers. Anthropic's endpoint also takes its own key."""
+    base = os.getenv("OPENAI_BASE_URL", "").strip() or "https://api.openai.com/v1"
+    url = base.rstrip("/") + "/chat/completions"
+    anthropic = (urllib.parse.urlsplit(url).hostname or "").endswith("anthropic.com")
+    key = os.getenv("OPENAI_API_KEY", "").strip() or (os.getenv("ANTHROPIC_API_KEY", "").strip() if anthropic else "")
+    if not key and not is_local(url):
+        raise ReaderError("Set OPENAI_API_KEY for the OpenAI-compatible API")
+    headers = {"Authorization": f"Bearer {key}"} if key else {}
+    if anthropic and (workspace := os.getenv("ANTHROPIC_WORKSPACE_ID", "").strip()):
+        headers["anthropic-workspace-id"] = workspace
+    return url, headers
+
+
+def openai_model() -> str:
+    if not (model := os.getenv("KALAANA_MODEL", "").strip()):
+        raise ReaderError("Set KALAANA_MODEL to the model name for the OpenAI-compatible API")
+    return model
+
+
+@cache
+def tls() -> ssl.SSLContext:
+    """The system's certificates, plus certifi's when it is installed (Python from python.org on macOS has none of
+    its own, so every HTTPS call would fail)."""
+    context = ssl.create_default_context()
+    try:
+        import certifi
+        context.load_verify_locations(certifi.where())
+    except (ImportError, OSError):
+        pass
+    return context
+
+
+def is_local(url: str) -> bool:
+    """A model server on this machine: free, so its calls aren't counted against the spend cap."""
+    host = urllib.parse.urlsplit(url).hostname or ""
+    return host in ("localhost", "127.0.0.1", "::1") or host.endswith(".localhost")
 
 
 def budget_usd() -> float:
@@ -121,7 +176,7 @@ def budget_usd() -> float:
 
 
 def spent() -> dict[str, Any]:
-    """What the paid reader has cost so far: {"usd": ..., "calls": ...}. A ledger that exists but can't be read
+    """What the paid model has cost so far: {"usd": ..., "calls": ...}. A ledger that exists but can't be read
     counts as exhausted, so a damaged file stops spending instead of resetting it to zero."""
     try:
         data = json.loads(SPEND_FILE.read_text(encoding="utf-8"))
@@ -162,12 +217,12 @@ def _ledger_writable() -> bool:
 
 
 def check_budget() -> None:
-    """Raise ReaderError unless a paid Claude call may be made now. Every paid call must be countable: no ledger,
+    """Raise ReaderError unless a paid model call may be made now. Every paid call must be countable: no ledger,
     no call."""
     if _ledger_failed or not _ledger_writable():
-        raise ReaderError("The Claude reader's spend ledger can't be written")
+        raise ReaderError("The model's spend ledger can't be written")
     if spent()["usd"] >= budget_usd():
-        raise ReaderError(f"The ${budget_usd():g} budget for the Claude reader is used up")
+        raise ReaderError(f"The ${budget_usd():g} budget for the model is used up")
 
 
 def claude_client(timeout: float = TIMEOUT_S) -> Any:
@@ -226,7 +281,7 @@ def _post(url: str, body: dict[str, Any], headers: dict[str, str] | None = None)
     request = urllib.request.Request(url, data=json.dumps(body).encode(), method="POST",
                                      headers={"Content-Type": "application/json", **(headers or {})})
     try:
-        with urllib.request.urlopen(request, timeout=TIMEOUT_S) as response:
+        with urllib.request.urlopen(request, timeout=TIMEOUT_S, context=tls()) as response:
             return json.loads(response.read())
     except (OSError, http.client.HTTPException, ValueError):  # URLError, timeouts, resets, bad JSON or UTF-8
         raise ReaderError("Model server unavailable") from None

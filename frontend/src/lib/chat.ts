@@ -107,9 +107,10 @@ export function saveConversation(messages: Message[]): void {
   try { sessionStorage.setItem(KEY, JSON.stringify(messages.filter((m) => m.role === "user" || m.done))); } catch { /* storage blocked */ }
 }
 
-/** Who answered: Claude wrote the words between cards; another model only read the message; or no model at all. */
+/** Who answered: a model wrote the words between cards (the chat's agent, "<model> (OpenAI-compatible API)" or
+ *  "<model> (cloud, Claude API)"); a local model only read the message; or no model at all. */
 export const readerLabel = (by: string | null) => !by || by === "none" ? "" : by === "rules" ? "Answered from Kal Aana's saved data (no AI model)"
-  : by.includes("Claude API") ? `Written by ${by}` : `Read by ${by}; the cards were chosen by Kal Aana's rules`;
+  : / \((?:cloud, Claude|OpenAI-compatible) API\)$/.test(by) ? `Written by ${by}` : `Read by ${by}; the cards were chosen by Kal Aana's rules`;
 
 /** The office a card is about, if it is about one. */
 export function cardOffice(card: ChatCard): string | null {

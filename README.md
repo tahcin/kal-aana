@@ -1,5 +1,7 @@
 # Kal Aana
 
+[![Kal Aana's home page: "Namaskara, Bengaluru." over a soft lilac panel where published office landlines drift and a rotary dial turns; a marigold glow settles round the ask box after the call goes unanswered](docs/hero.png)](https://kalaana.gradestone.in)
+
 **"Kal aana": come back tomorrow.** Every Indian has heard it at a government counter.
 
 **Only 2 of 58 Google Maps listings for Bengaluru's public offices show the phone number the department publishes; 41 show no phone at all. Google's AI Overview didn't lead with the office's own number in 40 of 47 answers.** We measured this with 628 SerpApi searches across six engines, checking each office's official promises (its phone numbers, and the working days the law gives it for each service) against what citizens find on Google and report in reviews.
@@ -18,9 +20,9 @@ python -m venv .venv && source .venv/bin/activate      # Windows: .venv\Scripts\
 pip install -e . && kalaana serve                      # then open http://127.0.0.1:8000
 ```
 
-Without keys, the chat answers from the saved data, labelled "Answered from Kal Aana's saved data (no AI model)"; with an Anthropic key, Claude Sonnet 5.5 writes the answers, and with a SerpApi key it can search live. See [Choosing a reader](#choosing-a-reader).
+Without keys, the chat answers from the saved data, labelled "Answered from Kal Aana's saved data (no AI model)"; with a model key (any OpenAI-compatible API, such as Claude, OpenAI or Gemini, or a local Ollama), the model writes the answers, and with a SerpApi key it can search live. See [Choosing a reader](#choosing-a-reader).
 
-![Asking Kal Aana: "Applied for my learner's licence at RTO South 3 weeks ago, still waiting". Claude Sonnet 5.5 picks the tools; the cards (the working days against the legal limit, and a reviewer's reported wait) come from the data](docs/chat-answer.png)
+![Asking Kal Aana on the live site: "Applied for my learner's licence at RTO South 3 weeks ago, still waiting". Claude Sonnet 5.5 picks the tools; the cards come from the data: 17 working days against a 7-day limit, and a reviewer's "20days" at the same office](docs/chat-answer.png)
 
 ## Why
 
@@ -44,7 +46,7 @@ Kal Aana uses search data as a measuring instrument: many searches across office
 
 ### Sub-registrar offices: all 43
 
-![The office page for Varthur's sub-registrar office](docs/office-varthur.png)
+![Varthuru sub-registrar office: the promise (the department's office mobile) against the reality (a different number on its Google Maps listing, which Google's AI Overview and AI Mode both lead with)](docs/office-varthur.png)
 
 - **The Department of Stamps and Registration publishes a phone number for all 43 (one office mobile number each). On Google Maps, 30 of the 42 listings show no phone, and none of the 12 numbers that are shown is in the department's directory.** 41 of 42 are unclaimed. A citizen who finds the office on Google has no way to tell which number, if any, is the one the department stands behind.
 - **One mobile number that isn't in the department's directory is the phone on two different offices' listings, Varthur and J P Nagar.** Searched for each office's number, Google's AI calls it "the official phone number" for Varthur and gives it for J P Nagar too. It is not in the directory.
@@ -64,17 +66,17 @@ Every claim links to its source: the department's directory, the Sakala Service 
 
 | Report card | Office page | Complaint letter in the chat |
 |---|---|---|
-| ![The RTO report card](docs/offices.png) | ![The office page for KA-05](docs/office-ka05.png) | ![A complaint letter about a late passport re-issue, addressed to the RPO's grievance address](docs/chat-letter.png) |
+| ![The RTO report card: 9 of 12 listings show no phone, then every office ranked by listing score](docs/offices.png) | ![KA-05's office page: the verdict in three sentences, then the promise against the reality](docs/office-ka05.png) | ![A complaint letter about a late passport re-issue, addressed to the RPO's grievance address](docs/chat-letter.png) |
 
 ## What you get
 
-1. **Ask** (`/`): a chat for anything about RTO, passport and sub-registrar matters in Karnataka. Describe your problem in your own words ("applied for my learner's licence at RTO South 3 weeks ago, still waiting", "what documents do I need for a learner's licence?", "is Sarathi down today?") and the answer builds itself as cards: your working days against the limit, the office's own numbers set against what Google Maps and Bing show, what Google's AI told citizens (typed out, the office's own number in green, anything else in red), what reviewers report, a complaint letter addressed to the right officer (for a passport centre, the RPO's grievance address), and, for anything the saved data doesn't cover (documents, fees, procedures, tracking, outages), a **live SerpApi search**: Google restricted to government sites first, or Google News, each result linked and marked "Government site" or "Other site". Ask follow-ups. With the Claude reader, Claude Sonnet 5.5 picks the tools and writes a few connecting sentences, naming the site for every fact from a search; **the cards come from the data, not the model** (the model only passes along the date and application number you gave), and a guard withholds any number in its words that no tool returned and any phone number you typed, so even a crafted message can't make Kal Aana vouch for a number. Without a key, Kal Aana's rules choose the same cards. Every reply says which reader answered. Passport limits come with the charter's terms, and a re-issue is only called past the limit "if no police verification was needed". A letter is offered only once an application is past its limit. Kal Aana keeps no record of the conversation (it stays in your browser tab); with the Claude reader, your messages are sent to Anthropic's API to write the reply, and a live search sends a short query to SerpApi. Links: `/#ask=<question>` puts a question in the box for the visitor to send, and `/?office=<id>` asks about one office.
-   ![A live search: "What documents do I need for a learner's licence in Karnataka?" Government pages first, each marked, with the search ID; the answer names the site for each fact](docs/chat-search.png)
+1. **Ask** (`/`): a chat for anything about RTO, passport and sub-registrar matters in Karnataka. Describe your problem in your own words ("applied for my learner's licence at RTO South 3 weeks ago, still waiting", "what documents do I need for a learner's licence?", "is Sarathi down today?") and the answer builds itself as cards: your working days against the limit, the office's own numbers set against what Google Maps and Bing show, what Google's AI told citizens (typed out, the office's own number in green, anything else in red), what reviewers report, a complaint letter addressed to the right officer (for a passport centre, the RPO's grievance address), and, for anything the saved data doesn't cover (documents, fees, procedures, tracking, outages), a **live SerpApi search**: Google restricted to government sites first, or Google News, each result linked and marked "Government site" or "Other site". Ask follow-ups. With a model reader, the model picks the tools and writes a few connecting sentences, naming the site for every fact from a search; **the cards come from the data, not the model** (the model only passes along the date and application number you gave), and a guard withholds any number in its words that no tool returned and any phone number you typed, so even a crafted message can't make Kal Aana vouch for a number. Without a key, Kal Aana's rules choose the same cards. Every reply says which reader answered. Passport limits come with the charter's terms, and a re-issue is only called past the limit "if no police verification was needed". A letter is offered only once an application is past its limit. Kal Aana keeps no record of the conversation (it stays in your browser tab); with a model reader, your messages are sent to that model's API to write the reply, and a live search sends a short query to SerpApi. Links: `/#ask=<question>` puts a question in the box for the visitor to send, and `/?office=<id>` asks about one office.
+   The chat also answers in Hindi, Hinglish and Kannada (with a model; without one, the rules still read the office, service and date from Hindi or Kannada script), and for five RTOs it shows **when the office is usually less crowded**, from Google's typical busyness by hour in our saved searches (a weekday from 10 am to 4 pm; offices are closed on Sundays and the 2nd and 4th Saturdays). The home page opens on "the unanswered call": published 080 office landlines from the departments' directories float around the headline, one is dialled and rings, and a marigold light carries to the ask box.
+   ![A live search: "What documents do I need for a learner's licence in Karnataka?" Google results from government sites only, each marked "Government site", with the search ID; the answer names the site for each fact](docs/chat-search.png)
 2. **The map** (`/map`): every office on a vector map of Bengaluru, coloured by what its Google Maps listing shows, with the one number shared by two offices drawn as an arc. A "Lookalikes" filter adds the 9 listings named like a passport office but not on the RPO's list, as hollow rings (shown without their phone numbers). Selecting an office opens a card with what Google Maps, the AI Overview, AI Mode and Bing Maps each show for it.
 3. **Report cards** (`/offices`): every office of a type, sortable by listing score or reported problems: the official number, what Maps shows, what Google's AI leads with, and how many recent reviews report a problem.
-   The chat also answers in Hindi, Hinglish and Kannada (with Claude; without a key, the rules still read the office, service and date from Hindi or Kannada script), and for five RTOs it shows **when the office is usually less crowded**, from Google's typical busyness by hour in our saved searches (a weekday from 10 am to 4 pm; offices are closed on Sundays and the 2nd and 4th Saturdays).
-4. **Office pages** (`/office/rto-ka05`): the verdict in plain sentences, what the law (or the passport charter) promises against what you get, and the evidence: what the AI Overview, AI Mode and Bing Maps each show, every number Google showed, six checks of the listing, quotes by issue, and every SerpApi search behind the page. They also give where to escalate (the Sakala appeal officers, or for passports the grievance channels), the department's own notes on the office, and any lookalike listings nearby.
-5. **The method** (`/method`), with the classifier's accuracy computed live from the labelled reviews.
+4. **Office pages** (`/office/rto-ka05`): the verdict in plain sentences, a "promise" panel (the published numbers and time limit) against a "reality" panel (what Google Maps, the AI Overview, AI Mode, Bing Maps and recent reviews show), and the evidence: what the AI Overview, AI Mode and Bing Maps each show, every number Google showed, six checks of the listing, quotes by issue, and every SerpApi search behind the page. They also give where to escalate (the Sakala appeal officers, or for passports the grievance channels), the department's own notes on the office, and any lookalike listings nearby.
+5. **The method** (`/method`): a diagram of the pipeline, each step explained, and the classifier's accuracy computed live from the labelled reviews.
 6. **MCP server** for AI assistants, with the chat's own tools: `how_to_reach`, `office_report`, `compare_offices`, `statutory_timeline`, `read_a_complaint`, `check_wait`, `google_ai_answers`, `office_reviews`, `draft_complaint`, `best_time_to_visit`, and the two live searches, `search_official_sites` and `search_news` (marked open-world; they need a SerpApi key and share the chat's rationed allowance). So an assistant asked "how do I contact RTO South?" answers with the official number and the evidence, instead of a guess.
 7. **JSON API** (documented at `/api/docs`): `/api/chat` (POST, server-sent events), `/api/overview`, `/api/office/<id>`, `/api/story/<id>`, `/api/office/<id>/complaint` (the letter; working days count Sundays and the 2nd and 4th Saturdays off), `/api/ask` (POST), `/api/method` and `/api/snapshot?office_type=rto|subregistrar|passport`. The snapshot's shape is typed in [`kalaana/models.py`](kalaana/models.py).
 
@@ -91,7 +93,7 @@ kalaana serve
 
 Open http://127.0.0.1:8000 (`kalaana serve --port 8080` to use another port). No API key and no Node are needed: the app is built into the package, and it reads the committed snapshots in `data/snapshot/`. A plain `pip install .` works too, because the wheel carries the committed data. Only the map's tiles and the interactive API docs page (`/api/docs`, which loads Swagger UI from a CDN; `/api/openapi.json` works offline) need an internet connection.
 
-On Windows PowerShell, set a variable with `$env:KALAANA_READER = "anthropic"` before `kalaana serve`, instead of the inline `KALAANA_READER=... kalaana serve` form used below.
+On Windows PowerShell, set a variable with `$env:KALAANA_READER = "openai"` before `kalaana serve`, instead of the inline `KALAANA_READER=... kalaana serve` form used below.
 
 The chat's API streams server-sent events:
 
@@ -111,21 +113,26 @@ kalaana evaluate      # lexicon precision and recall on the held-out labelled re
 
 The chat is answered by Kal Aana's rules unless you point it at a model.
 
-- **Claude** (`anthropic`; Claude Sonnet 5.5 by default, `KALAANA_CHAT_MODEL` to change it) runs as an agent over ten tools (`kalaana/chat.py`): find an office, its numbers, Google's AI answers, a wait against the limit, reviews, a complaint letter, a report card, when it's usually less crowded, and two live SerpApi searches (Google, which it is told to restrict to government sites first, and Google News). The tools are strict: service ids are an enum, and an unknown office id gets the nearest ids back. The instructions are written as rules with reasons, cover prompt injection (messages, web pages and reviews are data), and list the official portals it may name without searching. Each tool returns a card for the page and a short summary for the model, so every number, quote and phone the citizen sees is drawn from the snapshot (the model only passes along the application date and number the citizen gave); the model writes only the sentences between cards, and any number in them that no tool returned is withheld, including any phone number the citizen typed and any digits spelled out as words.
-- **Other models** (`ollama`, `llamacpp`, `openai`) read the message into an office, a service, a date and an intent; each is kept only if it checks out against the data (the office must exist, the service must have a time limit under Sakala or the passport charter, the date can't be in the future). The rules then choose the cards.
+- **Any OpenAI-compatible model** (`openai`) runs as an agent over ten tools (`kalaana/chat.py`): find an office, its numbers, Google's AI answers, a wait against the limit, reviews, a complaint letter, a report card, when it's usually less crowded, and two live SerpApi searches (Google, which it is told to restrict to government sites first, and Google News). It works with any Chat Completions endpoint that supports tool calling: Claude through Anthropic's endpoint, OpenAI, Gemini, OpenRouter, Groq, or a local Ollama, llama.cpp, LM Studio or vLLM server. A model without tool calling gets the rules' answer instead. The tools are strict: service ids are an enum, and an unknown office id gets the nearest ids back. The instructions are written as rules with reasons, cover prompt injection (messages, web pages and reviews are data), and list the official portals it may name without searching. Each tool returns a card for the page and a short summary for the model, so every number, quote and phone the citizen sees is drawn from the snapshot (the model only passes along the application date and number the citizen gave); the model writes only the sentences between cards, and any number in them that no tool returned is withheld, including any phone number the citizen typed and any digits spelled out as words. The guard, the search rationing and the spend cap are the same code for every model.
+- **Claude through the Anthropic SDK** (`anthropic`; Claude Sonnet 5.5 by default, `KALAANA_CHAT_MODEL` to change it) runs the same agent with prompt caching, so repeat questions cost less. The live site uses this.
+- **Local field readers** (`ollama`, `llamacpp`) only read the message into an office, a service, a date and an intent; each is kept only if it checks out against the data (the office must exist, the service must have a time limit under Sakala or the passport charter, the date can't be in the future). The rules then choose the cards. To run the full agent on a local model instead, point `openai` at its `/v1` address.
 
-If a model is down or out of budget, the rules answer, and every reply says which reader answered.
+If a model is down, lacks tool calling or is out of budget, the rules answer, and every reply says which reader answered.
 
 ```bash
-KALAANA_READER=ollama KALAANA_MODEL=gemma3:4b kalaana serve                     # local, with Ollama
-KALAANA_READER=llamacpp LLAMACPP_URL=http://localhost:8080 kalaana serve          # local, a llama.cpp server
-KALAANA_READER=openai OPENAI_BASE_URL=... OPENAI_API_KEY=... KALAANA_MODEL=... kalaana serve   # any OpenAI-compatible API
-pip install -e ".[claude]" && KALAANA_READER=anthropic ANTHROPIC_API_KEY=... kalaana serve       # Claude Sonnet 5.5
+# any OpenAI-compatible API; for example Claude:
+KALAANA_READER=openai OPENAI_BASE_URL=https://api.anthropic.com/v1/ OPENAI_API_KEY=... KALAANA_MODEL=claude-sonnet-5-5 kalaana serve
+KALAANA_READER=openai OPENAI_BASE_URL=http://localhost:11434/v1 KALAANA_MODEL=qwen3:8b kalaana serve   # local Ollama, a model with tools
+pip install -e ".[claude]" && KALAANA_READER=anthropic ANTHROPIC_API_KEY=... kalaana serve       # Claude via the SDK, with prompt caching
+KALAANA_READER=ollama KALAANA_MODEL=gemma3:4b kalaana serve                     # local field reader only
+KALAANA_READER=llamacpp LLAMACPP_URL=http://localhost:8080 kalaana serve          # local field reader, a llama.cpp server
 ```
 
-With a cloud reader, each visitor gets 20 questions per 10 minutes. The Claude reader's total spend is counted in `data/private/ask-spend.json` (gitignored); once it reaches `KALAANA_ASK_BUDGET_USD` (default 10), the chat falls back to rules, so a public demo can't run up the key's bill. A typical answer takes two to four model calls; with prompt caching it cost us about 2.6 US cents with Sonnet 5.5 (so $10 is roughly 380 answers), or under a fifth of a cent with `KALAANA_CHAT_MODEL=claude-haiku-5-5`, which follows the honesty rules less reliably.
+With any model reader, each visitor gets 20 questions per 10 minutes, and `KALAANA_DAILY_QUESTIONS` can cap the questions a day across all visitors (IST; off by default). A cloud model's total spend is estimated in `data/private/ask-spend.json` (gitignored), from the token usage the API reports, with any model not on Kal Aana's price list charged at the top of the range; once it reaches `KALAANA_ASK_BUDGET_USD` (default 10), the chat falls back to rules, so a public demo can't run up the key's bill. A model on localhost is free and isn't counted. A typical answer takes two to four model calls; with prompt caching it cost us about 2.6 US cents with Sonnet 5.5 (so $10 is roughly 380 answers), or under a fifth of a cent with `KALAANA_CHAT_MODEL=claude-haiku-5-5`, which follows the honesty rules less reliably. Through Anthropic's OpenAI-compatible endpoint there is no prompt caching, so the same answer costs more (about 4 US cents for a two-call answer in one measured case).
 
-Live searches are rationed separately, because each costs a SerpApi credit: at most two per reply, `KALAANA_LIVE_TOTAL` in all (default 300), `KALAANA_LIVE_DAILY` a day (default 40, IST), and none once the account has `KALAANA_LIVE_RESERVE` credits or fewer left (default 250, read from SerpApi's free Account API), so the credits kept for refreshing the dataset are never touched. A repeat within the hour is served from the cache. Counts are kept in `data/private/live-searches.json` (gitignored). Without a SerpApi key, live search is off and the chat says so.
+Live searches are rationed separately, because each costs a SerpApi credit. Saved data comes first: a web search about anything the snapshot covers (phones, time limits, Sakala, reviews, bribes, agents, busy hours, timings, the address) is refused before it runs, in the chat and the MCP server, and the model is pointed to the saved-data tool instead (`chat.saved_data_covers`). The model is told to make one search per reply and a second only if the first found nothing (the code stops at two). A repeat within the hour (same words, ignoring case and spacing) is served from the cache and costs no credit and no allowance (`live.is_cached`). Each visitor gets 5 live searches per 10 minutes; in all, `KALAANA_LIVE_TOTAL` (default 300), `KALAANA_LIVE_DAILY` a day (default 40, IST), and none once the account has `KALAANA_LIVE_RESERVE` credits or fewer left (default 250, read from SerpApi's free Account API), so the credits kept for refreshing the dataset are never touched. Counts are kept in `data/private/live-searches.json` (gitignored). Without a SerpApi key, live search is off and the chat says so.
+
+Earlier replies in a conversation come back from the visitor's browser (the last 12 turns), and each is cut to about 600 characters on a sentence end and marked "[Shortened here to save space]", so the model never mistakes the trim for a reply that broke off.
 
 ### Live data (needs a SerpApi key)
 
@@ -172,7 +179,7 @@ Add this to `claude_desktop_config.json` (Settings, Developer, Edit Config), wit
 }
 ```
 
-Restart Claude Desktop and ask "How do I reach RTO Bengaluru South?" or "What's the time limit for an encumbrance certificate?". The tools are read-only; ten of the twelve work offline from the snapshot (the two live searches need `SERPAPI_API_KEY` in the server's environment), and they and refuse to guess: "Koramangala RTO" is a neighbourhood, not an office, so the tool asks which office you mean instead of returning the wrong office's number. "Yelahanka" has both an RTO and a sub-registrar office, so it asks which. [`docs/mcp-example.md`](docs/mcp-example.md) shows real output from the server.
+Restart Claude Desktop and ask "How do I reach RTO Bengaluru South?" or "What's the time limit for an encumbrance certificate?". The tools are read-only; ten of the twelve work offline from the snapshot (the two live searches need `SERPAPI_API_KEY` in the server's environment), and they refuse to guess: "Koramangala RTO" is a neighbourhood, not an office, so the tool asks which office you mean instead of returning the wrong office's number. "Yelahanka" has both an RTO and a sub-registrar office, so it asks which. [`docs/mcp-example.md`](docs/mcp-example.md) shows real output from the server.
 
 To host it, `kalaana-mcp --http 127.0.0.1:8096` serves Streamable HTTP at `/mcp`; behind a proxy, list its public host names in `KALAANA_MCP_HOSTS` so requests for any other host are refused.
 
@@ -187,11 +194,30 @@ pnpm dev        # http://localhost:5173, with /api proxied to `kalaana serve` on
 pnpm build      # writes kalaana/static/app/, which is committed
 ```
 
+### Hosting (the live site)
+
+- **Pages:** [kalaana.gradestone.in](https://kalaana.gradestone.in) is the same React build, served from Cloudflare Workers static assets (`frontend/wrangler.jsonc`). Hashed files in `/assets/` are cached for a year (`frontend/public/_headers`; `kalaana serve` sends the same header). A small worker in front of `/api/*` only (`frontend/worker.js`) keeps the snapshot's read-only data (`/api/overview`, `/api/method`, `/api/snapshot`, `/api/office/<id>`, `/api/story/<id>`) in Cloudflare's cache near the visitor for an hour; anything that depends on today or the visitor (an application date, the chat, a letter) goes straight to the API.
+- **API and MCP:** `kalaana serve` at `https://kalaana-api.gradestone.in` and `kalaana-mcp --http` at `https://kalaana-mcp.gradestone.in/mcp`, on a small VPS behind a Cloudflare Tunnel, each a systemd service with memory and CPU limits, listening only on 127.0.0.1.
+- **Redeploy the pages:** from `frontend/`, `VITE_API_BASE=https://kalaana-api.gradestone.in VITE_OUT_DIR=dist pnpm build && npx wrangler deploy`. `VITE_API_BASE` points the pages at the API; `VITE_OUT_DIR` builds into `dist/` instead of the package.
+- **Redeploy the API:** copy the code to the server and restart both services.
+
+The server's settings, in its `.env`:
+
+| Variable | What it does |
+|---|---|
+| `KALAANA_PROXY=cloudflare` | Read the visitor's address from Cloudflare's `CF-Connecting-IP` header, so the per-visitor limits work behind the tunnel (trust it only when the server is reachable through the tunnel alone) |
+| `KALAANA_CORS` | Comma-separated origins allowed to call the API from a browser (the pages' own origins); off by default |
+| `KALAANA_DAILY_QUESTIONS` | Questions a day across all visitors, when a model answers |
+| `KALAANA_ASK_BUDGET_USD` | A cloud model's total spend before the chat falls back to the rules |
+| `KALAANA_LIVE_DAILY`, `KALAANA_LIVE_TOTAL`, `KALAANA_LIVE_RESERVE` | The live-search allowance (see [Choosing a reader](#choosing-a-reader)) |
+| `KALAANA_MCP_HOSTS` | The MCP server's public host names; requests for any other host are refused |
+| `KALAANA_READER`, `OPENAI_BASE_URL`, `OPENAI_API_KEY`, `KALAANA_MODEL`, `KALAANA_CHAT_MODEL`, `ANTHROPIC_API_KEY`, `SERPAPI_API_KEY` | The reader, its endpoint and model, and the keys |
+
 ### Tests
 
 ```bash
 pip install -e ".[dev]"
-pytest
+pytest          # 648 passed on October 9, 2026
 ```
 
 The tests use fixtures shaped like SerpApi's JSON, never real calls. The real `SearchClient` runs, with its cache, budget, dry run and key redaction, and only the HTTP call is stubbed.
@@ -280,11 +306,13 @@ flowchart LR
   R --> N[snapshot.py<br>masked quotes only]
   Z --> N
   N --> V[views.py + web.py<br>JSON API, complaint letters]
-  V --> H[chat.py<br>Claude Sonnet 5.5 over ten tools,<br>or the rules; cards from data]
+  V --> H[chat.py<br>a model over ten tools<br>(any OpenAI-compatible API),<br>or the rules; cards from data]
   S --> L[live.py<br>rationed live search:<br>gov sites first, news]
   L --> H
   H --> F[frontend/<br>React app: chat, map,<br>offices, method]
   V --> F
+  V -.-> W[frontend/worker.js<br>live site only: edge cache<br>for read-only API data]
+  W -.-> F
   N --> P[mcp_server.py<br>12 read-only tools]
   N --> Q[ask.py + reader.py<br>free text to office,<br>service, date; optional model]
 ```
@@ -313,7 +341,7 @@ Some categories have only a handful of labelled examples (one each for "can't re
 
 ### The chat's honesty, tested
 
-The chat's model-written sentences are the part most likely to slip, so they are tested too. `kalaana chat-eval` sends 23 tricky conversations through the configured reader and checks every reply with plain code, no model judging a model: a number not in the directory is never called wrong or fake, nobody claims a number works, no one is named, a planted phone number is never repeated, a passport wait comes with its police-verification condition, the reply comes back in the citizen's language (Hindi, Hinglish and Kannada are in the set), out-of-scope questions say what Kal Aana covers, a vague question gets a question back, no letter is drafted for an application still within its limit, no web address appears that a tool didn't return, a Saturday visit is never suggested without the 2nd and 4th Saturday closures, and no number had to be withheld. With Claude Sonnet 5.5 on October 9, 2026: **23 of 23 passed**. Every answer is in [`docs/chat-eval.md`](docs/chat-eval.md), so you can check the checks. Getting there caught real slips, now fixed: an eligibility rule stated from memory, and a Saturday suggested when that Saturday was a closed one.
+The chat's model-written sentences are the part most likely to slip, so they are tested too. `kalaana chat-eval` sends 23 tricky conversations through the configured reader and checks every reply with plain code, no model judging a model: a number not in the directory is never called wrong or fake, nobody claims a number works, no one is named, a planted phone number is never repeated, a passport wait comes with its police-verification condition, the reply comes back in the citizen's language (Hindi, Hinglish and Kannada are in the set), out-of-scope questions say what Kal Aana covers, a vague question gets a question back, no letter is drafted for an application still within its limit, no web address appears that a tool didn't return, a Saturday visit is never suggested without the 2nd and 4th Saturday closures, and no number had to be withheld. With Claude Sonnet 5.5 on October 9, 2026: **23 of 23 passed**. Through Anthropic's OpenAI-compatible endpoint, the same model also passed 23 of 23 ([`docs/chat-eval-openai-compatible.md`](docs/chat-eval-openai-compatible.md)). Every answer is in [`docs/chat-eval.md`](docs/chat-eval.md), so you can check the checks. Getting there caught real slips, now fixed: an eligibility rule stated from memory, and a Saturday suggested when that Saturday was a closed one.
 
 ## Limitations
 
@@ -327,13 +355,13 @@ The chat's model-written sentences are the part most likely to slip, so they are
 - **Name masking is pattern-based.** It catches names next to a cue (Mr, officer, madam, "named", "kudos to"). Every committed quote was also read in full by a separate AI reviewer (Claude, in a fresh session) looking for names and identifiers. Names found that way are masked through a local list that is never committed, because a list of names is exactly what must not be published.
 - **Facilities complaints** (cleanliness, parking, washrooms) aren't counted, because no statutory promise covers them.
 - **Tamil and Telugu** patterns are tested but unmeasured on real text: in our RTO collection (not committed), only 5 of the 438 reviews with text are in Indian scripts.
-- **One city, two office types so far.** The official data for passport offices is already in `data/official/`.
+- **One city so far.** All three office types are Bengaluru's; another city needs its own directories and searches (see [Another city](#another-city)), and the web app shows one city at a time.
 
 ## Ethics
 
 - **Offices, not individuals.** No staff member or private individual is named anywhere. (Businesses appear only by the names on their own Google listings, for example listings named like a passport office.) Names, mobile numbers that aren't in an official directory, vehicle registrations and agents' shop numbers are masked in every quote. Officers' official numbers stay visible because they are the published public contact points.
 - **No reviewer identities.** No reviewer's name or profile is in any committed file or shown anywhere; the committed snapshot and labelled sets hold masked text only. (The raw search cache, which is never committed, holds SerpApi's responses as received.)
-- **No record of conversations.** The chat keeps no record on the server; the conversation lives in the visitor's browser tab. With the Claude reader, messages go to Anthropic's API, and a live search sends a short query to SerpApi; live results are cached for an hour, then deleted.
+- **No record of conversations.** The chat keeps no record on the server; the conversation lives in the visitor's browser tab. With a model reader, messages go to that model's API, and a live search sends a short query to SerpApi; live results are cached for an hour, then deleted.
 - **Careful wording.** "Reviewers report", "possible breach" and "listing score", never "this office is corrupt".
 - **Nothing is sent on anyone's behalf.** The complaint letter is a draft the citizen reads, edits and sends.
 - **Untrusted text stays data.** Review text never reaches a model as instructions, and the MCP tools label quotes as data.
@@ -341,23 +369,25 @@ The chat's model-written sentences are the part most likely to slip, so they are
 ## Project layout
 
 ```
-kalaana/          the package: client, collect, offices, official, citizen, crosscheck, taxonomy, redact,
-                  score, snapshot, models, evaluate, refine, lookup, ask, reader, views, web, mcp_server, cli
+kalaana/          the package: client, collect, offices, official, citizen, crosscheck, phones, taxonomy, redact,
+                  score, snapshot, models, evaluate, refine, lookup, ask, reader, chat, chat_eval, live, views,
+                  web, mcp_server, paths, cli
 data/official/    official directories and Sakala time limits, every row with its source
 data/snapshot/    the committed snapshots (one per office type) the web app and MCP server read
 data/labels/      hand-labelled reviews for evaluation (masked)
 data/refined/     the local LLM's cached readings (masked)
-frontend/         the React app's source (React, TypeScript, Vite, Tailwind, Motion, MapLibre, deck.gl)
+frontend/         the React app's source (React, TypeScript, Vite, Tailwind, Motion, MapLibre, deck.gl; the home
+                  hero is plain WebGL2), plus worker.js and wrangler.jsonc for the live site
 kalaana/static/app/  the app, built and committed so running it needs no Node
 tests/            pytest suite
-docs/             screenshots, an MCP transcript, and how to add an office type
+docs/             screenshots, an MCP transcript, the chat eval report, and how to add an office type
 ```
 
 ## Credits and AI use
 
 - Data from [SerpApi](https://serpapi.com) (Google Maps, Google Maps Reviews, Google Search, Google AI Overview, Google AI Mode, Bing Maps), the Karnataka Transport Department, the Karnataka Department of Stamps and Registration, the Karnataka Sakala Services portal and the Ministry of External Affairs. Reviews are by members of the public on Google Maps; each quote links to the original.
 - Built with **Claude Code** (Anthropic's Claude), which wrote most of the code, the tests and the documentation, researched the official sources, and hand-labelled the evaluation sets under the author's direction. **gemma3:4b** (Google, run locally with Ollama) was used only for the evaluation above.
-- Libraries: FastAPI, Uvicorn, phonenumbers, python-dotenv, and optionally serpapi, the Anthropic SDK and the MCP Python SDK. The app: React, React Router, Vite, Tailwind CSS, Motion, MapLibre GL, deck.gl, cmdk, Radix UI and lucide icons (all MIT, ISC or similar permissive licences), the Inter, Newsreader and JetBrains Mono fonts, and the wordmark lettered from Shadows Into Light Two (Kimberly Geswein) and Hubballi (Kannada) (all SIL Open Font License 1.1). Map data &copy; OpenStreetMap contributors (ODbL), tiles by OpenFreeMap.
+- Libraries: FastAPI, Uvicorn, phonenumbers, python-dotenv, and optionally serpapi, the Anthropic SDK (for prompt caching; any OpenAI-compatible API needs no extra library) and the MCP Python SDK. The app: React, React Router, Vite, Tailwind CSS, Motion, MapLibre GL, deck.gl, cmdk, Radix UI and lucide icons (all MIT, ISC or similar permissive licences), the Inter, Newsreader and JetBrains Mono fonts, and the wordmark lettered from Shadows Into Light Two (Kimberly Geswein) and Hubballi (Kannada) (all SIL Open Font License 1.1). Map data &copy; OpenStreetMap contributors (ODbL), tiles by OpenFreeMap.
 
 ## Data and content notice
 

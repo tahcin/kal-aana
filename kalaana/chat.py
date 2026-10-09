@@ -1,24 +1,32 @@
 """The chat on the home page: a citizen describes their problem, and the answer is built from the snapshot.
 
-Claude (KALAANA_READER=anthropic) runs as an agent over a few read-only tools. Each tool returns two things: a
-card for the page, built here from the snapshot, and a short summary for the model. The page renders the cards,
-so every number, date, quote and phone a citizen sees comes from the data, never from model text. The model
-writes only the short sentences between cards, and a guard withholds any number in them that no tool returned
-and the citizen didn't write.
+A language model runs as an agent over a few read-only tools. Any OpenAI-compatible Chat Completions endpoint with
+tool calling works (KALAANA_READER=openai): Claude through Anthropic's endpoint, OpenAI, Gemini, OpenRouter, Groq, or
+a local Ollama, llama.cpp, LM Studio or vLLM server. Claude can also run through the Anthropic SDK
+(KALAANA_READER=anthropic), which adds prompt caching. Both share one loop, so everything below holds for every model.
 
-With no Claude reader (no key, the spend cap reached, or an error before anything was shown), the rules answer
-instead: the same tools, chosen by ask.understand, and the same cards. Every reply says which reader answered.
-No record of a conversation is kept: it lives in the visitor's browser and is sent back each turn. A live search's
-results (and so its short query) are cached for an hour.
+Each tool returns two things: a card for the page, built here from the snapshot, and a short summary for the model.
+The page renders the cards, so every number, date, quote and phone a citizen sees comes from the data, never from
+model text. The model writes only the short sentences between cards, and a guard withholds any number in them that
+no tool returned and the citizen didn't write.
+
+With no model (no key, the spend cap reached, a model without tool calling, or an error before anything was shown),
+the rules answer instead: the same tools, chosen by ask.understand, and the same cards. Every reply says which reader
+answered. No record of a conversation is kept: it lives in the visitor's browser and is sent back each turn. A live
+search's results (and so its short query) are cached for an hour.
 """
 
 from __future__ import annotations
 
+import http.client
 import json
 import logging
 import os
 import re
+import urllib.error
+import urllib.request
 from collections.abc import Callable, Iterator
+from contextlib import closing
 from dataclasses import dataclass, field
 from datetime import date
 from typing import Any, Final
@@ -553,64 +561,86 @@ def _run_tool(name: str, args: dict[str, Any]) -> tuple[dict[str, Any] | None, d
         return None, {"error": f"{name} couldn't answer that. Try another way, or ask the citizen."}, True
 
 
+AGENT_READERS: Final = ("openai", "anthropic")  # readers that run the chat as an agent over the tools
+
+
 def reply(messages: list[dict[str, Any]], today: date | None = None, live_quota: Callable[[], bool] | None = None) -> Iterator[Event]:
     """Events for one reply: {"type": "status" | "text" | "card" | "done" | "error", ...}. `live_quota`, if given, is
     asked before each live search (the web app limits each visitor) and returns False when the visitor has used theirs."""
     turns = _history(messages)
     today = today or views.clock_today()
-    if reader.configured() == "anthropic":
+    if reader.configured() in AGENT_READERS:
         shown = False
         try:
-            for event in _claude(turns, today, live_quota):
+            for event in _agent(turns, today, live_quota):
                 shown = shown or event["type"] in ("text", "card")
                 if event["type"] == "done" and not shown:
                     raise reader.ReaderError("The model gave no answer")
                 yield event
             return
         except reader.ReaderError as e:
-            log.warning("Claude reader failed: %s", e)  # ReaderError messages are generic and never carry the key
+            log.warning("Model reader failed: %s", e)  # ReaderError messages are generic and never carry the key
             if shown:
                 yield {"type": "error", "text": "The model stopped partway, so this answer is incomplete."}
-                yield {"type": "done", "by": _claude_by(), "memory": ""}
+                yield {"type": "done", "by": agent_by(), "memory": ""}
                 return
-            note = str(e) if "budget" in str(e) else "The Claude reader wasn't available"
+            note = str(e) if "budget" in str(e) else "The model wasn't available"
         yield from _rules(turns, today, note=f"{note}, so the rules answered instead.")
         return
     yield from _rules(turns, today)
 
 
-def _claude_by() -> str:
-    return f"{chat_model()} (cloud, Claude API)"
+def agent_by() -> str:
+    """Who wrote an agent reply, as the page shows it."""
+    if reader.configured() == "anthropic":
+        return f"{chat_model()} (cloud, Claude API)"
+    return f"{chat_model() or 'model'} (OpenAI-compatible API)"
 
 
 def chat_model() -> str:
-    """The chat's model: Claude Sonnet 5.5 unless KALAANA_CHAT_MODEL says otherwise (the ask box's field reader keeps
-    KALAANA_MODEL, Haiku by default)."""
-    return os.getenv("KALAANA_CHAT_MODEL", "claude-sonnet-5-5")
+    """The chat's model: KALAANA_CHAT_MODEL if set. Otherwise, with the native Anthropic reader, Claude Sonnet 5.5 (its
+    ask box field reader keeps KALAANA_MODEL, Haiku by default); with an OpenAI-compatible endpoint, KALAANA_MODEL."""
+    if model := os.getenv("KALAANA_CHAT_MODEL", "").strip():
+        return model
+    return "claude-sonnet-5-5" if reader.configured() == "anthropic" else os.getenv("KALAANA_MODEL", "").strip()
 
 
-def _claude(turns: list[dict[str, str]], today: date, live_quota: Callable[[], bool] | None = None) -> Iterator[Event]:
-    import anthropic
+@dataclass
+class Call:
+    id: str
+    name: str
+    args: dict[str, Any] | None  # None when the model's arguments weren't a JSON object
 
-    client, model = reader.claude_client(timeout=90), chat_model()
-    system, tool_defs, memory = system_prompt(today), tools(), []
-    # The office codes and dates in the instructions, and short numbers and dates the citizen wrote, may be repeated.
-    guard = NumberGuard(allowed=shown_numbers(system).union(*(safe_from_citizen(t["content"]) for t in turns if t["role"] == "user")))
-    convo: list[dict[str, Any]] = [dict(t) for t in turns]
-    wrote, live_used = False, 0
-    for _ in range(MAX_STEPS):
-        reader.check_budget()
+
+@dataclass
+class Step:
+    """One model call's outcome, after its text: the tools it asked for, and whether it was cut short (out of tokens,
+    or declined)."""
+    calls: list[Call]
+    cut: bool
+
+
+class _Anthropic:
+    """Claude through the Anthropic SDK: the conversation in its format, with the prompt cached between calls."""
+    paid = True
+
+    def __init__(self, system: str, tool_defs: list[dict[str, Any]], turns: list[dict[str, str]]):
+        self.client, self.model = reader.claude_client(timeout=90), chat_model()
+        self.system, self.tools, self.convo = system, tool_defs, [dict(t) for t in turns]
+        self.asked: Any = None  # the last response's content, with its tool calls
+
+    def step(self) -> Iterator[str | Step]:
+        """Text deltas as they stream, then the Step."""
+        import anthropic
+
         response = None
         try:
-            with client.messages.stream(model=model, max_tokens=MAX_TOKENS, system=system, tools=tool_defs, messages=convo,
-                                        output_config={"effort": "low"}, cache_control={"type": "ephemeral"}) as stream:
-                started = False
+            with self.client.messages.stream(model=self.model, max_tokens=MAX_TOKENS, system=self.system, tools=self.tools,
+                                             messages=self.convo, output_config={"effort": "low"},
+                                             cache_control={"type": "ephemeral"}) as stream:
                 for event in stream:
-                    if event.type == "text" and (safe := guard.feed(event.text)):
-                        if not started and wrote:
-                            safe = "\n\n" + safe.lstrip()  # a new step's words start a new paragraph
-                        started = wrote = True
-                        yield {"type": "text", "text": safe}
+                    if event.type == "text":
+                        yield event.text
                 response = stream.get_final_message()
         except anthropic.APITimeoutError:
             raise reader.ReaderError("The Claude API timed out") from None
@@ -622,44 +652,158 @@ def _claude(turns: list[dict[str, str]], today: date, live_quota: Callable[[], b
             # Count every call, including one the visitor abandoned mid-stream (then at the most it could have cost).
             if response is not None:
                 u = response.usage
-                reader.record_quietly(model, u.input_tokens, u.output_tokens, u.cache_creation_input_tokens or 0,
+                reader.record_quietly(self.model, u.input_tokens, u.output_tokens, u.cache_creation_input_tokens or 0,
                                       u.cache_read_input_tokens or 0)
             else:
-                reader.record_quietly(model, 0, MAX_TOKENS, cache_write=len(system) // 2)
+                reader.record_quietly(self.model, 0, MAX_TOKENS, cache_write=len(self.system) // 2)
+        self.asked = response.content
+        yield Step([Call(b.id, b.name, dict(b.input)) for b in response.content if b.type == "tool_use"],
+                   cut=response.stop_reason in ("refusal", "max_tokens"))
+
+    def answer(self, results: list[tuple[Call, dict[str, Any], bool]]) -> None:
+        self.convo.append({"role": "assistant", "content": self.asked})
+        self.convo.append({"role": "user", "content": [{"type": "tool_result", "tool_use_id": c.id, "content": json.dumps(summary),
+                                                         "is_error": failed} for c, summary, failed in results]})
+
+
+class _OpenAICompatible:
+    """Any OpenAI-compatible Chat Completions endpoint, streamed with the standard library: text deltas, and tool calls
+    assembled from their pieces by index."""
+
+    def __init__(self, system: str, tool_defs: list[dict[str, Any]], turns: list[dict[str, str]]):
+        (self.url, self.headers), self.model = reader.openai_endpoint(), reader.openai_model()
+        self.paid = not reader.is_local(self.url)
+        self.tools = [{"type": "function", "function": {"name": t["name"], "description": t["description"],
+                                                        "parameters": t["input_schema"], "strict": True}} for t in tool_defs]
+        self.convo: list[dict[str, Any]] = [{"role": "system", "content": system}, *(dict(t) for t in turns)]
+
+    def step(self) -> Iterator[str | Step]:
+        body = {"model": self.model, "messages": self.convo, "tools": self.tools, "stream": True,
+                "stream_options": {"include_usage": True}, "max_completion_tokens": MAX_TOKENS}
+        request = urllib.request.Request(self.url, data=json.dumps(body).encode(), method="POST",
+                                         headers={"Content-Type": "application/json", "Accept": "text/event-stream", **self.headers})
+        text, calls, finish, usage = [], {}, "", None
+        try:
+            with urllib.request.urlopen(request, timeout=90, context=reader.tls()) as response:
+                for line in response:
+                    data = line.decode().strip()
+                    if not data.startswith("data:") or (data := data[5:].strip()) == "[DONE]":
+                        continue
+                    chunk = json.loads(data)
+                    if chunk.get("error"):
+                        log.warning("Model API error in the stream: %.200s", chunk["error"])
+                        raise reader.ReaderError("Model API error")
+                    usage = chunk.get("usage") or usage
+                    for choice in chunk.get("choices") or []:
+                        delta = choice.get("delta") or {}
+                        if delta.get("content"):
+                            text.append(delta["content"])
+                            yield delta["content"]
+                        for i, piece in enumerate(delta.get("tool_calls") or []):
+                            call = calls.setdefault(piece.get("index", i), {"id": "", "name": "", "arguments": ""})
+                            function = piece.get("function") or {}
+                            call["id"] = piece.get("id") or call["id"]
+                            call["name"] = function.get("name") or call["name"]
+                            call["arguments"] += function.get("arguments") or ""
+                        finish = choice.get("finish_reason") or finish
+        except urllib.error.HTTPError as e:
+            # The provider's reason (e.g. "this model does not support tools") goes to the log; it never holds the key.
+            log.warning("Model API error %s: %.200s", e.code, e.read().decode(errors="replace"))
+            raise reader.ReaderError(f"Model API error {e.code}") from None
+        except (OSError, http.client.HTTPException):  # URLError, timeouts, resets
+            raise reader.ReaderError("Couldn't reach the model API") from None
+        except ValueError:  # a line that isn't JSON or UTF-8
+            raise reader.ReaderError("The model API sent something unreadable") from None
+        finally:
+            if self.paid:  # counted as with Claude: what the API reports, else the most it could have cost
+                if usage:
+                    cached = int((usage.get("prompt_tokens_details") or {}).get("cached_tokens") or 0)
+                    reader.record_quietly(self.model, int(usage.get("prompt_tokens") or 0) - cached,
+                                          int(usage.get("completion_tokens") or 0), cache_read=cached)
+                else:
+                    reader.record_quietly(self.model, len(json.dumps(body)) // 2, MAX_TOKENS)
+        ordered = [calls[n] for n in sorted(calls)]
+        for n, c in enumerate(ordered):
+            c["id"] = c["id"] or f"call_{n}"  # some local servers send no id
+        if ordered:
+            self.convo.append({"role": "assistant", "content": "".join(text) or None, "tool_calls": [
+                {"id": c["id"], "type": "function", "function": {"name": c["name"], "arguments": c["arguments"] or "{}"}}
+                for c in ordered]})
+        yield Step([Call(c["id"], c["name"], _arguments(c["arguments"])) for c in ordered],
+                   cut=finish in ("length", "content_filter"))
+
+    def answer(self, results: list[tuple[Call, dict[str, Any], bool]]) -> None:
+        self.convo += [{"role": "tool", "tool_call_id": c.id, "content": json.dumps(summary)} for c, summary, _ in results]
+
+
+def _arguments(raw: str) -> dict[str, Any] | None:
+    try:
+        args = json.loads(raw or "{}")
+    except ValueError:
+        return None
+    return args if isinstance(args, dict) else None
+
+
+def _agent(turns: list[dict[str, str]], today: date, live_quota: Callable[[], bool] | None = None) -> Iterator[Event]:
+    """The model as an agent over the tools, through either backend. Everything that keeps a reply honest and cheap is
+    here, the same for every model: the number guard, the refusals of a needless or one-too-many live search, the
+    visitor's live quota, the card note for follow-ups."""
+    system, tool_defs, memory = system_prompt(today), tools(), []
+    model = (_Anthropic if reader.configured() == "anthropic" else _OpenAICompatible)(system, tool_defs, turns)
+    # The office codes and dates in the instructions, and short numbers and dates the citizen wrote, may be repeated.
+    guard = NumberGuard(allowed=shown_numbers(system).union(*(safe_from_citizen(t["content"]) for t in turns if t["role"] == "user")))
+    wrote, live_used = False, 0
+    for _ in range(MAX_STEPS):
+        if model.paid:
+            reader.check_budget()
+        step, started = None, False
+        with closing(model.step()) as stream:  # closed at once if the visitor leaves, so the call is still counted
+            for item in stream:
+                if isinstance(item, Step):
+                    step = item
+                elif safe := guard.feed(item):
+                    if not started and wrote:
+                        safe = "\n\n" + safe.lstrip()  # a new step's words start a new paragraph
+                    started = wrote = True
+                    yield {"type": "text", "text": safe}
         if rest := guard.flush():
             yield {"type": "text", "text": ("\n\n" + rest.lstrip()) if not started and wrote else rest}
             wrote = True
-        uses = [b for b in response.content if b.type == "tool_use"]
-        if response.stop_reason in ("refusal", "max_tokens"):
+        if step is None:
+            raise reader.ReaderError("The model gave no answer")
+        if step.cut:
             if wrote or memory:
                 yield {"type": "text", "text": "\n\nI can't go further with that one."}
             break
-        if not uses:
+        if not step.calls:
             break
         results = []
-        for block in uses:
-            yield {"type": "status", "text": STATUS.get(block.name, "Checking")}
-            args = dict(block.input)
-            cached = block.name in LIVE_TOOLS and live.is_cached(block.name, args)  # repeats are free
-            if block.name in LIVE_TOOLS and (why := saved_data_covers(block.name, args)):
+        for call in step.calls:
+            yield {"type": "status", "text": STATUS.get(call.name, "Checking")}
+            args = call.args or {}
+            live_tool = call.name in LIVE_TOOLS
+            cached = live_tool and call.args is not None and live.is_cached(call.name, args)  # repeats are free
+            if call.args is None:
+                card, summary, failed = None, {"error": "The arguments weren't a JSON object. Call the tool again."}, True
+            elif live_tool and (why := saved_data_covers(call.name, args)):
                 card, summary, failed = None, {"error": why}, True
-            elif block.name in LIVE_TOOLS and not cached and live_used >= MAX_LIVE_PER_REPLY:
+            elif live_tool and not cached and live_used >= MAX_LIVE_PER_REPLY:
                 card, summary, failed = None, {"error": "No more live searches in this reply. Answer from what you have."}, True
-            elif block.name in LIVE_TOOLS and not cached and live_quota is not None and not live_quota():
+            elif live_tool and not cached and live_quota is not None and not live_quota():
                 card, summary, failed = None, {"error": "This visitor's live searches are used up for a few minutes. Answer "
                                                         "from the saved data and point to the official portal."}, True
             else:
-                live_used += block.name in LIVE_TOOLS and not cached
-                card, summary, failed = _run_tool(block.name, args)
+                live_used += live_tool and not cached
+                card, summary, failed = _run_tool(call.name, args)
             if card:
                 guard.allowed |= shown_numbers(card)
                 yield {"type": "card", "card": card}
             guard.allowed |= shown_numbers(summary)
             if not failed:
-                memory.append(f"{block.name}({', '.join(f'{k}={v}' for k, v in block.input.items() if v)})")
-            results.append({"type": "tool_result", "tool_use_id": block.id, "content": json.dumps(summary), "is_error": failed})
-        convo += [{"role": "assistant", "content": response.content}, {"role": "user", "content": results}]
-    yield {"type": "done", "by": _claude_by(), "memory": _memory(memory), "withheld": guard.withheld}
+                memory.append(f"{call.name}({', '.join(f'{k}={v}' for k, v in args.items() if v)})")
+            results.append((call, summary, failed))
+        model.answer(results)
+    yield {"type": "done", "by": agent_by(), "memory": _memory(memory), "withheld": guard.withheld}
 
 
 # The official portals for each kind of office, for questions the saved data can't answer (the same list the model
@@ -712,7 +856,7 @@ def _rules(turns: list[dict[str, str]], today: date, note: str = "") -> Iterator
     """The same cards, chosen by the rules from the visitor's last message (read together with their previous one when
     the last only names the office, as after "Which office?")."""
     text = turns[-1]["content"]
-    use_model = not note and reader.configured() not in ("anthropic",)  # a local reader may still read the fields
+    use_model = not note and reader.configured() not in AGENT_READERS  # a local field reader may still read the fields
     got = ask.understand(text, today, use_model)
     earlier = [t["content"] for t in turns[:-1] if t["role"] == "user"]
     if earlier and not got["service"] and not got["applied"]:

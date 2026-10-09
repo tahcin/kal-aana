@@ -23,7 +23,7 @@ export default defineConfig({
   base: "/",
   plugins: [react(), tailwindcss(), preloadFonts()],
   build: {
-    // Into the Python package by default; a separate static host (Vercel) builds into dist/ instead.
+    // Into the Python package by default; a separate static host (Cloudflare) builds into dist/ instead.
     outDir: process.env.VITE_OUT_DIR ?? "../kalaana/static/app",
     emptyOutDir: true,
     chunkSizeWarningLimit: 2200,

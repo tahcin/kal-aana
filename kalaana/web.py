@@ -45,7 +45,7 @@ BUILD: Final = Path(__file__).resolve().parent / "static" / "app"
 
 app = FastAPI(title="Kal Aana", description="What Bengaluru's public offices promise, against what citizens find on Google.",
               docs_url="/api/docs", redoc_url=None, openapi_url="/api/openapi.json")
-# When the pages are hosted apart from the API (Vercel), their origins are listed here so browsers may call it.
+# When the pages are hosted apart from the API (Cloudflare), their origins are listed here so browsers may call it.
 if origins := [o.strip() for o in os.getenv("KALAANA_CORS", "").split(",") if o.strip()]:
     app.add_middleware(CORSMiddleware, allow_origins=origins, allow_methods=["GET", "POST"], allow_headers=["Content-Type"])
 
@@ -59,14 +59,14 @@ class Question(BaseModel):
     text: str = Field(max_length=ask.MAX_CHARS)
 
 
-ASK_LIMIT: Final = 20  # questions per visitor per 10 minutes, when a paid model reads them
+ASK_LIMIT: Final = 20  # questions per visitor per 10 minutes, when any model reads them
 LIVE_LIMIT: Final = 5  # live SerpApi searches per visitor per 10 minutes (each costs a credit; repeats are free)
 _searched: dict[str, deque[float]] = defaultdict(deque)
 _asked: dict[str, deque[float]] = defaultdict(deque)
 # Behind a Cloudflare Tunnel every request arrives from 127.0.0.1, so the visitor is the address Cloudflare reports.
 # Trusted only when KALAANA_PROXY=cloudflare (the server then listens on 127.0.0.1, reachable only through the tunnel).
 PROXY: Final = os.getenv("KALAANA_PROXY", "")
-# A ceiling on paid-model questions per day (IST) across all visitors; 0 means none (the default for a local run).
+# A ceiling on model-read questions per day (IST) across all visitors; 0 means none (the default for a local run).
 DAILY_QUESTIONS: Final = int(os.getenv("KALAANA_DAILY_QUESTIONS", "0") or 0)
 _today: dict[str, int] = {}
 IST: Final = timezone(timedelta(hours=5, minutes=30))
@@ -79,8 +79,9 @@ def _visitor(request: Request) -> str:
 
 
 def _limit(request: Request) -> None:
-    """When a cloud model reads the questions (someone's API key pays), each visitor gets ASK_LIMIT per 10 minutes."""
-    if reader.configured() in ("openai", "anthropic"):
+    """When any model reads the questions (someone's API key or GPU pays), each visitor gets ASK_LIMIT per 10 minutes,
+    within the daily ceiling. Only the rules, which cost nothing, are unlimited."""
+    if reader.configured() not in ("", "rules"):
         now = time.monotonic()
         if len(_asked) > 10_000:  # forget visitors with no question in the last 10 minutes
             for host in [h for h, q in _asked.items() if not q or now - q[-1] > 600]:
@@ -119,8 +120,8 @@ class Conversation(BaseModel):
 def chat_endpoint(conversation: Conversation, request: Request) -> StreamingResponse:
     """The chat's reply as server-sent events: `status` (what it's checking), `text` (the model's words, with any
     number no tool returned withheld), `card` (built from the snapshot), then `done` (which reader answered).
-    Kal Aana stores and logs nothing the visitor writes; with the Claude reader, the conversation is sent to the
-    Claude API to write the reply."""
+    Kal Aana stores and logs nothing the visitor writes; with a model reader, the conversation is sent to that
+    model's API to write the reply."""
     _limit(request)
     messages = [t.model_dump() for t in conversation.messages]
     try:

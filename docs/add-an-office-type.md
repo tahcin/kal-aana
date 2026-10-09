@@ -78,4 +78,4 @@ kalaana report subregistrar      # read it in the terminal first
 kalaana snapshot subregistrar    # data/snapshot/bengaluru-subregistrar.json
 ```
 
-The web app picks the new type up from its snapshot (`/subregistrar`, with a link in the header), and so do the MCP tools. Before committing the snapshot, read every quote and listing title it contains. Put any name the patterns missed in `data/private/names-to-mask.txt`, then rebuild. `pytest` then checks that no private mobile number is published in full and that the snapshot matches `kalaana/models.py`.
+The web app picks the new type up from its snapshot (a tab on `/offices?type=subregistrar`, its own office pages, the map and the chat), and so do the MCP tools. Before committing the snapshot, read every quote and listing title it contains. Put any name the patterns missed in `data/private/names-to-mask.txt`, then rebuild. `pytest` then checks that no private mobile number is published in full and that the snapshot matches `kalaana/models.py`.

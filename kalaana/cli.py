@@ -200,8 +200,8 @@ def main(argv: list[str] | None = None) -> int:
         out = ask.answer(a.text)
         got = out["understood"]
         print(f"read by: {out['by']}" + (f"  ({got['note']})" if got["note"] else ""))
-        if reader.configured() == "anthropic":
-            print(f"Claude reader spend so far: ${reader.spent()['usd']:.4f} of ${reader.budget_usd():g} "
+        if reader.configured() in ("openai", "anthropic"):
+            print(f"Model spend so far: ${reader.spent()['usd']:.4f} of ${reader.budget_usd():g} "
                   f"({reader.spent()['calls']} calls)")
         print(f"office:  {(got['office'] or {}).get('label', '-')}   service: {got['service'] or '-'}   applied: {got['applied'] or '-'}"
               f"   intent: {got['intent']}")

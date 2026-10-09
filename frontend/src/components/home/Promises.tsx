@@ -77,7 +77,7 @@ export function Promises({ office }: { office: OfficeSummary | null }) {
           Everything Google showed keeps the SerpApi search ID that fetched it.
         </Card>
         <Card delay={0.1} visual={<Tab />} title="Your conversation stays in your tab.">
-          Kal Aana keeps no record of it. With Claude, your messages go to Anthropic's API; a live search sends a short query to SerpApi.
+          Kal Aana keeps no record of it. Your messages go to the model that writes the answer (here, Claude); a live search sends a short query to SerpApi.
         </Card>
         <Card delay={0.2} visual={<Tools />} title="Ask from your AI assistant too.">
           The same tools run as a hosted MCP server: add kalaana-mcp.gradestone.in/mcp to Claude or any assistant. Ten of the twelve answer from the saved data.
