@@ -249,7 +249,7 @@ export function Footer({ asOf, searches }: { asOf?: string; searches?: number })
             <NavLink className={link} to="/offices">Every office</NavLink>
             <NavLink className={link} to="/method">Method</NavLink>
             <a className={link} href={apiUrl("/api/docs")}>JSON API</a>
-            <a className={link} href="https://github.com/tahcin/kal-aana">Source on GitHub</a>
+            <a className={link} href="https://github.com/tahcin/kal-aana">GitHub</a>
           </p>
         </div>
         <p className="max-w-3xl leading-relaxed md:text-right">

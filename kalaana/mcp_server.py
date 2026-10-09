@@ -4,7 +4,7 @@ Tools read the committed snapshot (data/snapshot/), so they need no API key and 
 Every answer carries its sources: the official directory, the Sakala compendium page, the
 Google Maps listing and the reviews behind each claim.
 
-    kalaana-mcp    (or: python -m kalaana.mcp_server; stdio, see the README for the Claude Desktop config)
+    kalaana-mcp    (or: python -m kalaana.mcp_server; stdio, see docs/setup.md for the Claude Desktop config)
     kalaana-mcp --http 127.0.0.1:8096    (Streamable HTTP at /mcp, for a hosted server)
 """
 
