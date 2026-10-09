@@ -388,7 +388,7 @@ claude mcp add kal-aana -- .venv/bin/kalaana-mcp`}</Code>
                 <p className="mt-auto flex flex-wrap gap-2 pt-5 text-sm">
                   <a className="inline-flex items-center rounded-full bg-brand px-4 py-2 font-semibold text-paper transition hover:brightness-110" href={apiUrl("/api/docs")}>API docs</a>
                   <a className="inline-flex items-center rounded-full border border-rule px-4 py-2 font-semibold transition hover:border-ink-2" href={apiUrl("/api/snapshot")}>Download the data</a>
-                  <a className="inline-flex items-center rounded-full border border-rule px-4 py-2 font-semibold transition hover:border-ink-2" href="https://github.com/tahcin/kal-aana">Source on GitHub</a>
+                  <a className="inline-flex items-center rounded-full border border-rule px-4 py-2 font-semibold transition hover:border-ink-2" href="https://github.com/tahcin/kal-aana">GitHub</a>
                 </p>
               </div>
             </div>

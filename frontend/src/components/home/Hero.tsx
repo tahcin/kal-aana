@@ -112,7 +112,7 @@ export function Hero({ onSend, busy, draft, inputRef, askRef }: {
 
   return (
     <section className="px-2 pb-6 pt-1 sm:px-4 sm:pt-2" aria-labelledby="hero-title">
-      <div ref={panel} className="kh-hero relative isolate mx-auto h-[max(600px,min(calc(100svh-5rem),900px))] max-w-[1480px] overflow-hidden rounded-[28px] sm:rounded-[var(--radius-panel)]">
+      <div ref={panel} className="clip-corners kh-hero relative isolate mx-auto h-[max(600px,min(calc(100svh-5rem),900px))] max-w-[1480px] overflow-hidden rounded-[28px] sm:rounded-[var(--radius-panel)]">
         {/* The poster: the scene's sky and canopy in CSS, there from the first paint and whenever WebGL isn't. */}
         <motion.div aria-hidden className="kh-poster-call absolute inset-0" initial={reduce ? false : { opacity: 0 }} animate={{ opacity: 1 }}
           transition={{ duration: 1.4, ease }} />

@@ -49,7 +49,7 @@ export function Welcome({ onSend, busy, overview, draft }: { onSend: (t: string)
       <Promises office={office} />
 
       <section ref={closing} className="px-3 sm:px-5" aria-labelledby="closing-title">
-        <div className="relative mx-auto max-w-[1400px] overflow-hidden rounded-[28px] bg-gradient-to-br from-brand via-brand-2 to-[#c9a6ff] px-6 py-20 text-center text-white sm:rounded-[var(--radius-panel)] sm:py-28">
+        <div className="clip-corners relative mx-auto max-w-[1400px] overflow-hidden rounded-[28px] bg-gradient-to-br from-brand via-brand-2 to-[#c9a6ff] px-6 py-20 text-center text-white sm:rounded-[var(--radius-panel)] sm:py-28">
           <div aria-hidden className="absolute -bottom-32 -left-20 size-80 rounded-full bg-white/20 blur-[90px]" />
           <Marigold className="-right-6 -top-6 size-28 sm:right-[8%] sm:top-10 sm:size-36" />
           <Marigold className="-bottom-8 left-[6%] size-20 [animation-direction:reverse] sm:size-24" />

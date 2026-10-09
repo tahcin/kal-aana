@@ -13,7 +13,7 @@ const TOOLS = ["how_to_reach", "office_report", "compare_offices", "statutory_ti
 function Card({ visual, title, children, delay }: { visual: ReactNode; title: string; children: ReactNode; delay: number }) {
   return (
     <Reveal delay={delay} className="group flex flex-col">
-      <div className="relative aspect-[5/4] overflow-hidden rounded-[28px] bg-gradient-to-br from-wash to-paper-2">{visual}</div>
+      <div className="clip-corners relative aspect-[5/4] overflow-hidden rounded-[28px] bg-gradient-to-br from-wash to-paper-2">{visual}</div>
       <h3 className="serif mt-6 text-[1.75rem] leading-[1.1] tracking-[-0.02em]">{title}</h3>
       <p className="mt-3 text-[15px] leading-relaxed text-ink-2">{children}</p>
     </Reveal>

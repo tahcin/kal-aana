@@ -78,6 +78,11 @@ body { font-family: var(--font-sans); font-feature-settings: "cv11", "ss01", "ss
 @keyframes wm-write { from { -webkit-mask-position: 100% 0; mask-position: 100% 0; } to { -webkit-mask-position: 0 0; mask-position: 0 0; } }
 @keyframes wm-erase { from { -webkit-mask-position: 100% 0; mask-position: 100% 0; } to { -webkit-mask-position: 0 0; mask-position: 0 0; } }
 
+/* Safari (every iOS browser) draws children on their own GPU layer (a WebGL canvas, a blur, an animation) over a
+   parent's rounded corners, even with overflow: hidden, so the corners come out square. A mask on the clipping parent
+   makes WebKit honour them; other browsers look the same. Masks also clip shadows, so this goes only on panels without one. */
+.clip-corners { -webkit-mask-image: -webkit-radial-gradient(white, black); mask-image: radial-gradient(white, black); }
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
