@@ -187,6 +187,9 @@ def best_time(office_id: str) -> tuple[dict[str, Any] | None, dict[str, Any]]:
     # use, and a Saturday may be the 2nd or 4th, when Karnataka's government offices are closed.
     open_hours = [(day, h, score) for day, hours in busy["days"].items() for h, score in hours
                   if score > 0 and 10 <= h <= 16 and day not in ("saturday", "sunday")]
+    if not open_hours:
+        return None, {"note": "Google's busyness for this office shows no weekday visits from 10 am to 4 pm, so there's "
+                              "no quiet hour to suggest. Say so; don't guess."}
     low = min(score for _, _, score in open_hours)
     quietest = [f"{day.title()} {hour(h)}" for day, h, score in open_hours if score == low]
     busiest = max(open_hours, key=lambda x: x[2])
@@ -241,14 +244,22 @@ MAX_LIVE_PER_REPLY: Final = 2
 _SAVED_TOPICS: Final = re.compile(
     r"\b(phone|contact|helpline|landline|mobile|call|whatsapp|time ?limits?|how (long|many days)|working days|sakala|"
     r"citizen'?s charter|reviews?|bribes?|touts?|agents?|crowd(ed)?|busy|best time|rush|timings?|opening hours|address)\b", re.I)
+# A query about how to do something is never refused, even when it mentions one of those words: "address change on
+# RC", "mobile number update", "LL test slot timings", "agent fees" are procedures the saved data doesn't hold.
+_PROCEDURE: Final = re.compile(
+    r"\b(documents?|fees?|charges?|cost|eligib\w*|procedure|process|steps?|how to|apply|application form|forms?|update|"
+    r"change|correct\w*|renew\w*|slot|book\w*|valid\w*|status|online|link\w*|transfer of)\b", re.I)
 
 
 def saved_data_covers(tool: str, args: dict[str, Any]) -> str | None:
     """Why a live search is unnecessary, if the saved data already answers it."""
-    if tool == "search_web" and _SAVED_TOPICS.search(str(args.get("query", ""))):
+    query = str(args.get("query", ""))
+    if tool == "search_web" and _SAVED_TOPICS.search(query) and not _PROCEDURE.search(query):
         return ("Kal Aana's saved data already covers this, so no live search was run. Use office_numbers (phones), "
                 "check_wait (time limits), reviews or best_time instead, after find_office if needed.")
     return None
+
+
 STATUS: Final = {
     "find_office": "Finding the office", "office_numbers": "Checking its numbers against the directory",
     "google_ai": "Reading what Google's AI told citizens", "check_wait": "Counting working days against the limit",
@@ -289,7 +300,7 @@ def tools() -> list[dict[str, Any]]:
         ("best_time", "When an office is usually less crowded: Google's typical busyness by weekday and hour, saved for "
                       "a few RTOs. Use it when the citizen plans a visit.", {"office_id": office}),
         ("search_web", "A live Google search from Bengaluru, only for a specific detail the other tools don't cover: documents, fees, "
-                       "procedures, forms, how to track an application, eligibility, timings. With official_only (use it "
+                       "procedures, forms, slot booking, how to track an application, eligibility, validity. With official_only (use it "
                        "first), only government sites (gov.in). Costs a search credit; at most two live searches per reply.",
          {"query": {"type": "string", "description": "A short Google query, e.g. \"learner's licence documents Karnataka\""},
           "official_only": {"type": "boolean"}}),
@@ -803,6 +814,8 @@ def _agent(turns: list[dict[str, str]], today: date, live_quota: Callable[[], bo
                 memory.append(f"{call.name}({', '.join(f'{k}={v}' for k, v in args.items() if v)})")
             results.append((call, summary, failed))
         model.answer(results)
+    else:  # every step called tools: say so rather than stopping mid-thought
+        yield {"type": "text", "text": ("\n\n" if wrote else "") + "That took more steps than one reply allows. The cards above are what I found."}
     yield {"type": "done", "by": agent_by(), "memory": _memory(memory), "withheld": guard.withheld}
 
 
@@ -837,10 +850,14 @@ def _general(text: str, got: dict[str, Any]) -> Iterator[Event]:
         profile = views.load(views.CITY, kind)["profile"]
         limit = f" For {t['name'].lower()}, {views.allows(profile)} {t['limit']}" + \
             (f", {views.terms(t, profile)}" if views.terms(t, profile) else "") + "."
-    yield {"type": "text", "text": "Without a live search, Kal Aana can't check documents, fees, procedures or outages, so it "
-                                   f"won't guess them. The official portals have them.{limit} Name one of the {plural} to see "
-                                   "its own numbers, what Google shows for it, and how long it's allowed."}
-    yield {"type": "card", "card": {"kind": "portals", "office_type": kind, "links": [{"label": l, "url": u} for l, u in PORTALS[kind]]}}
+    if _SAVED_TOPICS.search(text) and not _PROCEDURE.search(text):  # a number or the reviews: the saved data has them, per office
+        yield {"type": "text", "text": f"Which office is it? For each of the {plural}, Kal Aana has its own numbers, what Google "
+                                       f"shows for it and what reviewers report, but a place name alone doesn't say which one.{limit}"}
+    else:
+        yield {"type": "text", "text": "Without a live search, Kal Aana can't check documents, fees, procedures or outages, so it "
+                                       f"won't guess them. The official portals have them.{limit} Name one of the {plural} to see "
+                                       "its own numbers, what Google shows for it, and how long it's allowed."}
+        yield {"type": "card", "card": {"kind": "portals", "office_type": kind, "links": [{"label": l, "url": u} for l, u in PORTALS[kind]]}}
     offices = views.load(views.CITY, kind)["offices"]
     if len(offices) <= 13:
         yield {"type": "card", "card": {"kind": "choose", "query": text, "options": [

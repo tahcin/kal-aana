@@ -305,7 +305,7 @@ function Busy({ card }: { card: Extract<ChatCard, { kind: "busy" }> }) {
     <Frame label="When it's usually less crowded" title={card.label} to={`/office/${encodeURIComponent(card.office_id)}`}>
       <div className={cn(panel, "p-5 sm:p-8")}>
         {quiet.length > 0 && (
-          <p className="serif text-[1.35rem] leading-snug text-ink">Usually quietest on a weekday between 10 am and 4 pm: <span className="pop-underline">{quiet.map((x) => `${x.d[0].toUpperCase()}${x.d.slice(1, 3)} ${hourLabel(x.h)}`).join(", ")}</span>.</p>
+          <p className="serif text-[1.35rem] leading-snug text-ink">The quietest time worth going: <span className="pop-underline">{quiet.map((x) => `${x.d[0].toUpperCase()}${x.d.slice(1, 3)} ${hourLabel(x.h)}`).join(", ")}</span>. Only weekdays from 10 am to 4 pm count; later hours look quieter, but the counters are closing.</p>
         )}
         <div className="-mx-1 mt-5 overflow-x-auto px-1">
           <table className="border-separate border-spacing-1 text-xs" aria-label="Typical busyness by weekday and hour">
@@ -317,7 +317,7 @@ function Busy({ card }: { card: Extract<ChatCard, { kind: "busy" }> }) {
                   {HOURS.map((h) => {
                     const s = at(d, h);
                     return <td key={h} title={s ? `${s} of 100` : "No visits shown"} aria-label={`${d} ${hourLabel(h)}: ${s ? `${s} of 100` : "no visits shown"}`}
-                      className={cn("size-7 rounded-md transition-transform hover:scale-110 sm:size-9", s ? "" : "border border-dashed border-rule", isQuiet(d, h) && "ring-2 ring-pop ring-offset-1 ring-offset-card")}
+                      className={cn("size-7 rounded-md sm:size-9", s ? "" : "border border-dashed border-rule", isQuiet(d, h) && "ring-2 ring-pop ring-offset-1 ring-offset-card")}
                       style={s ? { backgroundColor: heat(s) } : undefined} />;
                   })}
                 </tr>
@@ -327,7 +327,7 @@ function Busy({ card }: { card: Extract<ChatCard, { kind: "busy" }> }) {
         </div>
         <div className="mt-3 flex flex-wrap items-center gap-x-5 gap-y-2 text-[11px] text-muted" aria-hidden>
           <span className="inline-flex items-center gap-2">Quieter<span className="h-2 w-24 rounded-full" style={{ background: `linear-gradient(90deg, ${heat(5)}, ${heat(100)})` }} />Busier</span>
-          {quiet.length > 0 && <span className="inline-flex items-center gap-1.5"><span className="size-3 rounded-[4px] ring-2 ring-pop" />Quietest weekday slot</span>}
+          {quiet.length > 0 && <span className="inline-flex items-center gap-1.5"><span className="size-3 rounded-[4px] ring-2 ring-pop" />Quietest, 10 am to 4 pm on a weekday</span>}
         </div>
         <p className="mt-4 text-xs leading-relaxed text-muted">
           Google's typical busyness for "{card.busy.title}", captured {card.as_of}: how busy the place usually is, not today,

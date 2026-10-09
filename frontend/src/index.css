@@ -60,7 +60,9 @@ body { font-family: var(--font-sans); font-feature-settings: "cv11", "ss01", "ss
 .surface { background: var(--color-card); border: 1px solid color-mix(in srgb, var(--color-rule) 80%, transparent); box-shadow: var(--shadow-soft); }
 .surface-float { background: var(--color-card); box-shadow: var(--shadow-float); }
 /* Frosted glass for bars that sit over content. */
-.glass { background: color-mix(in srgb, var(--color-card) 72%, transparent); backdrop-filter: saturate(1.6) blur(18px); -webkit-backdrop-filter: saturate(1.6) blur(18px); }
+/* Tailwind's utilities, not a hand-written backdrop-filter: the minifier joined "saturate(1.6) blur(18px)" into an
+   invalid value, so the blur silently never applied. */
+.glass { background: color-mix(in srgb, var(--color-card) 82%, transparent); @apply backdrop-blur-[18px] backdrop-saturate-[1.6]; }
 
 .maplibregl-ctrl-attrib { font-size: 11px; background: color-mix(in srgb, var(--color-card) 80%, transparent) !important; }
 .maplibregl-ctrl-attrib a { color: var(--color-muted) !important; }

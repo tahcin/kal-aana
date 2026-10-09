@@ -20,7 +20,7 @@ live = ["serpapi>=1.1"]
 mcp = ["mcp>=2.3,<3"]
 # Claude as the ask box's reader (KALAANA_READER=anthropic). Local models (Ollama, llama.cpp) need nothing extra.
 claude = ["anthropic>=1.0"]
-dev = ["kal-aana[live,mcp]", "pytest>=9.1", "httpx2>=2.13"]
+dev = ["kal-aana[live,mcp,claude]", "pytest>=9.1", "httpx2>=2.13"]
 
 [project.scripts]
 kalaana = "kalaana.cli:main"

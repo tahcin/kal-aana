@@ -19,7 +19,7 @@ export default function NotFound() {
           </Reveal>
           <Reveal delay={0.1}>
             <p className="mt-6 max-w-[44ch] text-lg leading-relaxed text-ink-2">
-              Nothing lives at <span className="break-all rounded-md bg-paper-2 px-1.5 py-0.5 font-mono text-[0.85em] text-ink">{pathname}</span>.
+              Nothing lives at <span className="rounded-md [overflow-wrap:anywhere] bg-paper-2 px-1.5 py-0.5 font-mono text-[0.85em] text-ink">{pathname}</span>.
               The rest of Kal Aana is open today.
             </p>
             <p className="mt-9 flex flex-wrap gap-3">
@@ -30,7 +30,7 @@ export default function NotFound() {
             </p>
           </Reveal>
         </div>
-        <div className="flex justify-center px-2 lg:justify-end"><TokenTicket token="404" stamp="Come back tomorrow" /></div>
+        <div className="flex justify-center px-2 lg:justify-end"><TokenTicket token="404" stamp="Counter closed" /></div>
       </section>
       <Footer />
     </main>

@@ -9,7 +9,7 @@ How to run Kal Aana locally, choose the model that answers the chat, collect liv
 Python 3.11 or newer. From a clone of this repository:
 
 ```bash
-python -m venv .venv
+python3 -m venv .venv              # Windows: py -m venv .venv
 source .venv/bin/activate          # Windows: .venv\Scripts\activate
 pip install -e .
 kalaana serve
@@ -58,7 +58,7 @@ With any model reader, each visitor gets 20 questions per 10 minutes, and `KALAA
 
 ### Live search allowance
 
-Live searches are rationed separately, because each costs a SerpApi credit. Saved data comes first: a web search about anything the snapshot covers (phones, time limits, Sakala, reviews, bribes, agents, busy hours, timings, the address) is refused before it runs, in the chat and the MCP server, and the model is pointed to the saved-data tool instead (`chat.saved_data_covers`). The model is told to make one search per reply and a second only if the first found nothing (the code stops at two). A repeat within the hour (same words, ignoring case and spacing) is served from the cache and costs no credit and no allowance (`live.is_cached`). Each visitor gets 5 live searches per 10 minutes; in all, `KALAANA_LIVE_TOTAL` (default 300), `KALAANA_LIVE_DAILY` a day (default 40, IST), and none once the account has `KALAANA_LIVE_RESERVE` credits or fewer left (default 250, read from SerpApi's free Account API), so the credits kept for refreshing the dataset are never touched. Counts are kept in `data/private/live-searches.json` (gitignored). Without a SerpApi key, live search is off and the chat says so.
+Live searches are rationed separately, because each costs a SerpApi credit. Saved data comes first: a web search about anything the snapshot covers (phones, time limits, Sakala, reviews, bribes, agents, busy hours, timings, the address) is refused before it runs, in the chat and the MCP server, and the model is pointed to the saved-data tool instead (`chat.saved_data_covers`). A query about how to do something (documents, fees, an update or change, slot booking, validity) is never refused, even when it mentions one of those words. The model is told to make one search per reply and a second only if the first found nothing (the code stops at two). A repeat within the hour (same words, ignoring case and spacing) is served from the cache and costs no credit and no allowance (`live.is_cached`). Each visitor gets 5 live searches per 10 minutes on the site, and the MCP server allows 10 an hour across all its clients (`KALAANA_MCP_LIVE_PER_HOUR`); in all, `KALAANA_LIVE_TOTAL` (default 300), `KALAANA_LIVE_DAILY` a day (default 40, IST), and none once the account has `KALAANA_LIVE_RESERVE` credits or fewer left (default 50, read from SerpApi's free Account API), so the credits kept for refreshing the dataset are never touched. A search that times out (35 seconds) or meets a SerpApi server error is retried once; SerpApi usually finished the first one and answers the retry from its own cache, at no charge. Counts are kept in `data/private/live-searches.json` (gitignored). Without a SerpApi key, live search is off and the chat says so.
 
 ### Conversation history
 
@@ -143,13 +143,14 @@ The server's settings, in its `.env`:
 | `KALAANA_ASK_BUDGET_USD` | A cloud model's total spend before the chat falls back to the rules |
 | `KALAANA_LIVE_DAILY`, `KALAANA_LIVE_TOTAL`, `KALAANA_LIVE_RESERVE` | The live-search allowance (see [Live search allowance](#live-search-allowance)) |
 | `KALAANA_MCP_HOSTS` | The MCP server's public host names; requests for any other host are refused |
+| `KALAANA_MCP_LIVE_PER_HOUR`, `KALAANA_MCP_READS_PER_HOUR` | The MCP server's live searches (default 10) and model-read complaints (default 60) an hour, across all its clients |
 | `KALAANA_READER`, `OPENAI_BASE_URL`, `OPENAI_API_KEY`, `KALAANA_MODEL`, `KALAANA_CHAT_MODEL`, `ANTHROPIC_API_KEY`, `SERPAPI_API_KEY` | The reader, its endpoint and model, and the keys |
 
 ## Tests
 
 ```bash
 pip install -e ".[dev]"
-pytest          # 655 passed on October 9, 2026
+pytest          # 766 passed on October 9, 2026
 ```
 
 The tests use fixtures shaped like SerpApi's JSON, never real calls. The real `SearchClient` runs, with its cache, budget, dry run and key redaction, and only the HTTP call is stubbed.

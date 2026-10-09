@@ -362,7 +362,7 @@ export default function Method() {
             <div className="flex max-w-3xl gap-5 rounded-[1.5rem] bg-wash p-6">
               <span className="grid size-11 shrink-0 place-items-center rounded-full bg-card text-brand"><EyeOff className="size-5" aria-hidden /></span>
               <div className="space-y-3 text-[1.02rem] leading-relaxed text-ink-2">
-                <p>No reviewer names or profiles are stored. Names of staff and agents, vehicle numbers, and any mobile number that isn't in an official directory are masked in every quote, and an automated test fails if one ever reaches a published file. This reports on offices, not individuals.</p>
+                <p>No reviewer names or profiles are stored. Names of staff and agents, vehicle numbers, and any mobile number that isn't in an official directory are masked in every quote, and the published quotes were read by hand for names. An automated test fails if a full mobile number outside the directories ever reaches a published file, the code or the tests. This reports on offices, not individuals.</p>
                 <p>Kal Aana keeps no record of your conversation: it stays in your browser tab. When a model writes the answers, your messages go to that model's API (on this site, Claude through Anthropic's API), and a live search sends a short query to SerpApi, whose results are kept on the server for an hour.</p>
               </div>
             </div>
@@ -436,27 +436,27 @@ claude mcp add kal-aana -- .venv/bin/kalaana-mcp`}</Code>
               to Services time limits, not the searches.
             </p>
             <div className="surface mt-7 max-w-3xl overflow-x-auto rounded-[1.5rem]">
-              <table className="w-full border-separate border-spacing-0 text-[15px]">
+              <table className="w-full border-separate border-spacing-0 text-[13px] sm:text-[15px]">
                 <caption className="sr-only">Estimated searches and cost for a national sweep</caption>
                 <thead>
                   <tr className="text-xs font-medium text-muted">
-                    <th scope="col" className="border-b border-rule px-5 py-3 text-left font-medium sm:px-6">Scope</th>
-                    <th scope="col" className="border-b border-rule px-4 py-3 text-right font-medium">Offices, approx.</th>
-                    <th scope="col" className="border-b border-rule px-4 py-3 text-right font-medium">Searches</th>
-                    <th scope="col" className="border-b border-rule py-3 pl-4 pr-5 text-right font-medium sm:pr-6">Cost, roughly</th>
+                    <th scope="col" className="border-b border-rule py-3 pl-4 pr-2 text-left font-medium sm:px-6">Scope</th>
+                    <th scope="col" className="border-b border-rule px-2 py-3 text-right font-medium sm:px-4">Offices, approx.</th>
+                    <th scope="col" className="border-b border-rule px-2 py-3 text-right font-medium sm:px-4">Searches</th>
+                    <th scope="col" className="border-b border-rule py-3 pl-2 pr-4 text-right font-medium sm:pl-4 sm:pr-6">Cost, roughly</th>
                   </tr>
                 </thead>
                 <tbody>
                   {[
-                    ["Bengaluru pilot (measured)", "60", "628", "$6 to $9 at those rates (done on free credits)"],
-                    ["RTOs and passport offices, all of India", "2,000", "21,000", "$250 to $350"],
+                    ["Bengaluru pilot (measured)", "60", "628", "$6 to $9 (covered by free credits)"],
+                    ["RTOs and passport offices, all of India", "2,000", "21,000", "$210 to $320"],
                     ["RTOs, sub-registrars and passport offices, all of India", "7,000 to 8,000", "80,000", "$1,000"],
                   ].map(([scope, offices, searches, cost]) => (
                     <tr key={scope}>
-                      <th scope="row" className="border-b border-rule/70 px-5 py-3 text-left font-normal leading-snug text-ink sm:px-6">{scope}</th>
-                      <td className="tnum border-b border-rule/70 px-4 py-3 text-right">{offices}</td>
-                      <td className="tnum border-b border-rule/70 px-4 py-3 text-right">{searches}</td>
-                      <td className="tnum border-b border-rule/70 py-3 pl-4 pr-5 text-right sm:pr-6">{cost}</td>
+                      <th scope="row" className="border-b border-rule/70 py-3 pl-4 pr-2 text-left font-normal leading-snug text-ink sm:px-6">{scope}</th>
+                      <td className="tnum border-b border-rule/70 px-2 py-3 text-right sm:px-4">{offices}</td>
+                      <td className="tnum border-b border-rule/70 px-2 py-3 text-right sm:px-4">{searches}</td>
+                      <td className="tnum border-b border-rule/70 py-3 pl-2 pr-4 text-right sm:pl-4 sm:pr-6">{cost}</td>
                     </tr>
                   ))}
                 </tbody>

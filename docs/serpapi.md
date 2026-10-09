@@ -32,7 +32,7 @@ These searches are rationed (see [Live search allowance](setup.md#live-search-al
 
 ### The SDK and the Account API
 
-All calls go through SerpApi's Python SDK, the `serpapi` package (the optional extra `live`, `pip install -e ".[live]"`). `kalaana/client.py` creates a `serpapi.Client` on the first live search and calls its `search()` with the parameters above, wrapped in Kal Aana's own on-disk cache, per-run budget, dry run (`--plan`) and key redaction. The live search reads the remaining credits from SerpApi's free Account API (the SDK's `account()`, checked at most once a minute) and stops once the account has `KALAANA_LIVE_RESERVE` credits or fewer left (default 250), so the credits kept for refreshing the dataset are never touched.
+All calls go through SerpApi's Python SDK, the `serpapi` package (the optional extra `live`, `pip install -e ".[live]"`). `kalaana/client.py` creates a `serpapi.Client` on the first live search and calls its `search()` with the parameters above, wrapped in Kal Aana's own on-disk cache, per-run budget, dry run (`--plan`) and key redaction. The live search reads the remaining credits from SerpApi's free Account API (the SDK's `account()`, checked at most once a minute) and stops once the account has `KALAANA_LIVE_RESERVE` credits or fewer left (default 50), so the credits kept for refreshing the dataset are never touched.
 
 ## Choices that save credits
 
@@ -49,13 +49,13 @@ All calls go through SerpApi's Python SDK, the `serpapi` package (the optional e
 | `citizen rto`: Search, AI Overview and AI Mode per office | 36 (13 `google`, 10 `google_ai_overview`, 13 `google_ai_mode`) | 0 |
 | `crosscheck rto`: Bing Maps per office | 13 `bing_maps` | 0 |
 | **The whole RTO report card** | **137, about 10.5 per office** | **0** |
-| `collect subregistrar --sample-offices 43`: 3 Maps pages, targeted searches, reviews for every listed office | 286 (45 `google_maps`, 241 `google_maps_reviews`) | 0 |
+| `collect subregistrar --sample-offices 43`: 2 Maps pages, a Maps search per office, reviews for every listed office | 286 (45 `google_maps`, 241 `google_maps_reviews`) | 0 |
 | `citizen subregistrar` | 118 (42 `google`, 34 `google_ai_overview`, 42 `google_ai_mode`; one more AI Overview came inside its Google search, so 35 are shown) | 0 |
 | `crosscheck subregistrar` | 43 `bing_maps` | 0 |
 | **The whole sub-registrar report card** | **447, about 10.4 per office** | **0** |
 | `collect passport --pages 2`, `citizen passport`, `crosscheck passport`: 4 offices | 44 (8 `google_maps`, 21 `google_maps_reviews`, 4 `google`, 3 `google_ai_overview`, 4 `google_ai_mode`, 4 `bing_maps`) | 0 |
 
-SerpApi's Account API shows 647 searches used in all; 628 are behind the three report cards (each listed by engine in the snapshots). The rest went on the RTO pilot, one-off tests of the AI Mode and Bing Maps engines, and early review pages from agents' listings that the matcher now rejects. Failed calls (SerpApi returned 503 four times) cost nothing; one office, Halasooru, is marked "not checked" because its Google search kept failing.
+SerpApi's Account API shows 647 searches used in all; 628 are behind the three report cards (each listed by engine in the snapshots). The rest went on the RTO pilot (one of its Google Maps searches, `6ac700fd18dc9337622c5bea`, also gives KA-05's busy hours), one-off tests of the AI Mode and Bing Maps engines, and early review pages from agents' listings that the matcher now rejects. Failed calls (SerpApi returned 503 four times) cost nothing; one office, Halasooru, is marked "not checked" because its Google search kept failing.
 
 ## Another city
 
@@ -83,8 +83,8 @@ The same 10.5 searches per office, measured on the Bengaluru pilot, price a nati
 
 | Scope | Offices, approximately | Searches, about | Cost, roughly |
 |---|---|---|---|
-| All three office types, all of India | 7,000 to 8,000 | 80,000 | $1,000 ($800 to $1,300) |
-| RTOs and passport offices only | 2,000 | 21,000 | $250 to $350 |
+| All three office types, all of India | 7,000 to 8,000 | 80,000 | about $1,000 ($800 to $1,200) |
+| RTOs and passport offices only | 2,000 | 21,000 | $210 to $320 |
 
 Costs assume SerpApi's published paid plans at the time of writing, which work out to roughly one to one and a half US cents per search at volume; check current prices before relying on them. Reading fewer reviews per office could cut a sweep roughly in half.
 

@@ -311,7 +311,7 @@ function ReviewsChapter({ data }: { data: OfficeDetail }) {
   const counted = new Date(Date.parse(data.as_of) - data.rules.issue_window_days * 864e5).toISOString().slice(0, 10);
   return (
     <Chapter id="reviews" title="What reviewers report">
-      {!o.sampled ? <p className="serif max-w-2xl text-xl text-muted">Not sampled: within the free plan, reviews were read for the most-reviewed offices only.</p> : (
+      {!o.sampled ? <p className="serif max-w-2xl text-xl text-muted">{data.card.listed ? "Not sampled: reviews were read for the most-reviewed offices only." : "No Google Maps listing was found for this office, so there are no reviews to read."}</p> : (
         <div className="grid gap-10 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-14 [&>*]:min-w-0">
           <div>
             <div className={cn(panel, "p-6 sm:p-7 lg:sticky lg:top-24")}>
@@ -331,10 +331,10 @@ function ReviewsChapter({ data }: { data: OfficeDetail }) {
                 return (
                   <Reveal key={i.category} delay={0.05 * (n % 2)}>
                     <p className={cn("mb-3 flex items-baseline justify-between gap-3 text-xs font-medium", bad ? "text-broken" : "text-kept")}>
-                      <span>{i.label}</span>{o.enough_evidence && i.count > 0 && <span className="tnum shrink-0 text-xs font-normal text-muted">{i.count} of {i.of}</span>}
+                      <span>{i.label}</span>{o.enough_evidence && <span className="tnum shrink-0 text-xs font-normal text-muted">{i.count > 0 ? `${i.count} of ${i.of}` : `none of the ${i.of} counted`}</span>}
                     </p>
                     <PullQuote tone={bad ? "broken" : "kept"} text={q.text} evidence={q.evidence} size="lg"
-                      caption={<>{q.rating ? `${q.rating}★ · ` : ""}{q.date}{q.sample !== "newest" && ` · found by searching "${q.sample.slice(6)}"`}{q.date < counted && " · older, not counted"}</>}
+                      caption={<>{q.rating ? `${q.rating}★ · ` : ""}<span className="whitespace-nowrap">{q.date}</span>{q.sample !== "newest" && ` · found by searching "${q.sample.slice(6)}"`}{q.date < counted && " · older, not counted"}</>}
                       links={safeUrl(q.link) && <a href={safeUrl(q.link)}>on Google</a>} />
                   </Reveal>
                 );
@@ -397,7 +397,7 @@ function OfficeView({ id }: { id: string }) {
       <PromiseVsReality data={data} />
 
       <section className="mx-auto mt-4 max-w-7xl px-4 sm:px-6">
-        <InView>{(active) => <PromiseClock card={card} active={active} />}</InView>
+        <InView>{(active) => <PromiseClock card={card} active={active} compact />}</InView>
       </section>
 
       {data.lookalikes.length > 0 && (

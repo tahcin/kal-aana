@@ -198,3 +198,11 @@ def test_every_model_reader_is_rate_limited(kind: str, monkeypatch: pytest.Monke
         web._limit(request)
     with pytest.raises(web.HTTPException):
         web._limit(request)
+
+
+@pytest.mark.parametrize(("url", "local"), [
+    ("http://localhost:11434/v1/chat/completions", True), ("http://127.0.0.1:8080/v1", True), ("http://192.168.1.20:11434/v1", True),
+    ("http://10.0.0.5/v1", True), ("http://gpu-box.local:11434/v1", True), ("https://api.openai.com/v1", False),
+    ("https://api.anthropic.com/v1/", False), ("http://8.8.8.8/v1", False)])
+def test_a_model_on_this_machine_or_the_local_network_is_free(url: str, local: bool) -> None:
+    assert IS_LOCAL(url) is local

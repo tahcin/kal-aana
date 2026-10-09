@@ -69,7 +69,7 @@ kalaana citizen subregistrar --offices 10 --budget 20
 
 Offices left out say "not sampled" or "not checked" everywhere, never "no problems".
 
-For sub-registrars: 3 Maps pages found 35 of the 43 offices, and 8 targeted searches found 7 more (42 of 43; the BDA office was not found). Reviews for the 15 busiest offices cost 45 credits, and 16 more covered Search and the AI Overview for 10 offices. That's 72 credits in all, including the 1-credit pilot.
+Our first sub-registrar pass, sized for the free plan: 3 Maps pages found 35 of the 43 offices, and 8 targeted searches found 7 more (42 of 43; the BDA office was not found). Reviews for the 15 busiest offices cost 45 credits, and 16 more covered Search and the AI Overview for 10 offices. That's 72 credits in all, including the 1-credit pilot. With more credits, a later run read every office: [credits per run](serpapi.md#credits-per-run).
 
 ## 5. Publish
 

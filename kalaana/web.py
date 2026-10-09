@@ -164,7 +164,7 @@ def ask_endpoint(question: Question, request: Request) -> dict[str, Any]:
 
 class Turn(BaseModel):
     role: str = Field(pattern="^(user|assistant)$", description="Who said it: `user` or `assistant`.")
-    content: str = Field(max_length=4000, description="The words; an earlier reply is sent back as its text and card note.")
+    content: str = Field(min_length=1, max_length=4000, description="The words; an earlier reply is sent back as its text and card note.")
 
 
 class Conversation(BaseModel):
@@ -194,7 +194,11 @@ def chat_endpoint(conversation: Conversation, request: Request) -> StreamingResp
     visitor = _visitor(request)
 
     def live_quota() -> bool:
-        now, seen = time.monotonic(), _searched[visitor]
+        now = time.monotonic()
+        if len(_searched) > 10_000:  # forget visitors with no live search in the last 10 minutes
+            for host in [h for h, q in _searched.items() if not q or now - q[-1] > 600]:
+                del _searched[host]
+        seen = _searched[visitor]
         while seen and now - seen[0] > 600:
             seen.popleft()
         if len(seen) >= LIVE_LIMIT:

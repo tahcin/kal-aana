@@ -71,7 +71,7 @@ def test_the_daily_and_total_limits_stop_live_search(fake: FakeSerpApi, monkeypa
 
 
 def test_the_credit_reserve_is_never_touched(fake: FakeSerpApi) -> None:
-    fake.left = 250
+    fake.left = 50
     with pytest.raises(live.LiveUnavailable, match="reserve"):
         live.search_web("passport fees")
     assert not fake.searches
@@ -124,3 +124,41 @@ def test_cached_searches_are_forgotten_after_an_hour(fake: FakeSerpApi) -> None:
     os.utime(cached, (time.time() - 4000, time.time() - 4000))
     live.search_web("another question")
     assert not cached.exists()
+
+
+def _failing(times: int, retryable: bool):
+    calls = {"n": 0}
+
+    def search(self: FakeSerpApi, params: dict[str, Any]) -> dict[str, Any]:
+        calls["n"] += 1
+        if calls["n"] <= times:
+            raise live.SearchError("SerpApi request failed : google x", retryable)
+        return {"search_metadata": {"id": "web2"}, "organic_results": []}
+    return search, calls
+
+
+def test_a_timed_out_search_is_retried_once_and_counted_once(fake: FakeSerpApi, monkeypatch: pytest.MonkeyPatch) -> None:
+    search, calls = _failing(1, retryable=True)
+    monkeypatch.setattr(live.SearchClient, "search", lambda self, params, refresh=False: search(fake, params))
+    assert live.search_web("tatkaal passport fee")["search_id"] == "web2"
+    assert calls["n"] == 2 and live.ledger()["total"] == 1
+
+
+@pytest.mark.parametrize(("times", "retryable", "expected_calls"), [(2, True, 2), (1, False, 1)])
+def test_a_search_that_keeps_failing_says_so(fake: FakeSerpApi, monkeypatch: pytest.MonkeyPatch, times: int, retryable: bool,
+                                             expected_calls: int) -> None:
+    search, calls = _failing(times, retryable)
+    monkeypatch.setattr(live.SearchClient, "search", lambda self, params, refresh=False: search(fake, params))
+    with pytest.raises(live.LiveUnavailable, match="failed just now"):
+        live.search_web("tatkaal passport fee")
+    assert calls["n"] == expected_calls
+
+
+def test_a_failed_search_logs_no_part_of_the_visitors_query(fake: FakeSerpApi, monkeypatch: pytest.MonkeyPatch,
+                                                            caplog: pytest.LogCaptureFixture) -> None:
+    def failing(self: Any, params: dict[str, Any], refresh: bool = False) -> dict[str, Any]:
+        raise live.SearchError(f"SerpApi request failed 503: google {params['q']}", True)
+    monkeypatch.setattr(live.SearchClient, "search", failing)
+    with pytest.raises(live.LiveUnavailable):
+        live.search_web("my application number is ABC123 tatkaal")
+    assert caplog.records and not any("abc123" in r.getMessage().lower() for r in caplog.records)

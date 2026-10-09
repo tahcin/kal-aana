@@ -254,3 +254,32 @@ def test_a_repeated_search_is_recognised_whatever_its_spelling(tmp_path, monkeyp
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text("{}", encoding="utf-8")
     assert live.is_cached("search_web", {"query": "  LEARNER'S licence documents   Karnataka "})
+
+
+@pytest.mark.parametrize("query", ["passport address change documents", "documents for mobile number update in driving licence",
+                                   "RTO timings for LL test slot booking", "how long is a learners licence valid",
+                                   "driving licence agent fees", "change address on RC Karnataka"])
+def test_a_procedure_is_searched_even_when_it_mentions_a_saved_topic(query: str) -> None:
+    assert chat.saved_data_covers("search_web", {"query": query}) is None
+
+
+def test_a_reply_that_runs_out_of_steps_says_so(fake_claude: list[dict[str, Any]], monkeypatch: pytest.MonkeyPatch) -> None:
+    monkeypatch.setattr(chat, "MAX_STEPS", 1)  # the fake's first step calls a tool, so the reply runs out there
+    got = events(chat.reply([{"role": "user", "content": "learner's licence at KA-05 applied 3 weeks ago"}], TODAY))
+    text = "".join(e["text"] for e in got if e["type"] == "text")
+    assert text.endswith("The cards above are what I found.") and got[-1]["type"] == "done"
+
+
+def test_best_time_with_no_weekday_visits_says_so(monkeypatch: pytest.MonkeyPatch) -> None:
+    data, office = chat._office("rto-ka05")
+    weekend_only = {**office, "busy": {**office["busy"], "days": {"saturday": [[11, 40]], "sunday": [[11, 0]]}}}
+    monkeypatch.setattr(chat, "_office", lambda office_id: (data, weekend_only))
+    card, summary = chat.best_time("rto-ka05")
+    assert card is None and "no quiet hour" in summary["note"]
+
+
+def test_a_phone_question_with_no_office_asks_which_office() -> None:
+    got = events(chat.reply([{"role": "user", "content": "Koramangala RTO phone"}], TODAY))
+    text = "".join(e["text"] for e in got if e["type"] == "text")
+    assert text.startswith("Which office is it?") and "documents" not in text
+    assert [e["card"]["kind"] for e in got if e["type"] == "card"] == ["choose"]

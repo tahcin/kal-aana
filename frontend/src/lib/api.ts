@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 
 export type MapsStatus = "no_listing" | "no_phone" | "official" | "helpline" | "other";
-export type AIStatus = "own" | "helpline" | "other" | "no_answer" | "unchecked";
+export type AIStatus = "own" | "helpline" | "other" | "no_answer" | "no_ai" | "unchecked";
 export type Verdict = "this office" | "regional office" | "another office" | "not in the directory" | "national helpline" | "department helpline";
 
 export interface Totals {

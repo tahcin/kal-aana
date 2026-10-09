@@ -4,6 +4,8 @@
 // Anything that depends on today or on the visitor (an application date, a complaint letter) is passed straight through.
 const API = "https://kalaana-api.gradestone.in";
 const CACHEABLE = /^\/api\/(overview|method|snapshot|office\/[\w-]+|story\/[\w-]+)$/;
+// Part of every cache key: change it when a deploy changes the API's data, and the edge starts afresh at once.
+const VERSION = "2026-10-09b";
 
 export default {
   async fetch(request, env, ctx) {
@@ -12,7 +14,7 @@ export default {
     if (request.method !== "GET" || !CACHEABLE.test(url.pathname) || url.searchParams.has("applied")) {
       return fetch(new Request(upstream, request));
     }
-    const key = new Request(url.toString(), { method: "GET" });
+    const key = new Request(`${url.origin}${url.pathname}?v=${VERSION}&${url.searchParams}`, { method: "GET" });
     const hit = await caches.default.match(key);
     if (hit) {
       const fromCache = new Response(hit.body, hit);

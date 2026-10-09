@@ -361,11 +361,12 @@ function YourWait({ card, active }: { card: StoryCard; active: boolean }) {
   );
 }
 
-export function PromiseClock({ card, active }: { card: StoryCard; active: boolean }) {
-  return <>{card.yours && <YourWait card={card} active={active} />}<ReviewClock card={card} active={active} /></>;
+/** `compact` on the office page, where the promise panel above already states the limit: the bar and the quote only. */
+export function PromiseClock({ card, active, compact = false }: { card: StoryCard; active: boolean; compact?: boolean }) {
+  return <>{card.yours && <YourWait card={card} active={active} />}<ReviewClock card={card} active={active} compact={compact} /></>;
 }
 
-function ReviewClock({ card, active }: { card: StoryCard; active: boolean }) {
+function ReviewClock({ card, active, compact }: { card: StoryCard; active: boolean; compact: boolean }) {
   const k = card.clock;
   const reported = k.reported_days ?? 0;
   const total = Math.max(k.limit_days, reported);
@@ -380,7 +381,11 @@ function ReviewClock({ card, active }: { card: StoryCard; active: boolean }) {
   return (
     <div className={cn(panel, "p-5 sm:p-8")}>
       {card.yours && <p className={cn(label, "mb-4")}>What reviewers report at this office</p>}
-      <div className="grid gap-6 sm:grid-cols-[minmax(0,1fr)_auto]">
+      {compact ? (
+        <p className="serif text-xl text-ink-2 sm:text-2xl">
+          {reported > 0 ? <>A reviewer's wait, about <span className="text-broken">{reported} working days</span>{k.conversion && " at five a week"}, against the limit</> : k.note}
+        </p>
+      ) : <div className="grid gap-6 sm:grid-cols-[minmax(0,1fr)_auto]">
         <div>
           <p className={label}>{card.promise.kind === "law" ? <>The <Term k="sakala">law</Term> allows</> : <>The <Term k="charter">Citizen's Charter</Term> promises</>}</p>
           <p className="serif mt-2 text-[2.6rem] leading-none tracking-[-0.03em] text-kept sm:text-[3.4rem]">{k.limit}</p>
@@ -393,7 +398,7 @@ function ReviewClock({ card, active }: { card: StoryCard; active: boolean }) {
             <p className="mt-2 text-sm text-muted">about {reported} working days{k.conversion && ", at five a week"}</p>
           </div>
         )}
-      </div>
+      </div>}
       <DayBar total={total} limit={k.limit_days} upTo={total} active={active}
         label={`${k.limit_days} working days allowed${reported ? `; about ${reported} working days reported` : ""}`} />
       <p className="mt-4 text-xs leading-relaxed text-muted">One segment per <Term k="working">working day</Term>.{k.terms ? ` Counted ${k.terms}.` : ""}</p>
@@ -404,7 +409,7 @@ function ReviewClock({ card, active }: { card: StoryCard; active: boolean }) {
           {k.search_id && <SearchId className="mt-3" engine="google_maps_reviews" id={k.search_id} />}
         </PullQuote>
       )}
-      {!reported && <p className="serif mt-6 text-xl text-ink-2">{k.note}</p>}
+      {!reported && !compact && <p className="serif mt-6 text-xl text-ink-2">{k.note}</p>}
     </div>
   );
 }

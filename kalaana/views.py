@@ -88,7 +88,7 @@ def working_days_since(start: date, end: date) -> int:
 
 
 MapsStatus = Literal["no_listing", "no_phone", "official", "helpline", "other"]
-AIStatus = Literal["own", "helpline", "other", "no_answer", "unchecked"]
+AIStatus = Literal["own", "helpline", "other", "no_answer", "no_ai", "unchecked"]
 
 MAPS_LABELS: Final[dict[str, str]] = {
     "no_phone": "No phone on Google Maps",
@@ -101,7 +101,8 @@ AI_LABELS: Final[dict[str, str]] = {
     "own": "Leads with the office's own number",
     "helpline": "Leads with a helpline, not the office's number",
     "other": "Leads with a different number",
-    "no_answer": "No AI answer, or no number",
+    "no_answer": "An AI answer with no number in it",
+    "no_ai": "No AI answer shown",
     "unchecked": "Not checked",
 }
 
@@ -151,7 +152,9 @@ def maps_status(o: dict[str, Any]) -> MapsStatus:
 def ai_status(o: dict[str, Any]) -> AIStatus:
     if not o["citizen_checked"]:
         return "unchecked"
-    first = (o["ai_overview"] or {}).get("first_number")
+    if not o["ai_overview"]:
+        return "no_ai"
+    first = o["ai_overview"].get("first_number")
     if not first:
         return "no_answer"
     return _first_status(first)
@@ -333,8 +336,8 @@ def verdict(o: dict[str, Any], data: dict[str, Any]) -> list[str]:
     if o["breaches"]:
         b = o["breaches"][0]
         service = b["service"].removeprefix("Issue of ")
-        out.append(f'A reviewer writes "{b["quote"]["evidence"]}" ({service[0].lower() + service[1:]}: {allows(data["profile"])} '
-                   f"{b['statutory_days']} {b['unit']}).")
+        out.append(f'A reviewer reports a wait past the time limit for {service[0].lower() + service[1:]}: '
+                   f'"{b["quote"]["evidence"]}".')
     elif o["enough_evidence"] and o["problem_reviews"]:
         out.append(f"{o['problem_reviews']} of its {o['window_reviews']} recent reviews with text report a problem.")
     return out
@@ -402,7 +405,9 @@ def mode_status(o: dict[str, Any]) -> AIStatus:
     """What Google's AI Mode led with, in the same terms as ai_status."""
     if not o["citizen_checked"]:
         return "unchecked"
-    first = (o.get("ai_mode") or {}).get("first_number")
+    if not o.get("ai_mode"):
+        return "no_ai"
+    first = o["ai_mode"].get("first_number")
     if not first:
         return "no_answer"
     return _first_status(first)

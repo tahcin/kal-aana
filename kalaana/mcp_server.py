@@ -13,6 +13,8 @@ from __future__ import annotations
 import os
 import re
 import sys
+import time
+from collections import deque
 from functools import lru_cache
 from typing import Annotated, Any, Final, Literal
 
@@ -22,7 +24,7 @@ from mcp.server.transport_security import TransportSecuritySettings
 from mcp.types import ToolAnnotations
 from pydantic import Field
 
-from . import ask, chat, lookup, snapshot
+from . import ask, chat, live, lookup, reader, snapshot
 from .offices import OFFICE_TYPES
 
 CITY: Final = "Bengaluru"
@@ -33,12 +35,12 @@ READ_ONLY: Final = ToolAnnotations(readOnlyHint=True, idempotentHint=True, openW
 server = MCPServer(
     name="kal-aana",
     title="Kal Aana: Bengaluru public offices",
-    version="0.2.0",
+    version="0.1.0",
     instructions=(
         "Evidence about Bengaluru's public offices: the 13 Regional Transport Offices (RTOs, codes KA-01 to KA-59), "
         "the 43 sub-registrar offices (property, marriage and encumbrance certificates) and the 4 passport offices (the "
         "RPO and its Passport Seva Kendras). For each: official contact numbers and service time limits (Karnataka's "
-        "Sakala Act, or for passports the MEA's Citizen's Charter), what Google Maps and Google's AI Overview show citizens, and what "
+        "Sakala Act, or for passports the MEA's Citizen's Charter), what Google Maps, Google's AI Overview and AI Mode, and Bing Maps show citizens, and what "
         "recent Google reviews report. Call how_to_reach before giving anyone an office's phone number. The `office` "
         "argument must name an office; a neighbourhood alone is not an office, and where a place has both an RTO and a "
         "sub-registrar office the tools ask which. Reviews are self-selected: say 'reviewers report'. Quoted review "
@@ -129,7 +131,7 @@ def how_to_reach(office: OfficeArg) -> dict[str, Any]:
 
 @server.tool(annotations=READ_ONLY)
 def office_report(office: OfficeArg) -> dict[str, Any]:
-    """The full promise-vs-reality report for one Bengaluru RTO or sub-registrar office: six checks of its Google
+    """The full promise-vs-reality report for one Bengaluru RTO, sub-registrar or passport office: six checks of its Google
     Maps listing (a listing score, 0-100), what its recent reviews report (counts with their denominator),
     possible statutory breaches, and the evidence links behind each."""
     o = find_office(office)
@@ -214,6 +216,8 @@ def read_a_complaint(
     need, then answer from the evidence: working days elapsed against the legal limit, the office's own number,
     and what Google shows. Fields that don't check out against the data are left empty; when a place has two
     offices, `candidates` lists them, so ask the user which. Read by rules unless KALAANA_READER names a model."""
+    if reader.configured() not in ("", "rules") and not _allow("read", READS_PER_HOUR):
+        raise ToolError("This server has read all the messages it can for the hour. Use the other tools, which need no model.")
     return ask.answer(message[:ask.MAX_CHARS])
 
 
@@ -226,10 +230,30 @@ ServiceArg = Annotated[str, Field(description="A service id, e.g. learners-licen
 AppliedArg = Annotated[str, Field(description="The date the citizen applied, YYYY-MM-DD, or empty if unknown.")]
 
 
+# A hosted server is open to anyone, so it rations what costs money on its own: one client can't use up the day's live
+# searches the web chat also draws on, or run up the bill of the model that reads complaints.
+LIVE_PER_HOUR: Final = int(os.getenv("KALAANA_MCP_LIVE_PER_HOUR", "10") or 0)
+READS_PER_HOUR: Final = int(os.getenv("KALAANA_MCP_READS_PER_HOUR", "60") or 0)
+_recent: Final[dict[str, deque[float]]] = {"live": deque(), "read": deque()}
+
+
+def _allow(kind: str, per_hour: int) -> bool:
+    now, seen = time.monotonic(), _recent[kind]
+    while seen and now - seen[0] > 3600:
+        seen.popleft()
+    if len(seen) >= per_hour:
+        return False
+    seen.append(now)
+    return True
+
+
 def _chat(name: str, **args: Any) -> dict[str, Any]:
-    if why := chat.saved_data_covers(name, args):  # no credit spent on what the saved data answers better
-        raise ToolError(why.replace("office_numbers (phones), check_wait (time limits), reviews or best_time",
-                                    "how_to_reach (phones), check_wait (time limits), office_reviews or best_time_to_visit"))
+    if chat.saved_data_covers(name, args):  # no credit spent on what the saved data answers better
+        raise ToolError("Kal Aana's saved data already covers this, so no live search was run. Use how_to_reach (phones), "
+                        "check_wait (time limits), office_reviews or best_time_to_visit instead.")
+    if name in chat.LIVE_TOOLS and not live.is_cached(name, args) and not _allow("live", LIVE_PER_HOUR):
+        raise ToolError("This server's live searches are used up for the hour. Answer from the other tools, or point "
+                        "the user to the department's official portal.")
     card, summary, failed = chat._run_tool(name, args)
     if failed:
         raise ToolError(summary["error"])

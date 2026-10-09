@@ -332,7 +332,7 @@ def _reachability(office: Office, listing: Mapping[str, Any] | None, reviews: Se
         through = Check("gets_through", label_through, 25, None,
                         f"{_reviews(len(talks))} {'mentions' if len(talks) == 1 else 'mention'} phones or calls (at least {MIN_PHONE_REPORTS} needed to pass).")
     else:
-        older = f"; {_reviews(len(failed))} older than that do" if failed else ""
+        older = f"; {_reviews(len(failed))} older than that {'does' if len(failed) == 1 else 'do'}" if failed else ""
         through = Check("gets_through", label_through, 25, True, f"None of {_reviews(len(talks))} mentioning phones or calls do{older}.")
 
     website = listing.get("website", "")

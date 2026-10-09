@@ -2,7 +2,7 @@
 
 The same server is hosted at `https://kalaana-mcp.gradestone.in/mcp` (Streamable HTTP); the tools and their output are identical.
 
-Real output from `kalaana-mcp`, recorded by calling its tools through the MCP Python SDK's stdio client (the transport Claude Desktop uses). It comes from the committed snapshots, with quotes and private numbers masked as everywhere else.
+Real output from `kalaana-mcp`, recorded on October 9, 2026 by calling its tools through the MCP Python SDK's stdio client (the transport Claude Desktop uses). It comes from the committed snapshots, with quotes and private numbers masked as everywhere else.
 
 ## `how_to_reach({"office": "RTO Bengaluru South"})`
 
@@ -128,8 +128,14 @@ Real output from `kalaana-mcp`, recorded by calling its tools through the MCP Py
     },
     "note": "These are facts about what Google displays, not about how the office itself works."
   },
-  "reviewers_on_phones": [],
-  "phone_check": "2 reviews mention phones or calls (at least 3 needed to pass).",
+  "reviewers_on_phones": [
+    {
+      "review_text": "Please give me register office phone number. This phone is not working now. I would like ask  some question about my plot registration. I am in Pune, so I need to get full information before going to office.",
+      "date": "2017-02-07",
+      "link": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChdDSUhNMG9nS0VJQ0FnSUNBOExlQm9RRRAB!2m1!1s0x0:0x31bc8487d0bf30c6!3m1!1s2@1:CIHM0ogKEICAgICA8LeBoQE%7C%7C?hl=en"
+    }
+  ],
+  "phone_check": "None of 3 reviews mentioning phones or calls do; 1 review older than that does.",
   "if_a_service_is_late": {
     "appeals": {
       "designated_officer": "Sub-Registrar",
@@ -170,7 +176,7 @@ Error executing tool how_to_reach: 'Yelahanka' could be any of: KA-50 RTO Yelaha
       "source": "https://sakala.kar.nic.in/Service%20Compendium/05-05-2026%20sakala_service_compendium_English%20(Final).pdf#page=56"
     }
   ],
-  "act": "Karnataka Sakala Services Act, 2011",
+  "promises": "Karnataka Sakala Services Act, 2011 (RTO, sub-registrar); Passport Seva Citizen's Charter (passport)",
   "as_of": "2026-10-08"
 }
 ```

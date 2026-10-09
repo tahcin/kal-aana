@@ -141,3 +141,21 @@ def test_read_a_complaint_answers_from_the_evidence() -> None:
     out = mcp_server.read_a_complaint("applied for an EC at Basavanagudi on 12 Sep, still nothing")
     assert out["understood"]["office"]["id"] == "sro-basavanagudi" and out["understood"]["service"] == "encumbrance-certificate"
     assert "working days" in out["answer"]["headline"]
+
+
+def test_a_search_the_saved_data_answers_points_to_mcp_tools() -> None:
+    with pytest.raises(mcp_server.ToolError) as e:
+        mcp_server.search_official_sites("RTO South phone number")
+    assert "how_to_reach" in str(e.value) and "find_office" not in str(e.value)
+
+
+def test_the_hosted_server_rations_live_searches_and_model_reads(monkeypatch: pytest.MonkeyPatch, tmp_path: Path) -> None:
+    monkeypatch.setattr(mcp_server.chat.live, "CACHE", tmp_path)
+    monkeypatch.setattr(mcp_server, "_recent", {"live": mcp_server.deque(), "read": mcp_server.deque()})
+    monkeypatch.setattr(mcp_server, "LIVE_PER_HOUR", 0)
+    with pytest.raises(mcp_server.ToolError, match="used up for the hour"):
+        mcp_server.search_official_sites("passport fees")
+    monkeypatch.setattr(mcp_server, "READS_PER_HOUR", 0)
+    monkeypatch.setattr(mcp_server.reader, "configured", lambda: "anthropic")
+    with pytest.raises(mcp_server.ToolError, match="for the hour"):
+        mcp_server.read_a_complaint("my learner's licence from RTO South is 3 weeks late")

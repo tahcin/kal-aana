@@ -25,7 +25,7 @@ function Receipt({ office }: { office: OfficeSummary | null }) {
   const searchId = data?.card.maps?.search_id;
   const row = "flex items-baseline justify-between gap-3 border-b border-dashed border-rule py-2";
   return (
-    <div className="absolute inset-x-[12%] top-[14%] bottom-0 rotate-[-2.5deg] rounded-t-xl bg-card px-5 pt-5 shadow-[var(--shadow-float)] transition-transform duration-700 ease-[var(--ease-out-expo)] group-hover:rotate-0">
+    <div className="absolute inset-x-[12%] top-[14%] bottom-0 rotate-[-2.5deg] rounded-t-xl bg-card px-5 pt-5 shadow-[var(--shadow-float)]">
       {office && data ? (
         <>
           <p className="serif line-clamp-1 text-[17px] text-ink">{office.label}</p>

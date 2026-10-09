@@ -3121,7 +3121,7 @@
       "label": "No review in the last 2 years reports failing to get through by phone",
       "max_points": 25,
       "passed": true,
-      "detail": "None of 3 reviews mentioning phones or calls do; 1 review older than that do.",
+      "detail": "None of 3 reviews mentioning phones or calls do; 1 review older than that does.",
       "points": 25
      }
     ]
@@ -18705,7 +18705,7 @@
       "label": "No review in the last 2 years reports failing to get through by phone",
       "max_points": 25,
       "passed": true,
-      "detail": "None of 3 reviews mentioning phones or calls do; 1 review older than that do.",
+      "detail": "None of 3 reviews mentioning phones or calls do; 1 review older than that does.",
       "points": 25
      }
     ]

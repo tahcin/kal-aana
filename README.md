@@ -31,7 +31,7 @@ I passed my learner's licence test at RTO Bengaluru South (KA-05). The approval 
 - **The map** (`/map`): every office, coloured by what its Google Maps listing shows.
 - **Office pages** (`/office/rto-ka05`): the promise against the reality, with every SerpApi search behind the page.
 - **The method** (`/method`): the pipeline, each step explained, and the classifier's accuracy computed live.
-- **MCP server** for AI assistants: the chat's twelve tools, so an assistant asked "how do I contact RTO South?" answers with the official number and the evidence instead of a guess ([connect it](docs/setup.md#ai-assistants-mcp), [real output](docs/mcp-example.md)).
+- **MCP server** for AI assistants: twelve tools on the same data and checks as the chat, including its two live searches, so an assistant asked "how do I contact RTO South?" answers with the official number and the evidence instead of a guess ([connect it](docs/setup.md#ai-assistants-mcp), [real output](docs/mcp-example.md)).
 
 ![The RTO report card: 9 of 12 listings show no phone, then every office ranked by listing score](docs/offices.png)
 
@@ -43,7 +43,7 @@ Python 3.11+, no API key, no Node:
 
 ```bash
 git clone https://github.com/tahcin/kal-aana && cd kal-aana
-python -m venv .venv && source .venv/bin/activate      # Windows: .venv\Scripts\activate
+python3 -m venv .venv && source .venv/bin/activate     # Windows: py -m venv .venv, then .venv\Scripts\activate
 pip install -e . && kalaana serve                      # then open http://127.0.0.1:8000
 ```
 
@@ -84,9 +84,9 @@ All calls go through SerpApi's Python SDK (the `serpapi` package, optional extra
 
 | Scope | Offices | Searches | Cost, roughly |
 |---|---|---|---|
-| Bengaluru pilot (measured) | 60 | 628 | done on free credits |
+| Bengaluru pilot (measured) | 60 | 628 | no cost: the free plan and 1,000 extra credits |
 | Another city's RTOs | about 10 | about 105 | within one month's free plan (250 searches) |
-| RTOs and passport offices, all of India | about 2,000 | about 21,000 | $250 to $350 |
+| RTOs and passport offices, all of India | about 2,000 | about 21,000 | $210 to $320 |
 | All three office types, all of India | about 7,000 to 8,000 | about 80,000 | about $1,000 |
 
 National office counts are rough estimates, and costs assume SerpApi's published paid plans at the time of writing. The searches aren't the hard part: each state's office directories and Right to Services time limits have to be found, sourced and checked, and some states don't publish office phone numbers at all. Step by step: [another city](docs/serpapi.md#another-city), [all of India](docs/serpapi.md#all-of-india).
@@ -118,7 +118,7 @@ flowchart LR
 - **Official ground truth** (`data/official/`): the departments' directories and the Sakala time limits, every row with its source.
 - **Matching** (`offices.py`): a Maps listing counts as an office only if its category fits and it matches on a phone number, the office code or the location.
 - **Issue lexicon** (`taxonomy.py`): nine issue categories in seven languages and scripts, handling denials, hypotheticals and sarcasm.
-- **The chat** (`chat.py`): a model picks from ten tools, but the cards come from the data, and any number in its words that no tool returned is withheld. Without a model, rules choose the same cards.
+- **The chat** (`chat.py`): a model picks from ten tools, but the cards come from the data, and any number in its words that no tool returned is withheld (short numbers and dates the citizen gave aside, never a phone number). Without a model, rules choose the same cards.
 
 Matching, the listing score and possible breaches: [docs/method.md](docs/method.md#the-rules-behind-each-step). The project layout: [docs/method.md](docs/method.md#project-layout).
 
@@ -126,7 +126,7 @@ Matching, the listing score and possible breaches: [docs/method.md](docs/method.
 
 - **Chat honesty: 23 of 23** tricky conversations passed checks written in plain code (no model judging a model), with Claude Sonnet 5.5 through both the [native API](docs/chat-eval.md) and [Anthropic's OpenAI-compatible endpoint](docs/chat-eval-openai-compatible.md).
 - **Lexicon precision: 95%** (55 of 58 flags right) on a held-out set of hand-labelled reviews, so counts aren't inflated; recall is 74%, so they are, if anything, an undercount.
-- **Tests: 655 passed** on October 9, 2026, against fixtures shaped like SerpApi's JSON.
+- **Tests: 766 passed** on October 9, 2026, against fixtures shaped like SerpApi's JSON.
 - **Every finding has a SerpApi search ID**, and a test recomputes this README's headline numbers from the snapshots.
 
 The labelled sets and the local LLM that was tested and not used: [docs/evaluation.md](docs/evaluation.md#the-issue-lexicon). The 23 scenarios and every answer: [the chat's honesty, tested](docs/evaluation.md#the-chats-honesty-tested).

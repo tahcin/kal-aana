@@ -155,7 +155,7 @@ function OfficeTable({ rows, sort, onChange }: { rows: OfficeSummary[]; sort: So
             <SortHead id="name" sort={sort} onChange={onChange}>Office</SortHead>
             <th scope="col" className={TH}>Official number</th>
             <th scope="col" className={TH}>Google Maps shows</th>
-            <th scope="col" className={TH}>Google's AI leads with</th>
+            <th scope="col" className={TH}>Google's AI Overview leads with</th>
             <SortHead id="problems" sort={sort} onChange={onChange} align="right">Reported problems</SortHead>
             <SortHead id="score" sort={sort} onChange={onChange} align="right">Listing score</SortHead>
           </tr>
@@ -205,7 +205,7 @@ function OfficeList({ rows }: { rows: OfficeSummary[] }) {
               <dl className="mt-3.5 grid grid-cols-2 gap-x-4 gap-y-3 text-[13px] sm:grid-cols-4">
                 <div className="min-w-0"><dt className="text-xs text-muted">Official number</dt><dd className="mt-1"><Mono className="tnum text-ink-2">{o.official || "None published"}</Mono></dd></div>
                 <div className="min-w-0"><dt className="text-xs text-muted">Google Maps shows</dt><dd className="mt-1"><Maps o={o} /></dd></div>
-                <div className="min-w-0"><dt className="text-xs text-muted">Google's AI leads with</dt><dd className="mt-1"><Chip tone={AI[o.ai].tone}>{AI[o.ai].short}</Chip></dd></div>
+                <div className="min-w-0"><dt className="text-xs text-muted">Google's AI Overview leads with</dt><dd className="mt-1"><Chip tone={AI[o.ai].tone}>{AI[o.ai].short}</Chip></dd></div>
                 <div className="min-w-0"><dt className="text-xs text-muted">Reported problems</dt><dd className="mt-1"><Reviews o={o} /></dd></div>
               </dl>
             </Link>
@@ -349,8 +349,9 @@ export default function Offices() {
             <Info className="mt-0.5 size-4 shrink-0" aria-hidden />
             <div className="space-y-2">
               {(h.sampled < h.listed || h.citizen_checked < h.offices) && (
-                <p>Within the free plan's monthly search allowance, reviews were read for the {h.sampled} most-reviewed of these {h.listed} listings
-                  {h.citizen_checked < h.offices && `, and Google Search and its AI Overview were checked for the ${h.citizen_checked} most-reviewed offices`}. The rest say "not sampled" or "not checked".</p>
+                <p>{h.sampled < h.listed && `Reviews were read for the ${h.sampled} most-reviewed of these ${h.listed} listings. `}
+                  {h.citizen_checked < h.offices && `Google Search and its AI answers were checked for ${h.citizen_checked} of the ${h.offices} offices; a search that kept failing is marked "not checked". `}
+                  The rest say "not sampled" or "not checked".</p>
               )}
               <p>A possible breach is one person's account, not a rate.</p>
               <p>Listing score: six checks of the Google Maps listing, 0 to 100. It measures what citizens find on Google, not the quality of the office.{" "}

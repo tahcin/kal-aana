@@ -18,7 +18,7 @@ export const VERDICT: Record<Verdict, { tone: Tone; label: string }> = {
 export const MAPS: Record<MapsStatus, { tone: Tone; label: string; short: string }> = {
   no_phone: { tone: "broken", label: "No phone on Google Maps", short: "No phone" },
   no_listing: { tone: "broken", label: "No listing found", short: "No listing" },
-  other: { tone: "amber", label: "A number not in the department's directory", short: "Unverified number" },
+  other: { tone: "amber", label: "A number not in the department's directory", short: "Not in directory" },
   helpline: { tone: "amber", label: "A helpline, not the office's own number", short: "Helpline" },
   official: { tone: "kept", label: "The office's own number", short: "Own number" },
 };
@@ -27,7 +27,8 @@ export const AI: Record<AIStatus, { tone: Tone; label: string; short: string }> 
   own: { tone: "kept", label: "Leads with the office's own number", short: "Own number" },
   helpline: { tone: "amber", label: "Leads with a helpline, not the office's number", short: "A helpline" },
   other: { tone: "broken", label: "Leads with a different number", short: "A different number" },
-  no_answer: { tone: "amber", label: "No AI answer, or no number in it", short: "No number given" },
+  no_answer: { tone: "amber", label: "An AI answer with no number in it", short: "No number given" },
+  no_ai: { tone: "unknown", label: "No AI answer shown", short: "No AI answer" },
   unchecked: { tone: "unknown", label: "Not checked", short: "Not checked" },
 };
 

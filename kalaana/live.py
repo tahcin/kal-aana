@@ -5,12 +5,14 @@ Every live search costs a SerpApi credit, so they are rationed:
 
     KALAANA_LIVE_TOTAL    most live searches ever (default 300), counted in data/private/live-searches.json
     KALAANA_LIVE_DAILY    most per day, IST (default 40)
-    KALAANA_LIVE_RESERVE  stop when the account has this many credits left or fewer (default 250), read from SerpApi's
-                          free Account API, so the credits kept for the dataset are never touched
+    KALAANA_LIVE_RESERVE  stop when the account has this many credits left or fewer (default 50), read from SerpApi's
+                          free Account API, so the credits kept for refreshing the dataset are never touched
 
 A repeated search within the hour is served from our cache (free, and SerpApi's own cache would also not charge it);
 cached searches are deleted after an hour, since a search's query comes from a visitor's message.
-Official sites (gov.in, nic.in) are searched first. Results are passed on as found, with their links; mobile numbers
+A search times out after TIMEOUT_S; after a timeout or a server error it is retried once, which SerpApi's own cache
+usually answers at no charge. Government sites come first: Google is asked for gov.in pages (`as_sitesearch`), and a
+result counts as official only when its host ends in gov.in or nic.in. Results are passed on as found, with their links; mobile numbers
 that aren't in a department's directory are masked, as everywhere else.
 """
 
@@ -149,7 +151,7 @@ def _search(params: dict[str, Any]) -> tuple[dict[str, Any], bool]:
     if client.demo_mode:
         raise LiveUnavailable("Live search needs a SerpApi key (SERPAPI_API_KEY), so this answer uses the saved data only.")
     left = _credits_left(client)  # outside the lock: a slow Account API call mustn't hold up every search
-    if left is None or left <= _limit("KALAANA_LIVE_RESERVE", 250):
+    if left is None or left <= _limit("KALAANA_LIVE_RESERVE", 50):
         raise LiveUnavailable("Live search is paused to keep SerpApi credits in reserve, so this answer uses the saved data only.")
     with _ledger_lock():
         if (hit := _cached(path)) is not None:  # someone else just searched the same thing
@@ -163,10 +165,24 @@ def _search(params: dict[str, Any]) -> tuple[dict[str, Any], bool]:
         _save(data)
         _account["left"] = (_account["left"] or left) - 1
     try:
-        return client.search(params, refresh=True), True
+        try:
+            return client.search(params, refresh=True), True
+        except SearchError as e:
+            if not e.retryable:
+                raise
+            # A timeout or a dropped connection: SerpApi usually finishes the search anyway and keeps it in its own
+            # cache for an hour, where a repeat costs no credit, so one retry is quick and free.
+            log.warning("Live search failed, retrying once: %s", _unquoted(e))
+            return client.search(params, refresh=True), True
     except SearchError as e:
-        log.warning("Live search failed: %s", e)  # SearchError messages carry no key (client.py redacts it)
+        log.warning("Live search failed: %s", _unquoted(e))
         raise LiveUnavailable("The live search failed just now, so this answer uses the saved data only.") from None
+
+
+def _unquoted(error: SearchError) -> str:
+    """The failure without its query: a live query comes from a visitor's message, and the log keeps no part of one.
+    (The message never carries the key either: client.py redacts it.)"""
+    return str(error).rsplit(": ", 1)[0]
 
 
 def host(link: str) -> str:
@@ -224,7 +240,8 @@ def is_cached(tool: str, args: dict[str, Any]) -> bool:
 
 
 def search_web(query: str, official_only: bool = True) -> dict[str, Any]:
-    """A Google search from Bengaluru. With `official_only`, only government sites (gov.in, nic.in)."""
+    """A Google search from Bengaluru. With `official_only`, Google is asked for gov.in pages only (nic.in pages, such
+    as Sakala's, need `official_only=False`, and are still marked official)."""
     params = _web_params(query, official_only)
     query = params["q"]
     result, fresh = _search(params)

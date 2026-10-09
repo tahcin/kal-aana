@@ -222,4 +222,23 @@ def test_api_error_is_reported_without_the_key(tmp_path: Path) -> None:
     client._client = Failing()
     with pytest.raises(SearchError) as e:
         client.search({"engine": "google_maps", "q": "x"})
-    assert KEY not in str(e.value) and "400" in str(e.value) and "Invalid" in str(e.value)
+    assert KEY not in str(e.value) and "400" in str(e.value) and "Invalid" in str(e.value) and not e.value.retryable
+
+
+@pytest.mark.parametrize(("status", "retryable"), [(None, True), (503, True), (429, False), (401, False)])
+def test_only_timeouts_and_server_errors_are_worth_repeating(tmp_path: Path, status: int | None, retryable: bool) -> None:
+    class Response:
+        status_code = status
+
+    class Failing:
+        def search(self, params: dict[str, Any]) -> dict[str, Any]:
+            error = TimeoutError("read timed out")
+            if status is not None:
+                error.response = Response()  # type: ignore[attr-defined]
+            raise error
+
+    client = SearchClient(api_key=KEY, cache_dir=tmp_path)
+    client._client = Failing()
+    with pytest.raises(SearchError) as e:
+        client.search({"engine": "google", "q": "x"})
+    assert e.value.retryable is retryable

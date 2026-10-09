@@ -26,6 +26,7 @@ is down, slow or returns something unusable, the rules answer instead.
 from __future__ import annotations
 
 import http.client
+import ipaddress
 import json
 import math
 import os
@@ -161,9 +162,16 @@ def tls() -> ssl.SSLContext:
 
 
 def is_local(url: str) -> bool:
-    """A model server on this machine: free, so its calls aren't counted against the spend cap."""
+    """A model server on this machine or the local network (a private address, or a .local name): free, so it needs no
+    key and its calls aren't counted against the spend cap."""
     host = urllib.parse.urlsplit(url).hostname or ""
-    return host in ("localhost", "127.0.0.1", "::1") or host.endswith(".localhost")
+    if host == "localhost" or host.endswith((".localhost", ".local")):
+        return True
+    try:
+        address = ipaddress.ip_address(host)
+    except ValueError:
+        return False
+    return address.is_loopback or address.is_private or address.is_link_local
 
 
 def budget_usd() -> float:

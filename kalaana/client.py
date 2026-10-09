@@ -35,7 +35,12 @@ class BudgetExceeded(RuntimeError):
 
 
 class SearchError(RuntimeError):
-    """A SerpApi request failed. The message never contains the API key."""
+    """A SerpApi request failed. The message never contains the API key. `retryable` is set when no answer came back
+    (a timeout or a dropped connection) or SerpApi had a server error, so the same search may succeed if repeated."""
+
+    def __init__(self, message: str, retryable: bool = False):
+        super().__init__(message)
+        self.retryable = retryable
 
 
 @dataclass(frozen=True)
@@ -128,7 +133,8 @@ class SearchClient:
             except Exception:  # no response, or not SerpApi's JSON error shape
                 detail = ""
             message = f"SerpApi request failed {status}{hint}{detail}: {params.get('engine')} {params.get('q', '')}"
-            raise SearchError(_redact(message, self.api_key)) from None
+            retryable = response is None or (isinstance(status, int) and status >= 500)
+            raise SearchError(_redact(message, self.api_key), retryable) from None
         self.spent += 1
         result.setdefault("kalaana", {})["fetched_at"] = time.strftime("%Y-%m-%dT%H:%M:%S%z")
         # Written whole or not at all, so a reader in another process never sees half a file.

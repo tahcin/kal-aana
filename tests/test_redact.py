@@ -27,7 +27,7 @@ from kalaana.redact import MASK, mask_names, safe_quote
         ("Rgds, Gaurang Mrinal", f"Rgds, {MASK}"),
         ("I think Name is Ujjwal (with glasses)", f"I think Name is {MASK} (with glasses)"),
         ("Mr.EHSAN was helpful", f"Mr.{MASK} was helpful"),
-        ('named " TANVIR " sits outside', f'named " {MASK} " took money'),
+        ('named " TANVIR " sits outside', f'named " {MASK} " sits outside'),
         ("AGENT ZUBIN FULL FRAUD", f"AGENT {MASK} FULL FRAUD"),
         ("Agent named Ojas  Meher took 2000", f"Agent named {MASK} took 2000"),
         ("Mrs  Yamini", f"Mrs  {MASK}"),

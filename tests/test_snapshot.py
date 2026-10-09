@@ -34,12 +34,23 @@ ROOT = snapshot.SNAPSHOT_DIR.parent.parent
 PUBLISHED = SNAPSHOTS + sorted((ROOT / "docs").glob("*.md")) + sorted(p for d in ("labels", "refined") for p in (ROOT / "data" / d).glob("*.jsonl")) + [ROOT / "README.md"]
 
 
+# The code and the tests are public too. Their example mobiles are made up, and only these may appear.
+CODE = sorted(p for d in ("kalaana", "tests") for p in (ROOT / d).rglob("*.py")) + sorted((ROOT / "frontend" / "src").rglob("*.ts*"))
+MADE_UP: frozenset[str] = frozenset({"9845012345", "9845000000", "8012345678", "9999900000", "9876543210", "9876500000"})
+
+
 @pytest.mark.parametrize("path", PUBLISHED, ids=lambda p: p.name)
 def test_no_private_mobile_is_published_in_full(path) -> None:
     text = path.read_text(encoding="utf-8")
     leaked = full_mobiles(text) - _official_mobiles()
     assert not leaked, sorted(leaked)
     assert '"phone_raw"' not in text
+
+
+@pytest.mark.parametrize("path", CODE, ids=lambda p: str(p.relative_to(ROOT)))
+def test_the_code_and_tests_hold_only_made_up_mobiles(path) -> None:
+    leaked = full_mobiles(path.read_text(encoding="utf-8")) - _official_mobiles() - MADE_UP
+    assert not leaked, sorted(leaked)
 
 
 def test_the_detector_catches_every_format() -> None:
